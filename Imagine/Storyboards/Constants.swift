@@ -13,4 +13,5 @@ struct Constants {
     static var API_KEY = "a4493376-c0c3-475b-8651-f9c00beccab7"
     static var SEARCH_QUERY = ""
     static var API_URL = "https://content.guardianapis.com/search?q=\(Constants.SEARCH_QUERY)&api-key=\(Constants.API_KEY)"
+    static var ARTICLECELL_ID = "ArticleCell"
 }

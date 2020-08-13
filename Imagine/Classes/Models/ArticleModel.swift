@@ -8,7 +8,16 @@
 
 import Foundation
 
+protocol ArticleModelDelegate {
+    func articlesFetched(_ articles: [Article])
+}
+
+
 class ArticleModel {
+    
+    var delegate: ArticleModelDelegate?
+    
+    
     
     func getArticles() {
         
@@ -34,8 +43,19 @@ class ArticleModel {
                 // Parasing the data into article objects
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601
-                                
+                
                 let response = try decoder.decode(Response.self, from: data!)
+                
+                
+                if response.results != nil {
+                    
+                    DispatchQueue.main.async {
+                        // Call the "articlesFetched" methods of the delegate
+                        self.delegate?.articlesFetched(response.results!)
+                    }
+                
+                }
+                
                 
                 dump(response)
                 
