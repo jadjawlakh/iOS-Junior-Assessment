@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		057533D524E5252700C8473C /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057533D424E5252700C8473C /* ArticleViewController.swift */; };
+		050BF3F024E551F300334E22 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050BF3EF24E551F300334E22 /* ArticleTableViewCell.swift */; };
 		057533D924E52C2A00C8473C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057533D824E52C2A00C8473C /* Constants.swift */; };
 		057533DB24E52D5A00C8473C /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057533DA24E52D5A00C8473C /* Article.swift */; };
 		057533DD24E52DFD00C8473C /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057533DC24E52DFD00C8473C /* ArticleModel.swift */; };
@@ -20,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		050BF3EF24E551F300334E22 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		057533D424E5252700C8473C /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleViewController.swift; path = "Imagine/Classes/View Controllers/ArticleViewController.swift"; sourceTree = SOURCE_ROOT; };
 		057533D824E52C2A00C8473C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		057533DA24E52D5A00C8473C /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
@@ -45,26 +46,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		050BF3F124E5523600334E22 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				050BF3EF24E551F300334E22 /* ArticleTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		050BF3F224E5526500334E22 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				59A9288B2333E32900774014 /* AppDelegate.swift */,
+				057533D824E52C2A00C8473C /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		057533D324E5240500C8473C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				058EB47824E54A1D00438A6D /* MainViewController.swift */,
 				057533D424E5252700C8473C /* ArticleViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
-		057533E624E5453700C8473C /* Structs */ = {
+		057533E724E5455600C8473C /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				057533DA24E52D5A00C8473C /* Article.swift */,
 				057533E024E53C4600C8473C /* Response.swift */,
-			);
-			path = Structs;
-			sourceTree = "<group>";
-		};
-		057533E724E5455600C8473C /* Models */ = {
-			isa = PBXGroup;
-			children = (
 				057533DC24E52DFD00C8473C /* ArticleModel.swift */,
 			);
 			path = Models;
@@ -89,8 +101,10 @@
 		59A9288A2333E32900774014 /* Imagine */ = {
 			isa = PBXGroup;
 			children = (
-				59A9288B2333E32900774014 /* AppDelegate.swift */,
-				59A928A82333F15600774014 /* Classes */,
+				050BF3F224E5526500334E22 /* Helpers */,
+				057533D324E5240500C8473C /* View Controllers */,
+				050BF3F124E5523600334E22 /* Views */,
+				057533E724E5455600C8473C /* Models */,
 				59A928A02333E85900774014 /* Media */,
 				59A9289D2333E85900774014 /* Storyboards */,
 				59A928972333E32A00774014 /* Info.plist */,
@@ -103,8 +117,6 @@
 			children = (
 				59A9289E2333E85900774014 /* LaunchScreen.storyboard */,
 				59A9289F2333E85900774014 /* Main.storyboard */,
-				057533D824E52C2A00C8473C /* Constants.swift */,
-				058EB47824E54A1D00438A6D /* MainViewController.swift */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -116,17 +128,6 @@
 			);
 			path = Media;
 			sourceTree = "<group>";
-		};
-		59A928A82333F15600774014 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				057533E724E5455600C8473C /* Models */,
-				057533E624E5453700C8473C /* Structs */,
-				057533D324E5240500C8473C /* View Controllers */,
-			);
-			name = Classes;
-			path = Imagine/Classes;
-			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -201,8 +202,8 @@
 			files = (
 				058EB47924E54A1D00438A6D /* MainViewController.swift in Sources */,
 				59A9288C2333E32900774014 /* AppDelegate.swift in Sources */,
-				057533D524E5252700C8473C /* ArticleViewController.swift in Sources */,
 				057533D924E52C2A00C8473C /* Constants.swift in Sources */,
+				050BF3F024E551F300334E22 /* ArticleTableViewCell.swift in Sources */,
 				057533DD24E52DFD00C8473C /* ArticleModel.swift in Sources */,
 				057533DB24E52D5A00C8473C /* Article.swift in Sources */,
 				057533E124E53C4600C8473C /* Response.swift in Sources */,

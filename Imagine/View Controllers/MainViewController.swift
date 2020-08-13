@@ -49,15 +49,14 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ARTICLECELL_ID, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ARTICLECELL_ID, for: indexPath) as! ArticleTableViewCell
         
         // Configure the cell with the data
         
-        // Get the title for the article in question
-        let title = self.articles[indexPath.row].title
+        let article = self.articles[indexPath.row]
         
-        cell.textLabel?.text = title
-        
+        cell.setCell(article)
+         
         // Return the cell
         return cell
     }

@@ -12,7 +12,7 @@ struct Article: Decodable {
     
     var articleId = ""
     var title = ""
-    var published: Date
+    var published = Date()
     var sectionName = ""
     
     enum CodingKeys: String, CodingKey {
