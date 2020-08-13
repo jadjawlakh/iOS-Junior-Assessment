@@ -50,11 +50,25 @@
 			children = (
 				057533D424E5252700C8473C /* ArticleViewController.swift */,
 				057533D624E5287B00C8473C /* SearchTableViewController.swift */,
-				057533DA24E52D5A00C8473C /* Article.swift */,
-				057533E024E53C4600C8473C /* Response.swift */,
-				057533DC24E52DFD00C8473C /* ArticleModel.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		057533E624E5453700C8473C /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				057533DA24E52D5A00C8473C /* Article.swift */,
+				057533E024E53C4600C8473C /* Response.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
+		057533E724E5455600C8473C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				057533DC24E52DFD00C8473C /* ArticleModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		59A9287F2333E32900774014 = {
@@ -106,6 +120,8 @@
 		59A928A82333F15600774014 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				057533E724E5455600C8473C /* Models */,
+				057533E624E5453700C8473C /* Structs */,
 				057533D324E5240500C8473C /* View Controllers */,
 			);
 			name = Classes;
