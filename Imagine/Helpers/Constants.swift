@@ -14,4 +14,5 @@ struct Constants {
     static var SEARCH_QUERY = ""
     static var API_URL = "https://content.guardianapis.com/search?q=\(Constants.SEARCH_QUERY)&api-key=\(Constants.API_KEY)"
     static var ARTICLECELL_ID = "ArticleCell"
+    static var TG_EMBED_URL = "https://theguardian.com/"
 }

@@ -75,6 +75,7 @@
                                             <outlet property="dateLabel" destination="skF-Ya-dSn" id="ksi-kn-16M"/>
                                             <outlet property="sectionLabel" destination="9r5-rz-ayz" id="xef-V4-mZJ"/>
                                             <outlet property="titleLabel" destination="8nQ-hJ-TWv" id="mQC-Il-s6m"/>
+                                            <segue destination="Clr-qr-8Y4" kind="show" id="mBw-LX-nGI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -96,6 +97,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4eY-Jt-J75" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2929" y="-164"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="ffr-Wt-7qO">
+            <objects>
+                <viewController id="Clr-qr-8Y4" customClass="DetailViewController" customModule="Imagine" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="csG-Td-ByQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="F1K-Vr-WLs">
+                                <rect key="frame" x="20" y="50" width="374" height="708"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nit-RD-O05">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ue3-4U-vQE">
+                                        <rect key="frame" x="0.0" y="30.5" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iqT-BV-KFe">
+                                        <rect key="frame" x="0.0" y="61" width="374" height="647"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="F1K-Vr-WLs" firstAttribute="leading" secondItem="dkD-Pj-ZQh" secondAttribute="leading" constant="20" id="8Oj-BC-H4j"/>
+                            <constraint firstItem="dkD-Pj-ZQh" firstAttribute="trailing" secondItem="F1K-Vr-WLs" secondAttribute="trailing" constant="20" id="DnP-EO-TnL"/>
+                            <constraint firstItem="F1K-Vr-WLs" firstAttribute="top" secondItem="dkD-Pj-ZQh" secondAttribute="top" constant="50" id="Ztj-5T-MPb"/>
+                            <constraint firstItem="dkD-Pj-ZQh" firstAttribute="bottom" secondItem="F1K-Vr-WLs" secondAttribute="bottom" constant="50" id="kfO-Cm-qB7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dkD-Pj-ZQh"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1Mm-to-Exf"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="ue3-4U-vQE" id="5bk-yC-TbP"/>
+                        <outlet property="titleLabel" destination="nit-RD-O05" id="1mr-5U-lXK"/>
+                        <outlet property="webView" destination="iqT-BV-KFe" id="doI-zA-mYT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lwl-t8-GWP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3694" y="-168"/>
         </scene>
     </scenes>
 </document>

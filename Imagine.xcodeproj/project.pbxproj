@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		050BF3F024E551F300334E22 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050BF3EF24E551F300334E22 /* ArticleTableViewCell.swift */; };
+		050BF3F424E5683300334E22 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050BF3F324E5683300334E22 /* DetailViewController.swift */; };
+		050BF3F724E56E3200334E22 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 050BF3F624E56E3200334E22 /* WebKit.framework */; };
 		057533D924E52C2A00C8473C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057533D824E52C2A00C8473C /* Constants.swift */; };
 		057533DB24E52D5A00C8473C /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057533DA24E52D5A00C8473C /* Article.swift */; };
 		057533DD24E52DFD00C8473C /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057533DC24E52DFD00C8473C /* ArticleModel.swift */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		050BF3EF24E551F300334E22 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		050BF3F324E5683300334E22 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		050BF3F624E56E3200334E22 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		057533D424E5252700C8473C /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleViewController.swift; path = "Imagine/Classes/View Controllers/ArticleViewController.swift"; sourceTree = SOURCE_ROOT; };
 		057533D824E52C2A00C8473C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		057533DA24E52D5A00C8473C /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
@@ -40,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				050BF3F724E56E3200334E22 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,11 +68,20 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		050BF3F524E56E3200334E22 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				050BF3F624E56E3200334E22 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		057533D324E5240500C8473C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				058EB47824E54A1D00438A6D /* MainViewController.swift */,
 				057533D424E5252700C8473C /* ArticleViewController.swift */,
+				050BF3F324E5683300334E22 /* DetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -87,6 +101,7 @@
 			children = (
 				59A9288A2333E32900774014 /* Imagine */,
 				59A928892333E32900774014 /* Products */,
+				050BF3F524E56E3200334E22 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -207,6 +222,7 @@
 				057533DD24E52DFD00C8473C /* ArticleModel.swift in Sources */,
 				057533DB24E52D5A00C8473C /* Article.swift in Sources */,
 				057533E124E53C4600C8473C /* Response.swift in Sources */,
+				050BF3F424E5683300334E22 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

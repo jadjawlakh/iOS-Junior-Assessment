@@ -31,6 +31,24 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         model.getArticles()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Confirm that an article was selected
+        guard tableView.indexPathForSelectedRow != nil else {
+            return
+        }
+        
+        // Get a reference to the article that was tapped on
+        let selectedArticle = articles[tableView.indexPathForSelectedRow!.row]
+        
+        // Get a reference to the detailViewController
+        let detailVC = segue.destination as! DetailViewController
+        
+        // Set the article property of the detailViewController
+        detailVC.article = selectedArticle
+        
+    }
+    
     // MARK: - Article Model Delegate Methods
     
     func articlesFetched(_ articles: [Article]) {
