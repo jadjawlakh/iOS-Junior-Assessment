@@ -30,8 +30,18 @@ class ArticleModel {
                 return
             }
             
-            // Parasing the data into article objects
-            
+            do {
+                // Parasing the data into article objects
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                                
+                let response = try decoder.decode(Response.self, from: data!)
+                
+                dump(response)
+                
+            } catch {
+                
+            }
             
         }
         // Kick off the task
