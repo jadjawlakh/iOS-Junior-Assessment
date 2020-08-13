@@ -10,25 +10,16 @@ import UIKit
 import WebKit
 
 class DetailViewController: UIViewController {
-    
-    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var webView: WKWebView!
-    
-    
     var article: Article?
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
     }
-    
     override func viewWillAppear(_ animated: Bool) {
-        
         // Clear the fields
         titleLabel.text = ""
         dateLabel.text = ""
@@ -53,8 +44,6 @@ class DetailViewController: UIViewController {
         let df = DateFormatter()
         df.dateFormat = "EEEE, MMM d, yyyy"
         dateLabel.text = df.string(from: article!.published)
-        
-        
-        
+
     }
 }

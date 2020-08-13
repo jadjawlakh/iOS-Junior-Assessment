@@ -11,8 +11,6 @@ import UIKit
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ArticleModelDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    
-    
     var model = ArticleModel()
     var articles = [Article]()
     
@@ -22,20 +20,15 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Set itself as the data source and the delegate
         tableView.dataSource = self
         tableView.delegate = self
-        
-        
-        
+
         // Set itself as the delegate of the model
         model.delegate = self
         
+        // Fetch the articles
         model.getArticles()
-        
-        
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         // Confirm that an article was selected
         guard tableView.indexPathForSelectedRow != nil else {
             return
@@ -49,13 +42,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // Set the article property of the detailViewController
         detailVC.article = selectedArticle
-        
     }
     
     // MARK: - Article Model Delegate Methods
-    
     func articlesFetched(_ articles: [Article]) {
-        
         // Set the returned articles to our article property
         self.articles = articles
         
@@ -73,9 +63,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ARTICLECELL_ID, for: indexPath) as! ArticleTableViewCell
         
         // Configure the cell with the data
-        
         let article = self.articles[indexPath.row]
-        
         cell.setCell(article)
         
         // Return the cell

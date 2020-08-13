@@ -12,15 +12,10 @@ protocol ArticleModelDelegate {
     func articlesFetched(_ articles: [Article])
 }
 
-
 class ArticleModel {
-    
     var delegate: ArticleModelDelegate?
     
-    
-    
     func getArticles() {
-        
         // Create a URL object
         let url = URL(string: Constants.API_URL)
         
@@ -46,26 +41,18 @@ class ArticleModel {
                 
                 let response = try decoder.decode(Response.self, from: data!)
                 
-                
                 if response.results != nil {
                     
                     DispatchQueue.main.async {
                         // Call the "articlesFetched" methods of the delegate
                         self.delegate?.articlesFetched(response.results!)
                     }
-                
                 }
-                
-                
                 dump(response)
-                
             } catch {
-                
             }
-            
         }
         // Kick off the task
         dataTask.resume()
-        
     }
 }
