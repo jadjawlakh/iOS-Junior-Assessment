@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ArticleModelDelegate {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ArticleModelDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -16,19 +16,22 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var model = ArticleModel()
     var articles = [Article]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        
         // Set itself as the data source and the delegate
         tableView.dataSource = self
         tableView.delegate = self
+        
+        
         
         // Set itself as the delegate of the model
         model.delegate = self
         
         model.getArticles()
+        
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -59,7 +62,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Refresh the tableView
         tableView.reloadData()
     }
-
+    
     // MARK: - TableView Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,14 +77,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let article = self.articles[indexPath.row]
         
         cell.setCell(article)
-         
+        
         // Return the cell
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
     
-
+    
 }
