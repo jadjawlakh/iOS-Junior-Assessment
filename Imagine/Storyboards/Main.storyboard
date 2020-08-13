@@ -101,6 +101,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="ehg-X1-woL"/>
                     <connections>
+                        <outlet property="searchBar" destination="FAb-fh-APA" id="ws7-8B-bhg"/>
                         <outlet property="tableView" destination="viz-7c-BQH" id="Nmd-bF-NY1"/>
                     </connections>
                 </viewController>

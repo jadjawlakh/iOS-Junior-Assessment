@@ -11,12 +11,16 @@ import UIKit
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ArticleModelDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     var model = ArticleModel()
     var articles = [Article]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         // Set itself as the data source and the delegate
         tableView.dataSource = self
         tableView.delegate = self
@@ -26,6 +30,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // Fetch the articles
         model.getArticles()
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
