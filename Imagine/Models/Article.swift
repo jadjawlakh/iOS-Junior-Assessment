@@ -13,6 +13,7 @@ struct Article: Decodable {
     var title = ""
     var published = Date()
     var sectionName = ""
+    var isBookmarked = false
     
     enum CodingKeys: String, CodingKey {
         case articleId = "id"

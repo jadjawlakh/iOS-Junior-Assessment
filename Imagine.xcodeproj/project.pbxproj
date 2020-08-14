@@ -10,6 +10,7 @@
 		050BF3F024E551F300334E22 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050BF3EF24E551F300334E22 /* ArticleTableViewCell.swift */; };
 		050BF3F424E5683300334E22 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050BF3F324E5683300334E22 /* DetailViewController.swift */; };
 		050BF3F724E56E3200334E22 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 050BF3F624E56E3200334E22 /* WebKit.framework */; };
+		0551720124E6828A00105A19 /* BookmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0551720024E6828A00105A19 /* BookmarkButton.swift */; };
 		057533D924E52C2A00C8473C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057533D824E52C2A00C8473C /* Constants.swift */; };
 		057533DB24E52D5A00C8473C /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057533DA24E52D5A00C8473C /* Article.swift */; };
 		057533DD24E52DFD00C8473C /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057533DC24E52DFD00C8473C /* ArticleModel.swift */; };
@@ -25,6 +26,7 @@
 		050BF3EF24E551F300334E22 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		050BF3F324E5683300334E22 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		050BF3F624E56E3200334E22 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		0551720024E6828A00105A19 /* BookmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkButton.swift; sourceTree = "<group>"; };
 		057533D824E52C2A00C8473C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		057533DA24E52D5A00C8473C /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		057533DC24E52DFD00C8473C /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			children = (
 				59A9288B2333E32900774014 /* AppDelegate.swift */,
 				057533D824E52C2A00C8473C /* Constants.swift */,
+				0551720024E6828A00105A19 /* BookmarkButton.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			files = (
 				058EB47924E54A1D00438A6D /* MainViewController.swift in Sources */,
 				59A9288C2333E32900774014 /* AppDelegate.swift in Sources */,
+				0551720124E6828A00105A19 /* BookmarkButton.swift in Sources */,
 				057533D924E52C2A00C8473C /* Constants.swift in Sources */,
 				050BF3F024E551F300334E22 /* ArticleTableViewCell.swift in Sources */,
 				057533DD24E52DFD00C8473C /* ArticleModel.swift in Sources */,

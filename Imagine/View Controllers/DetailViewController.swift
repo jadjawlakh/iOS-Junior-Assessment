@@ -10,14 +10,17 @@ import UIKit
 import WebKit
 
 class DetailViewController: UIViewController {
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var webView: WKWebView!
+    
     var article: Article?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print("the flag of this article is: \(article?.isBookmarked)")
     }
     override func viewWillAppear(_ animated: Bool) {
         // Clear the fields
@@ -46,4 +49,5 @@ class DetailViewController: UIViewController {
         dateLabel.text = df.string(from: article!.published)
 
     }
+
 }

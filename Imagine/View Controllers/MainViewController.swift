@@ -20,11 +20,13 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        Constants.SEARCH_QUERY = searchBar.text!
+        
         // Set itself as the data source and the delegate
         tableView.dataSource = self
         tableView.delegate = self
-
+        
         // Set itself as the delegate of the model
         model.delegate = self
         
@@ -32,6 +34,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         model.getArticles()
         
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Confirm that an article was selected
@@ -44,7 +47,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // Get a reference to the detailViewController
         let detailVC = segue.destination as! DetailViewController
-        
+
         // Set the article property of the detailViewController
         detailVC.article = selectedArticle
     }
@@ -65,6 +68,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ARTICLECELL_ID, for: indexPath) as! ArticleTableViewCell
         
         // Configure the cell with the data
