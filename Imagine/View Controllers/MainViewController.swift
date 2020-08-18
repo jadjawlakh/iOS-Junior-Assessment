@@ -8,33 +8,38 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ArticleModelDelegate, UISearchBarDelegate {
-    
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MainViewModelDelegate {
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBar: UITextField!
     
-    var model = ArticleModel()
-    var articles = [Article]()
-    
+    var viewModel = MainViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Constants.SEARCH_QUERY = searchBar.text!
+        searchBar.addTarget(self, action: #selector(thisMethoIsTriggeredByTheReturnButtonOfTheKeyboard), for: .editingDidEndOnExit)
+
+        
+        // Link the MainViewController to the MainViewModel
+        viewModel.delegate = self
+        
         
         // Set itself as the data source and the delegate
         tableView.dataSource = self
         tableView.delegate = self
         
-        // Set itself as the delegate of the model
-        model.delegate = self
-        
-        // Fetch the articles
-        model.getArticles()
-        
+       // Fetch the articles
+        viewModel.getArticles()
     }
     
+    @objc func thisMethoIsTriggeredByTheReturnButtonOfTheKeyboard() {
+        Constants.SEARCH_QUERY = searchBar.text!
+        print("Constants.SEARCH_QUERY \(Constants.SEARCH_QUERY)")
+        print("Constants.API_URL \(Constants.API_URL)")
+        print("Text value from searchbar: \(searchBar.text!)")
+        viewModel.getArticles()
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Confirm that an article was selected
@@ -43,28 +48,22 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         
         // Get a reference to the article that was tapped on
-        let selectedArticle = articles[tableView.indexPathForSelectedRow!.row]
+        let selectedArticle = viewModel.articles[tableView.indexPathForSelectedRow!.row]
         
         // Get a reference to the detailViewController
         let detailVC = segue.destination as! DetailViewController
 
         // Set the article property of the detailViewController
-        detailVC.article = selectedArticle
-    }
-    
-    // MARK: - Article Model Delegate Methods
-    func articlesFetched(_ articles: [Article]) {
-        // Set the returned articles to our article property
-        self.articles = articles
+//        detailVC.article = selectedArticle
         
-        // Refresh the tableView
-        tableView.reloadData()
+        detailVC.initWithArticle(selectedArticle)
     }
+      
     
     // MARK: - TableView Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articles.count
+        return viewModel.articles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,13 +72,15 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ARTICLECELL_ID, for: indexPath) as! ArticleTableViewCell
         
         // Configure the cell with the data
-        let article = self.articles[indexPath.row]
+        let article = viewModel.articles[indexPath.row]
         cell.setCell(article)
         
         // Return the cell
         return cell
     }
     
-    
-    
+    // MARK: - Conform to protocol ArticleModelDelegate
+    func didFetchArticles() {
+        tableView.reloadData()
+    }
 }

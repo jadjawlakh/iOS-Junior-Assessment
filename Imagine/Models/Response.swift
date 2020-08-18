@@ -9,6 +9,7 @@
 import Foundation
 
 struct Response: Decodable {
+    
     var results: [Article]?
     
     enum CodingKeys: String, CodingKey {

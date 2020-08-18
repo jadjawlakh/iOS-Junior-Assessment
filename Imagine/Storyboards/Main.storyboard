@@ -29,10 +29,11 @@
                                             <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="FAb-fh-APA">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for article..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z9L-BD-e7T">
                                             <rect key="frame" x="0.0" y="30" width="414" height="58"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits"/>
-                                        </searchBar>
+                                        </textField>
                                     </subviews>
                                 </stackView>
                                 <prototypes>
@@ -101,7 +102,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="ehg-X1-woL"/>
                     <connections>
-                        <outlet property="searchBar" destination="FAb-fh-APA" id="ws7-8B-bhg"/>
+                        <outlet property="searchBar" destination="Z9L-BD-e7T" id="mfe-IE-8h0"/>
                         <outlet property="tableView" destination="viz-7c-BQH" id="Nmd-bF-NY1"/>
                     </connections>
                 </viewController>

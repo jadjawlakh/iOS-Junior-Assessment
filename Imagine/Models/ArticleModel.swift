@@ -8,29 +8,27 @@
 
 import Foundation
 
-protocol ArticleModelDelegate {
+protocol ArticleModelDelegate: class {
     func articlesFetched(_ articles: [Article])
 }
 
 class ArticleModel {
-    var delegate: ArticleModelDelegate?
+    weak var delegate: ArticleModelDelegate?
     
     func getArticles() {
-        // Create a URL object
-        let url = URL(string: Constants.API_URL)
         
-        guard url != nil else {
+        // Create a URL object and make sure it exists
+        guard let url = URL(string: Constants.API_URL) else {
             return
         }
-        
+           
         // Get a URLSession object
         let session = URLSession.shared
         
         // Get a data task from the URLSession object
-        let dataTask = session.dataTask(with: url!) { (data, response, error) in
+        let dataTask = session.dataTask(with: url) { (data, response, error) in
             
-            // Check if there were any errors
-            if error != nil || data == nil {
+            guard let data = data, error == nil else {
                 return
             }
             
@@ -39,7 +37,7 @@ class ArticleModel {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601
                 
-                let response = try decoder.decode(Response.self, from: data!)
+                let response = try decoder.decode(Response.self, from: data)
                 
                 if response.results != nil {
                     
@@ -50,6 +48,7 @@ class ArticleModel {
                 }
                 dump(response)
             } catch {
+                print("Error: failed to get response")
             }
         }
         // Kick off the task

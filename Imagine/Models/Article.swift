@@ -14,6 +14,7 @@ struct Article: Decodable {
     var published = Date()
     var sectionName = ""
     var isBookmarked = false
+    var bookmarkedArticles: [String] = []
     
     enum CodingKeys: String, CodingKey {
         case articleId = "id"
@@ -32,6 +33,10 @@ struct Article: Decodable {
         self.published = try container.decode(Date.self, forKey: .published)
         // Parse Article ID
         self.articleId = try container.decode(String.self, forKey: .articleId)
+    }
+    
+    init() {
+        // Empty init
     }
     
 }
