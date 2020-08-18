@@ -18,7 +18,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchBar.addTarget(self, action: #selector(thisMethoIsTriggeredByTheReturnButtonOfTheKeyboard), for: .editingDidEndOnExit)
+        searchBar.addTarget(self, action: #selector(returnButtonTapped), for: .editingDidEndOnExit)
 
         
         // Link the MainViewController to the MainViewModel
@@ -33,11 +33,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         viewModel.getArticles()
     }
     
-    @objc func thisMethoIsTriggeredByTheReturnButtonOfTheKeyboard() {
+    @objc func returnButtonTapped() {
         Constants.SEARCH_QUERY = searchBar.text!
-        print("Constants.SEARCH_QUERY \(Constants.SEARCH_QUERY)")
-        print("Constants.API_URL \(Constants.API_URL)")
-        print("Text value from searchbar: \(searchBar.text!)")
         viewModel.getArticles()
     }
     
