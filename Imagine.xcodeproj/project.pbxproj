@@ -13,6 +13,8 @@
 		05401B7624EBCD41000A8EFF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05401B7524EBCD41000A8EFF /* MainViewModel.swift */; };
 		05401B7824EBE542000A8EFF /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05401B7724EBE542000A8EFF /* DetailViewModel.swift */; };
 		0551720124E6828A00105A19 /* BookmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0551720024E6828A00105A19 /* BookmarkButton.swift */; };
+		056398DE24ED7273000237EF /* BookmarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056398DD24ED7273000237EF /* BookmarkViewModel.swift */; };
+		056398E024ED73B5000237EF /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056398DF24ED73B5000237EF /* BookmarkViewController.swift */; };
 		057533D924E52C2A00C8473C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057533D824E52C2A00C8473C /* Constants.swift */; };
 		057533DB24E52D5A00C8473C /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057533DA24E52D5A00C8473C /* Article.swift */; };
 		057533DD24E52DFD00C8473C /* TheGuardianAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057533DC24E52DFD00C8473C /* TheGuardianAPI.swift */; };
@@ -31,6 +33,8 @@
 		05401B7524EBCD41000A8EFF /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		05401B7724EBE542000A8EFF /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		0551720024E6828A00105A19 /* BookmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkButton.swift; sourceTree = "<group>"; };
+		056398DD24ED7273000237EF /* BookmarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewModel.swift; sourceTree = "<group>"; };
+		056398DF24ED73B5000237EF /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		057533D824E52C2A00C8473C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		057533DA24E52D5A00C8473C /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		057533DC24E52DFD00C8473C /* TheGuardianAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheGuardianAPI.swift; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 			children = (
 				05401B7524EBCD41000A8EFF /* MainViewModel.swift */,
 				05401B7724EBE542000A8EFF /* DetailViewModel.swift */,
+				056398DD24ED7273000237EF /* BookmarkViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -97,6 +102,7 @@
 				05401B7424EBCC4B000A8EFF /* View Models */,
 				058EB47824E54A1D00438A6D /* MainViewController.swift */,
 				050BF3F324E5683300334E22 /* DetailViewController.swift */,
+				056398DF24ED73B5000237EF /* BookmarkViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -238,6 +244,8 @@
 				05401B7624EBCD41000A8EFF /* MainViewModel.swift in Sources */,
 				057533DD24E52DFD00C8473C /* TheGuardianAPI.swift in Sources */,
 				057533DB24E52D5A00C8473C /* Article.swift in Sources */,
+				056398DE24ED7273000237EF /* BookmarkViewModel.swift in Sources */,
+				056398E024ED73B5000237EF /* BookmarkViewController.swift in Sources */,
 				057533E124E53C4600C8473C /* Response.swift in Sources */,
 				05401B7824EBE542000A8EFF /* DetailViewModel.swift in Sources */,
 				050BF3F424E5683300334E22 /* DetailViewController.swift in Sources */,
