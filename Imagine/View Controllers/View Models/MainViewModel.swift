@@ -14,21 +14,20 @@ protocol MainViewModelDelegate: class {
     func didFetchArticles()
 }
 
-class MainViewModel: ArticleModelDelegate {
+class MainViewModel: TheGuardianAPIDelegate {
     weak var delegate: MainViewModelDelegate?
-    var articleModel: ArticleModel
+    var guardianAPI: TheGuardianAPI
     var articles: [Article]
     
     init() {
-        articleModel = ArticleModel()
+        guardianAPI = TheGuardianAPI()
         articles = [Article]()
-        articleModel.delegate = self
+        guardianAPI.delegate = self
     }
     
     func getArticles() {
-        articleModel.getArticles()
+        guardianAPI.getArticles()
     }
-    
     // MARK: - Conform to protocol ArticleModelDelegate
     func articlesFetched(_ articles: [Article]) {
         // Set the returned articles to our article property
