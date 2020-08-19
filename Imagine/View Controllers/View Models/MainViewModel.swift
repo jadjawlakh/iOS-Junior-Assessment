@@ -8,15 +8,14 @@
 
 import Foundation
 
+// MARK: -  MainViewModel Protocol and MainViewModel Class
 // Protocol needs to conform by a class
 protocol MainViewModelDelegate: class {
     func didFetchArticles()
 }
 
-
 class MainViewModel: ArticleModelDelegate {
     weak var delegate: MainViewModelDelegate?
-    
     var articleModel: ArticleModel
     var articles: [Article]
     
@@ -34,7 +33,6 @@ class MainViewModel: ArticleModelDelegate {
     func articlesFetched(_ articles: [Article]) {
         // Set the returned articles to our article property
         self.articles = articles
-        
         delegate?.didFetchArticles()
     }
 }

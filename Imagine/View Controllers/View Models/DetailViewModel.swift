@@ -9,22 +9,33 @@
 import Foundation
 
 protocol DetailViewModelDelegate: class {
-    func didFetchArticles()
+    // Used later for the bookmark feature
 }
 
-class DetailViewModel: ArticleModelDelegate {
+class DetailViewModel {
+    weak var delegate: DetailViewModelDelegate?
+    var article: Article?
     
-   
-    weak var delegate: ArticleModelDelegate?
-    
-    var article: Article
- 
-    init() {
-        article = Article()
+    var title: String {
+        return article?.title ?? ""
     }
     
-    func articlesFetched(_ articles: [Article]) {
-           
-       }
-       
+    var publicationDate: String {
+        let df = DateFormatter()
+        df.dateFormat = "EEEE, MMM d, yyyy"
+        guard let publishDate = article?.published else {
+            return ""
+        }
+        return df.string(from: publishDate)
+    }
+    
+    var request: URLRequest? {
+        // Create the embed URL
+        let embedUrlString = Constants.TG_EMBED_URL + (article?.articleId ?? "")
+        // Load it into the WebView
+        guard let url = URL(string: embedUrlString) else {
+            return nil
+        }
+        return URLRequest(url: url)
+    }
 }

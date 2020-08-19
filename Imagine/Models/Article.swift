@@ -14,7 +14,6 @@ struct Article: Decodable {
     var published = Date()
     var sectionName = ""
     var isBookmarked = false
-    var bookmarkedArticles: [String] = []
     
     enum CodingKeys: String, CodingKey {
         case articleId = "id"
