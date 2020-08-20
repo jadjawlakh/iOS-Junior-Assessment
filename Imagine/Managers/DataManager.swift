@@ -16,12 +16,12 @@ class DataManager {
         // Forbid instantiation of DataManager, the former can only be used through the shared instance
         guardianAPI = TheGuardianAPI()
     }
-    func getArticles(completionBlock: @escaping (_ articles: [Article]?) -> Void) {
+    func getArticles(searching: Bool, completionBlock: @escaping (_ articles: [Article]?) -> Void) {
         /*
          If articles are already fetched and referenced through the 'articles' variable
          no need to do the API call.
          */
-        guard articles == nil else {
+        guard articles == nil || searching == true else {
             completionBlock(articles)
             return
         }

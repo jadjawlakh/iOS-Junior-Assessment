@@ -20,11 +20,14 @@ class MainViewModel {
     init() {
         articles = [Article]()
     }
-    func getArticles() {
-        DataManager.shared.getArticles { articles in
+    func getArticles(searching: Bool) {
+        DataManager.shared.getArticles(searching: searching, completionBlock: { articles in
             self.articles = articles ?? []
             self.delegate?.didFetchArticles()
-        }
+        })
+    }
+    func clearArticles() {
+        
     }
     // MARK: - Conform to protocol ArticleModelDelegate
     func articlesFetched(_ articles: [Article]) {

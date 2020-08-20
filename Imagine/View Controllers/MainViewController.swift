@@ -22,11 +22,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         tableView.delegate = self
         // Fetch the articles
-        viewModel.getArticles()
+        viewModel.getArticles(searching: false)
     }
     @objc func returnButtonTapped() {
         Constants.SEARCH_QUERY = searchBar.text!
-        viewModel.getArticles()
+        viewModel.getArticles(searching: true)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Confirm that an article was selected
