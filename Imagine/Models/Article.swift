@@ -14,14 +14,12 @@ struct Article: Decodable {
     var published = Date()
     var sectionName = ""
     var isBookmarked = false
-    
     enum CodingKeys: String, CodingKey {
         case articleId = "id"
         case title = "webTitle"
         case published = "webPublicationDate"
         case sectionName = "sectionName"
     }
-    
     init (from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         // Parse Title
@@ -33,9 +31,7 @@ struct Article: Decodable {
         // Parse Article ID
         self.articleId = try container.decode(String.self, forKey: .articleId)
     }
-    
     init() {
         // Empty init
     }
-    
 }

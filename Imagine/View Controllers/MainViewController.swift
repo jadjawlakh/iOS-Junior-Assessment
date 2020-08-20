@@ -12,7 +12,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UITextField!
     var viewModel = MainViewModel()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Upon tapping the 'return' button from the searchbar input field
@@ -25,12 +24,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Fetch the articles
         viewModel.getArticles()
     }
-    
     @objc func returnButtonTapped() {
         Constants.SEARCH_QUERY = searchBar.text!
         viewModel.getArticles()
     }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Confirm that an article was selected
         guard tableView.indexPathForSelectedRow != nil else {

@@ -15,11 +15,9 @@ protocol DetailViewModelDelegate: class {
 class DetailViewModel {
     weak var delegate: DetailViewModelDelegate?
     var article: Article?
-    
     var title: String {
         return article?.title ?? ""
     }
-    
     var publicationDate: String {
         let df = DateFormatter()
         df.dateFormat = "EEEE, MMM d, yyyy"
@@ -28,7 +26,6 @@ class DetailViewModel {
         }
         return df.string(from: publishDate)
     }
-    
     var request: URLRequest? {
         // Create the embed URL
         let embedUrlString = Constants.TG_EMBED_URL + (article?.articleId ?? "")

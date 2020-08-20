@@ -14,11 +14,9 @@ class DetailViewController: UIViewController, DetailViewModelDelegate {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var webView: WKWebView!
     var viewModel = DetailViewModel()
-    
     func initWithArticle(_ article: Article) {
         viewModel.article = article
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Safe unwrapping into a new variable
