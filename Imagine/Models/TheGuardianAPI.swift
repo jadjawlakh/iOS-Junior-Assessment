@@ -8,16 +8,11 @@
 
 import Foundation
 
-protocol TheGuardianAPIDelegate: class {
-    func articlesFetched(_ articles: [Article])
-}
-
 class TheGuardianAPI {
-    weak var delegate: TheGuardianAPIDelegate?
-    
-    func getArticles() {
+    func getArticles(completionBlock: @escaping (_ articles: [Article]?) -> Void) {
         // Create a URL object and make sure it exists
         guard let url = URL(string: Constants.API_URL) else {
+            completionBlock(nil)
             return
         }
         // Get a URLSession object
@@ -25,6 +20,7 @@ class TheGuardianAPI {
         // Get a data task from the URLSession object
         let dataTask = session.dataTask(with: url) { (data, response, error) in
             guard let data = data, error == nil else {
+                completionBlock(nil)
                 return
             }
             do {
@@ -32,14 +28,16 @@ class TheGuardianAPI {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601
                 let response = try decoder.decode(Response.self, from: data)
-                if response.results != nil {
+                if let results = response.results {
                     DispatchQueue.main.async {
-                        // Call the "articlesFetched" methods of the delegate
-                        self.delegate?.articlesFetched(response.results!)
+                        completionBlock(results)
                     }
+                } else {
+                    completionBlock(nil)
                 }
                 dump(response)
             } catch {
+                completionBlock(nil)
                 print("Error: failed to get response")
             }
         }
