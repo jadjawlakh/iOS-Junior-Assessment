@@ -114,16 +114,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmarks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yeG-rt-oay">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="h7K-JM-can">
-                                <rect key="frame" x="0.0" y="49" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h7K-JM-can" id="Uq8-5l-WfU">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -136,12 +129,13 @@
                             <outlet property="delegate" destination="gL1-SM-cpZ" id="FLv-eh-z8d"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Bookmarks" image="star.fill" catalog="system" id="jLg-F5-YwZ"/>
-                    <navigationItem key="navigationItem" id="TXY-jh-WFn"/>
+                    <navigationItem key="navigationItem" title="Bookmarks" id="TXY-jh-WFn">
+                        <barButtonItem key="backBarButtonItem" title="Home" id="lfy-d6-UPO"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XzU-6D-82L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4747.826086956522" y="516.96428571428567"/>
+            <point key="canvasLocation" x="5657.971014492754" y="516.96428571428567"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="ffr-Wt-7qO">
@@ -213,7 +207,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="fup-lD-zOO" kind="relationship" relationship="viewControllers" id="FRd-Yb-ZnZ"/>
-                        <segue destination="gL1-SM-cpZ" kind="relationship" relationship="viewControllers" id="aVJ-Zk-3ll"/>
+                        <segue destination="dxd-Jn-KYb" kind="relationship" relationship="viewControllers" id="aVJ-Zk-3ll"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzQ-C0-lja" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -238,6 +232,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jlt-f0-nIw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4749.275362318841" y="-164.0625"/>
+        </scene>
+        <!--Bookmarks-->
+        <scene sceneID="4Gl-be-hHo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dxd-Jn-KYb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Bookmarks" image="star.fill" catalog="system" id="jLg-F5-YwZ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="z8t-V7-9h0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gL1-SM-cpZ" kind="relationship" relationship="rootViewController" id="cRT-fu-dOM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KwH-z6-kHv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4747.826086956522" y="516.96428571428567"/>
         </scene>
     </scenes>
     <resources>
