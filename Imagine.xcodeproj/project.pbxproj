@@ -12,6 +12,7 @@
 		050BF3F724E56E3200334E22 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 050BF3F624E56E3200334E22 /* WebKit.framework */; };
 		05401B7624EBCD41000A8EFF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05401B7524EBCD41000A8EFF /* MainViewModel.swift */; };
 		05401B7824EBE542000A8EFF /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05401B7724EBE542000A8EFF /* DetailViewModel.swift */; };
+		0542E7D824EE76B00087FF8C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0542E7D724EE76B00087FF8C /* DataManager.swift */; };
 		0551720124E6828A00105A19 /* BookmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0551720024E6828A00105A19 /* BookmarkButton.swift */; };
 		056398DE24ED7273000237EF /* BookmarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056398DD24ED7273000237EF /* BookmarkViewModel.swift */; };
 		056398E024ED73B5000237EF /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056398DF24ED73B5000237EF /* BookmarkViewController.swift */; };
@@ -32,6 +33,7 @@
 		050BF3F624E56E3200334E22 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		05401B7524EBCD41000A8EFF /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		05401B7724EBE542000A8EFF /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		0542E7D724EE76B00087FF8C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		0551720024E6828A00105A19 /* BookmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkButton.swift; sourceTree = "<group>"; };
 		056398DD24ED7273000237EF /* BookmarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewModel.swift; sourceTree = "<group>"; };
 		056398DF24ED73B5000237EF /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,14 @@
 			path = "View Models";
 			sourceTree = "<group>";
 		};
+		0542E7D624EE768F0087FF8C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0542E7D724EE76B00087FF8C /* DataManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		057533D324E5240500C8473C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +147,7 @@
 		59A9288A2333E32900774014 /* Imagine */ = {
 			isa = PBXGroup;
 			children = (
+				0542E7D624EE768F0087FF8C /* Managers */,
 				050BF3F224E5526500334E22 /* Helpers */,
 				057533D324E5240500C8473C /* View Controllers */,
 				050BF3F124E5523600334E22 /* Views */,
@@ -239,6 +250,7 @@
 				058EB47924E54A1D00438A6D /* MainViewController.swift in Sources */,
 				59A9288C2333E32900774014 /* AppDelegate.swift in Sources */,
 				0551720124E6828A00105A19 /* BookmarkButton.swift in Sources */,
+				0542E7D824EE76B00087FF8C /* DataManager.swift in Sources */,
 				057533D924E52C2A00C8473C /* Constants.swift in Sources */,
 				050BF3F024E551F300334E22 /* ArticleTableViewCell.swift in Sources */,
 				05401B7624EBCD41000A8EFF /* MainViewModel.swift in Sources */,
