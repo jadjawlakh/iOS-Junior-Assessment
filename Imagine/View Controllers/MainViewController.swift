@@ -23,6 +23,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         // Fetch the articles
         viewModel.getArticles(searching: false)
+        // Listen to whether the current article was bookmarked
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived), name: Notification.Name("BookmarkButtonPressed"), object: nil)
     }
     @objc func returnButtonTapped() {
         Constants.SEARCH_QUERY = searchBar.text!
@@ -56,5 +58,15 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // MARK: - Conform to protocol ArticleModelDelegate
     func didFetchArticles() {
         tableView.reloadData()
+    }
+    // MARK: - Receive the notification
+    @objc func notificationReceived(_ notification: NSNotification) {
+        print(notification.userInfo ?? "")
+        if let dict = notification.userInfo as NSDictionary? {
+            if let isArticleBookmarked = dict["isArticleBookmarked"] as? Bool {
+                // do something with your bool
+                print(isArticleBookmarked)
+            }
+        }
     }
 }

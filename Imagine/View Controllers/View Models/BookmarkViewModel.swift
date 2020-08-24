@@ -9,4 +9,15 @@
 import Foundation
 
 class BookmarkViewModel {
+    var articles: [Article]
+    init() {
+        articles = [Article]()
+    }
+    func fetchBookmarkedArticles() {
+        for article in articles {
+            if article.isBookmarked == true {
+                print(article.title)
+            }
+        }
+    }
 }
