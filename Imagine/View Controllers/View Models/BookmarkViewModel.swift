@@ -9,5 +9,4 @@
 import Foundation
 
 class BookmarkViewModel {
-    // Stuff goes here...
 }

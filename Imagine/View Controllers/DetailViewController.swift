@@ -27,5 +27,17 @@ class DetailViewController: UIViewController, DetailViewModelDelegate {
         titleLabel.text = viewModel.title
         // Set the date
         dateLabel.text = viewModel.publicationDate
+        // Listen to whether the current article was bookmarked
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived), name: Notification.Name("BookmarkButtonPressed"), object: nil)
+        
+    }
+    @objc func notificationReceived(_ notification: NSNotification) {
+        print(notification.userInfo ?? "")
+        if let dict = notification.userInfo as NSDictionary? {
+            if let isArticleBookmarked = dict["isArticleBookmarked"] as? Bool {
+                // do something with your bool
+                print(isArticleBookmarked)
+            }
+        }
     }
 }

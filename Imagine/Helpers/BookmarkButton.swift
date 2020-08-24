@@ -11,14 +11,14 @@ import UIKit
 class BookmarkButton: UIButton {
     
     static let blue = UIColor(red: 46.0/255.0, green: 123.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-//    var isBookmarked = false
+    //    var isBookmarked = false
     var article: Article = Article()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         initButton()
     }
-
+    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -35,8 +35,6 @@ class BookmarkButton: UIButton {
     }
     
     @objc func buttonPressed() {
-        
-        print(article.isBookmarked)
         guard article.isBookmarked != nil else {
             return
         }
@@ -45,8 +43,10 @@ class BookmarkButton: UIButton {
     
     func activateButton(bool: Bool) {
         article.isBookmarked = bool
+        let booleanDict: [String: Bool] = ["isArticleBookmarked" : article.isBookmarked]
         let title = bool ? "Remove from bookmarks" : "Add to bookmarks"
         setTitle(title, for: .normal)
+        NotificationCenter.default.post(name: Notification.Name("BookmarkButtonPressed"), object: nil, userInfo: booleanDict)
     }
     
 }
