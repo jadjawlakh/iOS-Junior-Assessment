@@ -10,33 +10,69 @@ import UIKit
 import WebKit
 
 class DetailViewController: UIViewController, DetailViewModelDelegate {
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var webView: WKWebView!
-    var viewModel = DetailViewModel()
-    func initWithArticle(_ article: Article) {
-        viewModel.article = article
+  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var dateLabel: UILabel!
+  @IBOutlet weak var webView: WKWebView!
+  @IBOutlet weak var bookmarkButton: BookmarkButton!
+  
+  var viewModel = DetailViewModel()
+  
+  func initWithArticle(_ article: Article) {
+    viewModel.article = article
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    // Safe unwrapping into a new variable
+    if let request = viewModel.request {
+      webView.load(request)
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Safe unwrapping into a new variable
-        if let request = viewModel.request {
-            webView.load(request)
-        }
-        // Set the title
-        titleLabel.text = viewModel.title
-        // Set the date
-        dateLabel.text = viewModel.publicationDate
-        // Listen to whether the current article was bookmarked
-        NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived), name: Notification.Name("BookmarkButtonPressed"), object: nil)
-    }
-    @objc func notificationReceived(_ notification: NSNotification) {
-        print(notification.userInfo ?? "")
-        if let dict = notification.userInfo as NSDictionary? {
-            if let isArticleBookmarked = dict["isArticleBookmarked"] as? Bool {
-                // do something with your bool
-                print(isArticleBookmarked)
-            }
-        }
-    }
+    // Set the title
+    titleLabel.text = viewModel.title
+    // Set the date
+    dateLabel.text = viewModel.publicationDate
+    
+    bookmarkButton.addTarget(
+      self,
+      action: #selector(bookmarkButtonTouchUpInside(_:)),
+      for: UIControl.Event.touchUpInside)
+  }
+  
+  // MARK: - ACTIONS
+  // ================
+  @objc func bookmarkButtonTouchUpInside(_ sender: UIButton) {
+    print("Hela hela hoooooooo")
+  }
 }
+
+
+
+//guard viewModel.article?.isBookmarked != nil else {
+//  return
+//}
+//
+//activateButton(bool: !(viewModel.article!.isBookmarked))
+//
+//
+//
+//
+//func activateButton(bool :Bool) {
+//  viewModel.article!.isBookmarked = bool
+//  let booleanDict: [String: Bool] = ["isArticleBookmarked" : viewModel.article!.isBookmarked]
+//  let title = bool ? "Remove from bookmarks" : "Add to bookmarks"
+//  bookmarkButton.setTitle(title, for: .normal)
+//  NotificationCenter.default.post(name: Notification.Name("BookmarkButtonPressed"),
+//                                  object: nil, userInfo: booleanDict)
+//}
+//
+//
+//
+//@objc func notificationReceived(_ notification: NSNotification) {
+//  print(notification.userInfo ?? "")
+//  if let dict = notification.userInfo as NSDictionary? {
+//    if let isArticleBookmarked = dict["isArticleBookmarked"] as? Bool {
+//      // do something with your bool
+//      print(isArticleBookmarked)
+//    }
+//  }
+//}
