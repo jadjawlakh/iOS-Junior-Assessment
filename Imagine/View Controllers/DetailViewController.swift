@@ -36,16 +36,23 @@ class DetailViewController: UIViewController, DetailViewModelDelegate {
       self,
       action: #selector(bookmarkButtonTouchUpInside(_:)),
       for: UIControl.Event.touchUpInside)
+    
+    refreshBookmarkButton()
   }
   
   // MARK: - ACTIONS
   // ================
   @objc func bookmarkButtonTouchUpInside(_ sender: UIButton) {
-    print("Hela hela hoooooooo")
+    viewModel.toggleArticleBookmarkStatus()
+    refreshBookmarkButton()
+  }
+  
+  // MARK: - HELPERS
+  // ===============
+  func refreshBookmarkButton() {
+    bookmarkButton.isBookmarked = viewModel.isBookmarked
   }
 }
-
-
 
 //guard viewModel.article?.isBookmarked != nil else {
 //  return

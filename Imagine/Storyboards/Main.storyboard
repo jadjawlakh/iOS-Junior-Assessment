@@ -186,6 +186,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="1Mm-to-Exf"/>
                     <connections>
+                        <outlet property="bookmarkButton" destination="FEs-G6-033" id="u5Y-h4-zuH"/>
                         <outlet property="dateLabel" destination="ue3-4U-vQE" id="5bk-yC-TbP"/>
                         <outlet property="titleLabel" destination="nit-RD-O05" id="1mr-5U-lXK"/>
                         <outlet property="webView" destination="iqT-BV-KFe" id="doI-zA-mYT"/>

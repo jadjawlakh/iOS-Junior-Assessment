@@ -14,7 +14,11 @@ protocol DetailViewModelDelegate: class {
 
 class DetailViewModel {
   weak var delegate: DetailViewModelDelegate?
-  var article: Article?
+  var article: Article? {
+    didSet {
+      print("Article Set")
+    }
+  }
   
   var title: String {
     return article?.title ?? ""
@@ -37,5 +41,26 @@ class DetailViewModel {
       return nil
     }
     return URLRequest(url: url)
+  }
+  
+  var isBookmarked: Bool {
+    return article?.isBookmarked ?? false
+  }
+  
+  func toggleArticleBookmarkStatus() {
+    guard let id = article?.articleId else {
+      return
+    }
+    guard DataManager.shared.toggleBookmarkStatusForArticleWithID(id) else {
+      return
+    }
+    refreshViewModelData()
+  }
+  
+  private func refreshViewModelData() {
+    guard let id = article?.articleId else {
+      return
+    }
+    article = DataManager.shared.articleForID(id)
   }
 }

@@ -25,6 +25,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     tableView.delegate = self
     // Fetch the articles
     viewModel.getArticles(searching: false)
+    
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(refreshData),
+      name: DataManager.Notification.Name.articlesListUpdated,
+      object: nil)
   }
   
   @objc func returnButtonTapped() {
@@ -66,21 +72,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     tableView.reloadData()
   }
   
-  // MARK: - Receive the notification
-  //=================================
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    // Listen to whether the current article was bookmarked
-    NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived), name: Notification.Name("BookmarkButtonPressed"), object: nil)
-  }
-  
-  @objc func notificationReceived(_ notification: NSNotification) {
-    print(notification.userInfo ?? "")
-    if let dict = notification.userInfo as NSDictionary? {
-      if let isArticleBookmarked = dict["isArticleBookmarked"] as? Bool {
-        // do something with your bool
-        print(isArticleBookmarked)
-      }
-    }
+  // MARK: - Notification Handler
+  //=============================
+  @objc private func refreshData() {
+    viewModel.refreshData()
   }
 }

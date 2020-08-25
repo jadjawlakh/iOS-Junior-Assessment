@@ -11,16 +11,23 @@ import Foundation
 class DataManager {
   static let shared = DataManager()
   var guardianAPI: TheGuardianAPI
-  private var articles: [Article]?
+  private var articles: [Article]? {
+    didSet {
+      NotificationCenter.default.post(name: DataManager.Notification.Name.articlesListUpdated, object: nil, userInfo: nil)
+    }
+  }
   
-  private var bookmarkedArticles = [String]()
-  private var isArticleBookmarkedFlag: Bool?
+  private var bookmarkedArticles: [Article]? {
+    didSet {
+      NotificationCenter.default.post(name: DataManager.Notification.Name.bookmarkedArticlesListUpdated, object: nil, userInfo: nil)
+    }
+  }
+  
+//  private var bookmarkedArticles = [String]()
   
   private init() {
     // Forbid instantiation of DataManager, the former can only be used through the shared instance
     guardianAPI = TheGuardianAPI()
-    // Listen to whether the current article was bookmarked
-    NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived), name: Notification.Name("BookmarkButtonPressed"), object: nil)
   }
   
   func getArticles(searching: Bool, completionBlock: @escaping (_ articles: [Article]?) -> Void) {
@@ -38,13 +45,35 @@ class DataManager {
     }
   }
   
-  @objc func notificationReceived(_ notification: NSNotification) {
-    print(notification.userInfo ?? "")
-    if let dict = notification.userInfo as NSDictionary? {
-      if let isArticleBookmarked = dict["isArticleBookmarked"] as? Bool {
-        // do something with your bool
-        isArticleBookmarkedFlag = isArticleBookmarked
-      }
+  func toggleBookmarkStatusForArticleWithID(_ id: String) -> Bool {
+    guard let indexOfArticle = articles?.firstIndex(where: { $0.articleId == id }) else {
+      return false
+    }
+    let originalBookmarkStatus = articles?[indexOfArticle].isBookmarked ?? false
+    articles?[indexOfArticle].isBookmarked = !originalBookmarkStatus
+    return true
+  }
+  
+  func articleForID(_ id: String) -> Article? {
+    return articles?.first(where: { article in
+      article.articleId == id
+    })
+  }
+  
+  func returnBookmarkedArticles() -> Article? {
+    return articles?.first(where: { article in
+         article.isBookmarked == true
+       })
+  }
+  
+}
+
+
+extension DataManager {
+  struct Notification {
+    struct Name {
+      static let articlesListUpdated = NSNotification.Name("articlesListUpdated")
+      static let bookmarkedArticlesListUpdated = NSNotification.Name("bookmarkedArticlesListUpdated")
     }
   }
 }

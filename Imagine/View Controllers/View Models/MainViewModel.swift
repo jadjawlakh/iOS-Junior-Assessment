@@ -35,4 +35,8 @@ class MainViewModel {
     self.articles = articles
     delegate?.didFetchArticles()
   }
+  
+  func refreshData() {
+    getArticles(searching: false)
+  }
 }
