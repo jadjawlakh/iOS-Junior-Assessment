@@ -25,7 +25,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     tableView.delegate = self
     // Fetch the articles
     viewModel.getArticles(searching: false)
-    
+    // Observe the notification
     NotificationCenter.default.addObserver(
       self,
       selector: #selector(refreshData),
@@ -59,9 +59,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ARTICLECELL_ID, for: indexPath) as! ArticleTableViewCell
+    
     // Configure the cell with the data
     let article = viewModel.articles[indexPath.row]
     cell.setCell(article)
+    
     // Return the cell
     return cell
   }

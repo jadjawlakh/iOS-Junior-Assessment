@@ -54,32 +54,3 @@ class DetailViewController: UIViewController, DetailViewModelDelegate {
   }
 }
 
-//guard viewModel.article?.isBookmarked != nil else {
-//  return
-//}
-//
-//activateButton(bool: !(viewModel.article!.isBookmarked))
-//
-//
-//
-//
-//func activateButton(bool :Bool) {
-//  viewModel.article!.isBookmarked = bool
-//  let booleanDict: [String: Bool] = ["isArticleBookmarked" : viewModel.article!.isBookmarked]
-//  let title = bool ? "Remove from bookmarks" : "Add to bookmarks"
-//  bookmarkButton.setTitle(title, for: .normal)
-//  NotificationCenter.default.post(name: Notification.Name("BookmarkButtonPressed"),
-//                                  object: nil, userInfo: booleanDict)
-//}
-//
-//
-//
-//@objc func notificationReceived(_ notification: NSNotification) {
-//  print(notification.userInfo ?? "")
-//  if let dict = notification.userInfo as NSDictionary? {
-//    if let isArticleBookmarked = dict["isArticleBookmarked"] as? Bool {
-//      // do something with your bool
-//      print(isArticleBookmarked)
-//    }
-//  }
-//}

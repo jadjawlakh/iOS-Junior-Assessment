@@ -44,23 +44,21 @@ class DetailViewModel {
   }
   
   var isBookmarked: Bool {
-    return article?.isBookmarked ?? false
+    guard let id = article?.articleId else {
+      return false
+    }
+    return DataManager.shared.isArticleBookmarked(id: id)
   }
   
   func toggleArticleBookmarkStatus() {
     guard let id = article?.articleId else {
       return
     }
-    guard DataManager.shared.toggleBookmarkStatusForArticleWithID(id) else {
-      return
+    
+    if isBookmarked {
+      DataManager.shared.removeArticleToBookmarks(articleID: id)
+    } else {
+      DataManager.shared.addArticleToBookmarks(articleID: id)
     }
-    refreshViewModelData()
-  }
-  
-  private func refreshViewModelData() {
-    guard let id = article?.articleId else {
-      return
-    }
-    article = DataManager.shared.articleForID(id)
   }
 }

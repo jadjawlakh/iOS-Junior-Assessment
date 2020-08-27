@@ -11,23 +11,32 @@ import Foundation
 class DataManager {
   static let shared = DataManager()
   var guardianAPI: TheGuardianAPI
+  
   private var articles: [Article]? {
     didSet {
       NotificationCenter.default.post(name: DataManager.Notification.Name.articlesListUpdated, object: nil, userInfo: nil)
     }
   }
   
-  private var bookmarkedArticles: [Article]? {
+  private var bookmarkedArticles: [Article] = [] {
     didSet {
       NotificationCenter.default.post(name: DataManager.Notification.Name.bookmarkedArticlesListUpdated, object: nil, userInfo: nil)
     }
   }
   
-//  private var bookmarkedArticles = [String]()
+  func getBookmarkArticlesArray() -> [Article]? {
+    return bookmarkedArticles
+  }
   
   private init() {
     // Forbid instantiation of DataManager, the former can only be used through the shared instance
     guardianAPI = TheGuardianAPI()
+  }
+  
+  func isArticleBookmarked(id: String) -> Bool {
+    return bookmarkedArticles.contains(where: { article -> Bool in
+      return article.articleId == id
+    })
   }
   
   func getArticles(searching: Bool, completionBlock: @escaping (_ articles: [Article]?) -> Void) {
@@ -39,35 +48,55 @@ class DataManager {
       completionBlock(articles)
       return
     }
+    
     guardianAPI.getArticles { returnedArticles in
       self.articles = returnedArticles
       completionBlock(returnedArticles)
     }
   }
   
-  func toggleBookmarkStatusForArticleWithID(_ id: String) -> Bool {
-    guard let indexOfArticle = articles?.firstIndex(where: { $0.articleId == id }) else {
-      return false
+  // MARK: - Bookmarking Handlers
+  // ============================
+  
+  func addArticleToBookmarks(articleID: String) {
+    //================================
+    // Implementation 1
+    
+//    if let specificArticle = articles?.first(where: { article -> Bool in
+//      article.articleId == articleID
+//    }) {
+//      bookmarkedArticles.append(specificArticle)
+//    } else {
+//      print("else else else")
+//    }
+    
+    //================================
+    // Implementation 2
+    
+    guard let specificArticle = articles?.first(where: { article -> Bool in
+      return article.articleId == articleID
+    }) else {
+      print("else else else")
+      return
     }
-    let originalBookmarkStatus = articles?[indexOfArticle].isBookmarked ?? false
-    articles?[indexOfArticle].isBookmarked = !originalBookmarkStatus
-    return true
+    bookmarkedArticles.append(specificArticle)
+  }
+  
+  func removeArticleToBookmarks(articleID: String) {
+    // TODO: - Implement removing a bookmarked article
   }
   
   func articleForID(_ id: String) -> Article? {
+    
     return articles?.first(where: { article in
       article.articleId == id
     })
   }
   
-  func returnBookmarkedArticles() -> Article? {
-    return articles?.first(where: { article in
-         article.isBookmarked == true
-       })
-  }
-  
+//  func getBookmarkedArticles(completionBlock: @escaping (_ articles: [Article]?) -> Void) {
+//
+//  }
 }
-
 
 extension DataManager {
   struct Notification {

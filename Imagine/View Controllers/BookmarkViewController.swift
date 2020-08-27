@@ -8,48 +8,56 @@
 
 import UIKit
 
-class BookmarkViewController: UITableViewController {
-    let viewModel = BookmarkViewModel()
-    override func viewDidLoad() {
-        super.viewDidLoad()
+class BookmarkViewController: UITableViewController, BookmarkViewModelDelegate {
+  let viewModel = BookmarkViewModel()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    // Link the BookmarkViewController to the BookmarkViewModel
+    viewModel.delegate = self
+    // Set itself as the data source and the delegate
+    tableView.dataSource = self
+    tableView.delegate = self
+    // Fetch the bookmarked articles
+    viewModel.getBookmarkedArticles()
+    // Observe the notification
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(refreshData),
+      name: DataManager.Notification.Name.bookmarkedArticlesListUpdated,
+      object: nil)
+  }
+  
+  // MARK: - TableView Methods
+  // =========================
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
+    -> Int {
+      print("number of bookmarked articles \(viewModel.bookmarkedArticlesCount)")
+      return viewModel.bookmarkedArticlesCount
+  }
+  
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
+    -> UITableViewCell {
+      let cell = tableView.dequeueReusableCell(withIdentifier: "BookmarkCell", for: indexPath) as! ArticleTableViewCell
       
-      NotificationCenter.default.addObserver(
-           self,
-           selector: #selector(refreshData),
-           name: DataManager.Notification.Name.bookmarkedArticlesListUpdated,
-           object: nil)
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Listen to whether the current article was bookmarked
-        NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived), name: Notification.Name("BookmarkButtonPressed"), object: nil)
-    }
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.articles.count
-    }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "bookmark_cell", for: indexPath)
-        
-        // Configure the cell with the data
-        let article = viewModel.articles[indexPath.row]
-
+      // Configure the cell with the data
+      if let article = viewModel.articleForRow(indexPath.row) {
+        cell.setCell(article)
+      }
+      
       // Return the cell
-        return cell
-    }
-    
-    @objc func notificationReceived(_ notification: NSNotification) {
-        print(notification.userInfo ?? "")
-        if let dict = notification.userInfo as NSDictionary? {
-            if let isArticleBookmarked = dict["isArticleBookmarked"] as? Bool {
-                // do something with your bool
-                print(isArticleBookmarked)
-            }
-        }
-    }
+      return cell
+  }
+  
+  // MARK: - Conform to Protocol
+  //=============================
+  func didFetchBookmarkedArticles() {
+    tableView.reloadData()
+  }
   
   // MARK: - Notification Handler
   //=============================
   @objc private func refreshData() {
-    viewModel.refreshData()
+//    viewModel.refreshData()
   }
 }
