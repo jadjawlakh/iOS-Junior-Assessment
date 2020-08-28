@@ -163,6 +163,7 @@
                                     <outlet property="dateLabel" destination="v0m-tN-SjH" id="tv2-pv-mfc"/>
                                     <outlet property="sectionLabel" destination="ybS-98-bry" id="sEM-wZ-IdU"/>
                                     <outlet property="titleLabel" destination="DlD-AX-f6f" id="1oG-PY-9i2"/>
+                                    <segue destination="Clr-qr-8Y4" kind="show" id="aSz-Jl-PT9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -295,6 +296,9 @@
             <point key="canvasLocation" x="4747.826086956522" y="516.96428571428567"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="aSz-Jl-PT9"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>

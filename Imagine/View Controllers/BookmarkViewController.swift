@@ -30,6 +30,19 @@ class BookmarkViewController: UITableViewController, BookmarkViewModelDelegate {
       object: nil)
   }
   
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    // Confirm that an article was selected
+    guard bookmarkTableView.indexPathForSelectedRow != nil else {
+      return
+    }
+    // Get a reference to the article that was tapped on
+    let selectedArticle = viewModel.bookmarkedArticles[bookmarkTableView.indexPathForSelectedRow!.row]
+    // Get a reference to the detailViewController
+    let detailVC = segue.destination as! DetailViewController
+    // Set the article property of the detailViewController
+    detailVC.initWithArticle(selectedArticle)
+  }
+  
   // MARK: - TableView Methods
   // =========================
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
