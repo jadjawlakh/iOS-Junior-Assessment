@@ -14,7 +14,6 @@ protocol BookmarkViewModelDelegate: class {
 
 class BookmarkViewModel {
   weak var delegate: BookmarkViewModelDelegate?
-  
   var bookmarkedArticles: [Article]
   
   init() {
@@ -23,6 +22,7 @@ class BookmarkViewModel {
   
   func getBookmarkedArticles() {
     bookmarkedArticles = DataManager.shared.getBookmarkArticlesArray() ?? []
+    self.delegate?.didFetchBookmarkedArticles()
   }
   
   var bookmarkedArticlesCount: Int {
@@ -36,7 +36,6 @@ class BookmarkViewModel {
     return bookmarkedArticles[index]
   }
   
-  
   // MARK: - Conform to Protocol
   
   func bookmarkedArticlesFetched(_ articles: [Article]) {
@@ -44,7 +43,6 @@ class BookmarkViewModel {
     delegate?.didFetchBookmarkedArticles()
   }
   
-  // TODO: - Check this function
   func refreshData() {
     getBookmarkedArticles()
   }

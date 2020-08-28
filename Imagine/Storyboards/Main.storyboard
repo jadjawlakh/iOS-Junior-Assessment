@@ -166,14 +166,13 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="gL1-SM-cpZ" id="kiJ-OY-2Nc"/>
-                            <outlet property="delegate" destination="gL1-SM-cpZ" id="FLv-eh-z8d"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Bookmarks" id="TXY-jh-WFn">
                         <barButtonItem key="backBarButtonItem" title="Home" id="lfy-d6-UPO"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bookmarkTableView" destination="L8S-lb-4fL" id="Fn3-uF-34g"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XzU-6D-82L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

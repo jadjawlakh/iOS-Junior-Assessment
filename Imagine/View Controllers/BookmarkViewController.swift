@@ -11,13 +11,15 @@ import UIKit
 class BookmarkViewController: UITableViewController, BookmarkViewModelDelegate {
   let viewModel = BookmarkViewModel()
   
+  @IBOutlet weak var bookmarkTableView: UITableView!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Link the BookmarkViewController to the BookmarkViewModel
     viewModel.delegate = self
     // Set itself as the data source and the delegate
-    tableView.dataSource = self
-    tableView.delegate = self
+    bookmarkTableView.dataSource = self
+    bookmarkTableView.delegate = self
     // Fetch the bookmarked articles
     viewModel.getBookmarkedArticles()
     // Observe the notification
@@ -32,7 +34,6 @@ class BookmarkViewController: UITableViewController, BookmarkViewModelDelegate {
   // =========================
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
     -> Int {
-      print("number of bookmarked articles \(viewModel.bookmarkedArticlesCount)")
       return viewModel.bookmarkedArticlesCount
   }
   
@@ -52,12 +53,12 @@ class BookmarkViewController: UITableViewController, BookmarkViewModelDelegate {
   // MARK: - Conform to Protocol
   //=============================
   func didFetchBookmarkedArticles() {
-    tableView.reloadData()
+    bookmarkTableView.reloadData()
   }
   
   // MARK: - Notification Handler
   //=============================
   @objc private func refreshData() {
-//    viewModel.refreshData()
+    viewModel.refreshData()
   }
 }
