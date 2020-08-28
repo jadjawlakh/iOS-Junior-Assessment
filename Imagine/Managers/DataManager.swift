@@ -83,12 +83,6 @@ class DataManager {
   }
   
   func removeArticleToBookmarks(articleID: String) {
-    guard let specificArticle = articles?.first(where : { article -> Bool in
-      return article.articleId == articleID
-    }) else {
-      print("else else else")
-      return
-    }
     guard let index = bookmarkedArticles.firstIndex(where: { article -> Bool in
       return article.articleId == articleID
     }) else {
