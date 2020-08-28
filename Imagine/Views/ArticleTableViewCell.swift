@@ -19,10 +19,12 @@ class ArticleTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+  
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
+  
     func setCell(_ a: Article) {
         self.article = a
         // Ensure that we have an article
@@ -38,4 +40,5 @@ class ArticleTableViewCell: UITableViewCell {
         df.dateFormat = "EEEE, MMM d, yyyy"
         self.dateLabel.text = df.string(from: article!.published)
     }
+  
 }

@@ -9,7 +9,6 @@
 import Foundation
 
 protocol DetailViewModelDelegate: class {
-  // Used later for the bookmark feature
 }
 
 class DetailViewModel {

@@ -60,7 +60,7 @@ class DataManager {
   
   func addArticleToBookmarks(articleID: String) {
     //================================
-    // Implementation 1
+    // Implementation Method  1
     
 //    if let specificArticle = articles?.first(where: { article -> Bool in
 //      article.articleId == articleID
@@ -71,7 +71,7 @@ class DataManager {
 //    }
     
     //================================
-    // Implementation 2
+    // Implementation Method 2 (more elegant approach)
     
     guard let specificArticle = articles?.first(where: { article -> Bool in
       return article.articleId == articleID
@@ -95,15 +95,11 @@ class DataManager {
   }
   
   func articleForID(_ id: String) -> Article? {
-    
     return articles?.first(where: { article in
       article.articleId == id
     })
   }
   
-//  func getBookmarkedArticles(completionBlock: @escaping (_ articles: [Article]?) -> Void) {
-//
-//  }
 }
 
 extension DataManager {

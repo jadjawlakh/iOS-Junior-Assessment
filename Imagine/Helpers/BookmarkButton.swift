@@ -42,4 +42,5 @@ class BookmarkButton: UIButton {
       setTitle("Add To Bookmarks", for: .normal)
     }
   }
+  
 }
