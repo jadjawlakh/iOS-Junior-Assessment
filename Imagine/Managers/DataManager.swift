@@ -83,7 +83,15 @@ class DataManager {
   }
   
   func removeArticleToBookmarks(articleID: String) {
-    // TODO: - Implement removing a bookmarked article
+    guard let specificArticle = articles?.first(where : { article -> Bool in
+      return article.articleId == articleID
+    }) else {
+      print("else else else")
+      return
+    }
+    bookmarkedArticles.removeAll { article -> Bool in
+      return specificArticle.articleId == articleID
+    }
   }
   
   func articleForID(_ id: String) -> Article? {
