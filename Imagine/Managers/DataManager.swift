@@ -89,9 +89,13 @@ class DataManager {
       print("else else else")
       return
     }
-    bookmarkedArticles.removeAll { article -> Bool in
-      return specificArticle.articleId == articleID
+    guard let index = bookmarkedArticles.firstIndex(where: { article -> Bool in
+      return article.articleId == articleID
+    }) else {
+      print("not found")
+      return
     }
+    bookmarkedArticles.remove(at: index)
   }
   
   func articleForID(_ id: String) -> Article? {
