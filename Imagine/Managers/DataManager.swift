@@ -12,6 +12,10 @@ class DataManager {
   static let shared = DataManager()
   var guardianAPI: TheGuardianAPI
   
+  private let encoder = JSONEncoder()
+  private let decoder = JSONDecoder()
+  private let defaults = UserDefaults.standard
+  
   private var articles: [Article]? {
     didSet {
       NotificationCenter.default.post(name: DataManager.Notification.Name.articlesListUpdated, object: nil, userInfo: nil)
@@ -21,17 +25,38 @@ class DataManager {
   private var bookmarkedArticles: [Article] = [] {
     didSet {
       NotificationCenter.default.post(name: DataManager.Notification.Name.bookmarkedArticlesListUpdated, object: nil, userInfo: nil)
+      saveBookmarkedArticles()
     }
-  }
-  
-  func getBookmarkArticlesArray() -> [Article]? {
-    return bookmarkedArticles
   }
   
   private init() {
     // Forbid instantiation of DataManager, the former can only be used through the shared instance
     guardianAPI = TheGuardianAPI()
+    bookmarkedArticles = readBookmarkedArticles() ?? []
   }
+  
+  
+  func getBookmarkArticlesArray() -> [Article]? {
+    return bookmarkedArticles
+  }
+  
+  private func saveBookmarkedArticles() {
+    guard let encoded = try? encoder.encode(bookmarkedArticles) else {
+      return
+    }
+    defaults.set(encoded, forKey: "SavedArticle")
+  }
+  
+  private func readBookmarkedArticles() -> [Article]? {
+    guard let savedArticlesData = defaults.object(forKey: "SavedArticle") as? Data else {
+      return nil
+    }
+    guard let loadedArticles = try? decoder.decode([Article].self, from: savedArticlesData) else {
+      return nil
+    }
+    return loadedArticles
+  }
+  
   
   func isArticleBookmarked(id: String) -> Bool {
     return bookmarkedArticles.contains(where: { article -> Bool in
@@ -62,13 +87,13 @@ class DataManager {
     //================================
     // Implementation Method  1
     
-//    if let specificArticle = articles?.first(where: { article -> Bool in
-//      article.articleId == articleID
-//    }) {
-//      bookmarkedArticles.append(specificArticle)
-//    } else {
-//      print("else else else")
-//    }
+    //    if let specificArticle = articles?.first(where: { article -> Bool in
+    //      article.articleId == articleID
+    //    }) {
+    //      bookmarkedArticles.append(specificArticle)
+    //    } else {
+    //      print("else else else")
+    //    }
     
     //================================
     // Implementation Method 2 (more elegant approach)
@@ -90,6 +115,11 @@ class DataManager {
       return
     }
     bookmarkedArticles.remove(at: index)
+    
+    // OR: IMPLEMENTATION 2
+    //    bookmarkedArticles.removeAll { article -> Bool in
+    //      return article.articleId == articleID
+    //    }
   }
   
   func articleForID(_ id: String) -> Article? {
@@ -108,3 +138,4 @@ extension DataManager {
     }
   }
 }
+

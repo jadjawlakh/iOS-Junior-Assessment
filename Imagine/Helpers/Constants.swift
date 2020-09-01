@@ -15,6 +15,6 @@ struct Constants {
     static var TG_EMBED_URL = "https://theguardian.com/"
     // Computed variable
     static var API_URL: String {
-        return "https://content.guardianapis.com/search?q=\(Constants.SEARCH_QUERY)&api-key=\(Constants.API_KEY)"
+      return "https://content.guardianapis.com/search?q=\(Constants.SEARCH_QUERY)&api-key=\(Constants.API_KEY)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
     }
 }
