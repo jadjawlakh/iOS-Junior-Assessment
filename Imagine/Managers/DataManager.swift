@@ -30,7 +30,6 @@ class DataManager {
     bookmarkedArticles = readBookmarkedArticles() ?? []
   }
   
-  
   func getBookmarkArticlesArray() -> [Article]? {
     return bookmarkedArticles
   }
@@ -51,7 +50,6 @@ class DataManager {
     }
     return loadedArticles
   }
-  
   
   func isArticleBookmarked(id: String) -> Bool {
     return bookmarkedArticles.contains(where: { article -> Bool in
@@ -74,7 +72,7 @@ class DataManager {
     }
     bookmarkedArticles.append(article)
   }
-  
+
   func removeArticleFromBookmarks(articleID: String) {
     guard let index = bookmarkedArticles.firstIndex(where: { article -> Bool in
       return article.articleId == articleID
@@ -98,4 +96,3 @@ extension DataManager {
     }
   }
 }
-
