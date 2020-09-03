@@ -39,10 +39,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     let offsetY = scrollView.contentOffset.y
     let contentHeight = scrollView.contentSize.height
-    //    print("offsetY: \(offsetY) | contentHeight: \(contentHeight)")
+
+    self.tableView.tableFooterView = createSpinnerFooter()
     
     if offsetY > contentHeight - scrollView.frame.height {
       if !viewModel.isFetching {
+        self.tableView.tableFooterView = nil
         beginBatchFetch()
       }
     }
@@ -50,6 +52,15 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
   
   func beginBatchFetch() {
     viewModel.fetchNextBatch()
+  }
+  
+  func createSpinnerFooter() -> UIView {
+    let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
+    let spinner = UIActivityIndicatorView()
+    spinner.center = footerView.center
+    footerView.addSubview(spinner)
+    spinner.startAnimating()
+    return footerView
   }
   
   // END: HANDLE PAGINATION
