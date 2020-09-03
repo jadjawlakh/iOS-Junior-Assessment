@@ -18,15 +18,38 @@ class MainViewModel {
   weak var delegate: MainViewModelDelegate?
   var articles: [Article]
   
+  private var query: String = ""
+  private var page: Int = 1
+  
+  private(set) var isFetching = false
+  
   init() {
     articles = [Article]()
   }
   
-  func getArticles(searching: Bool) {
-    DataManager.shared.getArticles(searching: searching, completionBlock: { articles in
-      self.articles = articles ?? []
+  func getArticles(query: String = "", page: Int = 1) {
+    guard !isFetching else {
+      return
+    }
+    
+    self.query = query
+    isFetching = true
+    DataManager.shared.getArticles(query: query, page: page) { articles in
+      self.isFetching = false
+      if let fetchedArticles = articles {
+        if page == 1 {
+          self.articles = fetchedArticles
+        } else {
+          self.articles.append(contentsOf: fetchedArticles)
+        }
+      }
       self.delegate?.didFetchArticles()
-    })
+    }
+  }
+  
+  func fetchNextBatch() {
+    page = page + 1
+    getArticles(query: self.query, page: page)
   }
 
   // MARK: - Conform to protocol ArticleModelDelegate
@@ -38,6 +61,6 @@ class MainViewModel {
   }
   
   func refreshData() {
-    getArticles(searching: false)
+    getArticles(query: self.query)
   }
 }

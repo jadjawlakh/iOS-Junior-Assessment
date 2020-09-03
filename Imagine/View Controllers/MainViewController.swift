@@ -24,18 +24,38 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     tableView.dataSource = self
     tableView.delegate = self
     // Fetch the articles
-    viewModel.getArticles(searching: false)
+    viewModel.getArticles()
     // Observe the notification
     NotificationCenter.default.addObserver(
       self,
-      selector: #selector(refreshData),
-      name: DataManager.Notification.Name.articlesListUpdated,
+      selector: #selector(refreshDataList),
+      name: DataManager.Notification.Name.bookmarkedArticlesListUpdated,
       object: nil)
   }
   
+  // START: HANDLE PAGINATION
+  // ========================
+  
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let offsetY = scrollView.contentOffset.y
+    let contentHeight = scrollView.contentSize.height
+    //    print("offsetY: \(offsetY) | contentHeight: \(contentHeight)")
+    
+    if offsetY > contentHeight - scrollView.frame.height {
+      if !viewModel.isFetching {
+        beginBatchFetch()
+      }
+    }
+  }
+  
+  func beginBatchFetch() {
+    viewModel.fetchNextBatch()
+  }
+  
+  // END: HANDLE PAGINATION
+  // ======================
   @objc func returnButtonTapped() {
-    Constants.SEARCH_QUERY = searchBar.text!
-    viewModel.getArticles(searching: true)
+    viewModel.getArticles(query: searchBar.text ?? "", page: 1)
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -76,7 +96,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
   
   // MARK: - Notification Handler
   //=============================
-  @objc private func refreshData() {
+  @objc private func refreshDataList() {
     viewModel.refreshData()
   }
 }

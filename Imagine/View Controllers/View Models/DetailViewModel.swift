@@ -50,14 +50,14 @@ class DetailViewModel {
   }
   
   func toggleArticleBookmarkStatus() {
-    guard let id = article?.articleId else {
+    guard let article = self.article else {
       return
     }
     
     if isBookmarked {
-      DataManager.shared.removeArticleToBookmarks(articleID: id)
+      DataManager.shared.removeArticleFromBookmarks(articleID: article.articleId)
     } else {
-      DataManager.shared.addArticleToBookmarks(articleID: id)
+      DataManager.shared.addArticleToBookmarks(article)
     }
   }
 }

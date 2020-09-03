@@ -10,17 +10,14 @@ import Foundation
 
 class DataManager {
   static let shared = DataManager()
-  var guardianAPI: TheGuardianAPI
   
   private let encoder = JSONEncoder()
   private let decoder = JSONDecoder()
   private let defaults = UserDefaults.standard
   
-  private var articles: [Article]? {
-    didSet {
-      NotificationCenter.default.post(name: DataManager.Notification.Name.articlesListUpdated, object: nil, userInfo: nil)
-    }
-  }
+  var isPaginating = false
+  
+  var searchQuery = ""
   
   private var bookmarkedArticles: [Article] = [] {
     didSet {
@@ -30,8 +27,6 @@ class DataManager {
   }
   
   private init() {
-    // Forbid instantiation of DataManager, the former can only be used through the shared instance
-    guardianAPI = TheGuardianAPI()
     bookmarkedArticles = readBookmarkedArticles() ?? []
   }
   
@@ -64,50 +59,23 @@ class DataManager {
     })
   }
   
-  func getArticles(searching: Bool, completionBlock: @escaping (_ articles: [Article]?) -> Void) {
-    /*
-     If articles are already fetched and referenced through the 'articles' variable
-     no need to do the API call.
-     */
-    guard articles == nil || searching == true else {
+  func getArticles(query: String, page: Int, completionBlock: @escaping (_ articles: [Article]?) -> Void) {
+    TheGuardianAPI.getArticles(query: query, page: page) { articles in
       completionBlock(articles)
-      return
-    }
-    
-    guardianAPI.getArticles { returnedArticles in
-      self.articles = returnedArticles
-      completionBlock(returnedArticles)
     }
   }
   
   // MARK: - Bookmarking Handlers
   // ============================
   
-  func addArticleToBookmarks(articleID: String) {
-    //================================
-    // Implementation Method  1
-    
-    //    if let specificArticle = articles?.first(where: { article -> Bool in
-    //      article.articleId == articleID
-    //    }) {
-    //      bookmarkedArticles.append(specificArticle)
-    //    } else {
-    //      print("else else else")
-    //    }
-    
-    //================================
-    // Implementation Method 2 (more elegant approach)
-    
-    guard let specificArticle = articles?.first(where: { article -> Bool in
-      return article.articleId == articleID
-    }) else {
-      print("else else else")
+  func addArticleToBookmarks(_ article: Article) {
+    guard !(bookmarkedArticles.contains { $0.articleId == article.articleId }) else {
       return
     }
-    bookmarkedArticles.append(specificArticle)
+    bookmarkedArticles.append(article)
   }
   
-  func removeArticleToBookmarks(articleID: String) {
+  func removeArticleFromBookmarks(articleID: String) {
     guard let index = bookmarkedArticles.firstIndex(where: { article -> Bool in
       return article.articleId == articleID
     }) else {
@@ -121,19 +89,11 @@ class DataManager {
     //      return article.articleId == articleID
     //    }
   }
-  
-  func articleForID(_ id: String) -> Article? {
-    return articles?.first(where: { article in
-      article.articleId == id
-    })
-  }
-  
 }
 
 extension DataManager {
   struct Notification {
     struct Name {
-      static let articlesListUpdated = NSNotification.Name("articlesListUpdated")
       static let bookmarkedArticlesListUpdated = NSNotification.Name("bookmarkedArticlesListUpdated")
     }
   }
