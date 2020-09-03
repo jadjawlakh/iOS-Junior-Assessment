@@ -8,10 +8,51 @@
 
 import Foundation
 
-class TheGuardianAPI {
-  func getArticles(completionBlock: @escaping (_ articles: [Article]?) -> Void) {
+enum TheGuardianAPI {
+  case searchArticles(query: String, page: Int)
+  
+  var path: String {
+    switch self {
+    case .searchArticles:
+      return "/search"
+    }
+  }
+  
+  var url: URL? {
+    guard let baseURL = URL(string: TheGuardianAPI.BASE_URL),
+      var baseURLComponent = URLComponents(url: baseURL, resolvingAgainstBaseURL: true) else {
+      return nil
+    }
+    
+    baseURLComponent.path = self.path
+
+    switch self {
+    case .searchArticles(let query, let page):
+      baseURLComponent.queryItems = [
+        URLQueryItem(name: "q", value: query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)),
+        URLQueryItem(name: "page", value: "\(page)")
+      ]
+    }
+    
+    var queryItems = baseURLComponent.queryItems ?? []
+    queryItems.append(URLQueryItem(name: "api-key", value: TheGuardianAPI.API_KEY))
+    baseURLComponent.queryItems = queryItems
+    
+    return baseURLComponent.url
+  }
+}
+
+extension TheGuardianAPI {
+  private static let API_KEY = "a4493376-c0c3-475b-8651-f9c00beccab7"
+  private static let BASE_URL = "https://content.guardianapis.com"
+}
+
+extension TheGuardianAPI {
+  static func getArticles(query: String, page: Int, completionBlock: @escaping (_ articles: [Article]?) -> Void) {
+    let api = TheGuardianAPI.searchArticles(query: query, page: page)
+    
     // Create a URL object and make sure it exists
-    guard let url = URL(string: Constants.API_URL) else {
+    guard let url = api.url else {
       completionBlock(nil)
       return
     }
