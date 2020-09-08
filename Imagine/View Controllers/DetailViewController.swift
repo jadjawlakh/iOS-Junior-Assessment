@@ -47,6 +47,14 @@ class DetailViewController: UIViewController, DetailViewModelDelegate {
     refreshBookmarkButton()
   }
   
+  @IBAction func shareButtonPressed(_ sender: Any) {
+    let activityVC = UIActivityViewController(activityItems: ["https://theguardian.com/\(viewModel.articleId)"], applicationActivities: nil)
+      activityVC.popoverPresentationController?.sourceView = self.view
+      
+      self.present(activityVC, animated: true, completion: nil)
+  }
+  
+  
   // MARK: - HELPERS
   // ===============
   func refreshBookmarkButton() {

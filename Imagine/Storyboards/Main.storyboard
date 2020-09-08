@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Lt-ux-S6Q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Lt-ux-S6Q">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -226,7 +226,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dkD-Pj-ZQh"/>
                     </view>
-                    <navigationItem key="navigationItem" id="1Mm-to-Exf"/>
+                    <navigationItem key="navigationItem" id="1Mm-to-Exf">
+                        <barButtonItem key="rightBarButtonItem" title="Share" image="paperplane" catalog="system" id="PzI-ca-ehO">
+                            <connections>
+                                <action selector="shareButtonPressed:" destination="Clr-qr-8Y4" id="kjr-ZU-0RH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bookmarkButton" destination="FEs-G6-033" id="u5Y-h4-zuH"/>
                         <outlet property="dateLabel" destination="ue3-4U-vQE" id="5bk-yC-TbP"/>
@@ -301,6 +307,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="paperplane" catalog="system" width="128" height="121"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
     </resources>
 </document>

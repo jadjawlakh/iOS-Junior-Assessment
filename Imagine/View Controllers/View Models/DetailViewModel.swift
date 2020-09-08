@@ -23,6 +23,10 @@ class DetailViewModel {
     return article?.title ?? ""
   }
   
+  var articleId: String {
+    return article?.articleId ?? ""
+  }
+  
   var publicationDate: String {
     let df = DateFormatter()
     df.dateFormat = "EEEE, MMM d, yyyy"
