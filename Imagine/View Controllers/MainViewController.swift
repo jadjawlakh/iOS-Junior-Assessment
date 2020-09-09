@@ -14,6 +14,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
   
   var viewModel = MainViewModel()
   
+  var refreshControl: UIRefreshControl?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Upon tapping the 'return' button from the searchbar input field
@@ -31,7 +33,28 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
       selector: #selector(refreshDataList),
       name: DataManager.Notification.Name.bookmarkedArticlesListUpdated,
       object: nil)
+    addRefreshControl()
   }
+
+  // START: HANDLE REFRESH CONTROL
+  // =============================
+  
+  func addRefreshControl() {
+    refreshControl = UIRefreshControl()
+    refreshControl?.tintColor = UIColor.gray
+    refreshControl?.addTarget(self, action: #selector(refreshList), for: .valueChanged)
+    tableView.addSubview(refreshControl!)
+  }
+  
+  @objc func refreshList() {
+    viewModel.articles.removeAll()
+    viewModel.getArticles(query: searchBar.text ?? "", page: 1)
+    refreshControl?.endRefreshing()
+    tableView.reloadData()
+  }
+  
+  // END: HANDLE REFRESH CONTROL
+  // ===========================
   
   // START: HANDLE PAGINATION
   // ========================

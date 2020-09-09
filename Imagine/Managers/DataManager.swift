@@ -72,7 +72,7 @@ class DataManager {
     }
     bookmarkedArticles.append(article)
   }
-
+  
   func removeArticleFromBookmarks(articleID: String) {
     guard let index = bookmarkedArticles.firstIndex(where: { article -> Bool in
       return article.articleId == articleID
