@@ -48,6 +48,16 @@ class ArticleTableViewCell: UITableViewCell {
       return
     }
     
+    // Check cache before downloading data
+    if let cachedData = CacheManager.getThumbnailCache(self.article!.thumbnail) {
+      
+      // Set the thumbail imageView
+      self.thumbnailImageView.image = UIImage(data: cachedData)
+
+      return
+      
+    }
+    
     // Download the thumbnail data
     let url = URL(string: self.article!.thumbnail)
     
@@ -59,6 +69,9 @@ class ArticleTableViewCell: UITableViewCell {
       
       // if there's no error, and there's data
       if error == nil && data != nil {
+        
+        // Save the data in the cache
+        CacheManager.setThumbnailCache(url!.absoluteString, data)
         
         // Check that the downloaded url matches the video thumbnail url that this cell is currently  set to display
         if url!.absoluteString != self.article?.thumbnail {
