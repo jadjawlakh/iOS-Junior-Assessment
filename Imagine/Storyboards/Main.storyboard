@@ -113,7 +113,7 @@
             </objects>
             <point key="canvasLocation" x="5659.420289855073" y="-164.0625"/>
         </scene>
-        <!--Bookmarks-->
+        <!--🔖 Bookmarks-->
         <scene sceneID="Sa2-8x-I9l">
             <objects>
                 <tableViewController id="gL1-SM-cpZ" customClass="BookmarkViewController" customModule="Imagine" customModuleProvider="target" sceneMemberID="viewController">
@@ -175,7 +175,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Bookmarks" id="TXY-jh-WFn">
+                    <navigationItem key="navigationItem" title="🔖 Bookmarks" id="TXY-jh-WFn">
                         <barButtonItem key="backBarButtonItem" title="Home" id="lfy-d6-UPO"/>
                     </navigationItem>
                     <connections>
