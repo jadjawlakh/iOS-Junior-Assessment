@@ -16,7 +16,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="viz-7c-BQH">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="O6P-PO-TjN">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" alpha="0.89000000000000001" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="viz-7c-BQH">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" axis="vertical" id="qji-fC-6Qc">
@@ -88,9 +91,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="h1v-om-OCn" firstAttribute="trailing" secondItem="viz-7c-BQH" secondAttribute="trailing" id="Ai5-zN-x0W"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="O6P-PO-TjN" secondAttribute="bottom" id="DzW-vZ-VlQ"/>
                             <constraint firstItem="viz-7c-BQH" firstAttribute="top" secondItem="h1v-om-OCn" secondAttribute="top" id="VK4-of-iaa"/>
                             <constraint firstItem="viz-7c-BQH" firstAttribute="leading" secondItem="h1v-om-OCn" secondAttribute="leading" id="Wjg-8r-nRR"/>
+                            <constraint firstItem="O6P-PO-TjN" firstAttribute="top" secondItem="h1v-om-OCn" secondAttribute="top" id="Y5h-Bm-m18"/>
                             <constraint firstItem="h1v-om-OCn" firstAttribute="bottom" secondItem="viz-7c-BQH" secondAttribute="bottom" id="j7K-md-rbi"/>
+                            <constraint firstItem="O6P-PO-TjN" firstAttribute="leading" secondItem="h1v-om-OCn" secondAttribute="leading" id="t58-ZB-QjL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="O6P-PO-TjN" secondAttribute="trailing" constant="-20" id="try-dy-nzV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h1v-om-OCn"/>
                     </view>
@@ -306,6 +313,7 @@
         <segue reference="mBw-LX-nGI"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="Background" width="1333.3333740234375" height="2000"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="paperplane" catalog="system" width="128" height="121"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
