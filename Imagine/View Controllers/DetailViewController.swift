@@ -38,6 +38,14 @@ class DetailViewController: UIViewController, DetailViewModelDelegate {
       for: UIControl.Event.touchUpInside)
     
     refreshBookmarkButton()
+    
+    // Observe the notification
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(refreshDataList),
+      name: DataManager.Notification.Name.bookmarkedArticlesListUpdated,
+      object: nil)
+    
   }
   
   // MARK: - ACTIONS
@@ -54,11 +62,16 @@ class DetailViewController: UIViewController, DetailViewModelDelegate {
       self.present(activityVC, animated: true, completion: nil)
   }
   
-  
   // MARK: - HELPERS
   // ===============
   func refreshBookmarkButton() {
     bookmarkButton.isBookmarked = viewModel.isBookmarked
+  }
+  
+  // MARK: - Notification Handler
+  //=============================
+  @objc private func refreshDataList() {
+    viewModel.refreshData(button: bookmarkButton)
   }
 }
 

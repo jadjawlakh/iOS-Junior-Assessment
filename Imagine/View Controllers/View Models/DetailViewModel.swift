@@ -64,4 +64,13 @@ class DetailViewModel {
       DataManager.shared.addArticleToBookmarks(article)
     }
   }
+  
+  func refreshData(button: BookmarkButton) {
+    if isBookmarked {
+      button.setTitle("Remove From Bookmarks", for: .normal)
+    } else {
+      button.setTitle("Add To Bookmarks", for: .normal)
+    }
+  }
+  
 }
