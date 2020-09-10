@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--The Guardian News -->
+        <!--🏡 The Guardian News -->
         <scene sceneID="0yD-OJ-KMi">
             <objects>
                 <viewController id="par-6K-pIs" customClass="MainViewController" customModule="Imagine" customModuleProvider="target" sceneMemberID="viewController">
@@ -101,7 +101,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h1v-om-OCn"/>
                     </view>
-                    <navigationItem key="navigationItem" title="The Guardian News " id="f6e-iC-ZcW">
+                    <navigationItem key="navigationItem" title="🏡 The Guardian News " id="f6e-iC-ZcW">
                         <barButtonItem key="backBarButtonItem" title="Home" id="uiY-OO-jMO"/>
                     </navigationItem>
                     <connections>
@@ -310,7 +310,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mBw-LX-nGI"/>
+        <segue reference="aSz-Jl-PT9"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Background" width="1333.3333740234375" height="2000"/>
