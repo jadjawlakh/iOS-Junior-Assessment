@@ -30,7 +30,8 @@ enum TheGuardianAPI {
     case .searchArticles(let query, let page):
       baseURLComponent.queryItems = [
         URLQueryItem(name: "q", value: query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)),
-        URLQueryItem(name: "page", value: "\(page)")
+        URLQueryItem(name: "page", value: "\(page)"),
+        URLQueryItem(name: "show-fields", value: "thumbnail")
       ]
     }
     

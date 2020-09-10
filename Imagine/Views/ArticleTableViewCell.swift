@@ -13,6 +13,8 @@ class ArticleTableViewCell: UITableViewCell {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var sectionLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
+  @IBOutlet weak var thumbnailImageView: UIImageView!
+  
   var article: Article?
   
   override func awakeFromNib() {
@@ -39,6 +41,44 @@ class ArticleTableViewCell: UITableViewCell {
     let df = DateFormatter()
     df.dateFormat = "EEEE, MMM d, yyyy"
     self.dateLabel.text = "📆 \(df.string(from: article!.published))"
+    
+    // Set the thumbnail
+    // Ensure that we have a thumbnail
+    guard self.article?.thumbnail != "" else {
+      return
+    }
+    
+    // Download the thumbnail data
+    let url = URL(string: self.article!.thumbnail)
+    
+    // Get the shared URL Session object
+    let session = URLSession.shared
+    
+    // Create a data task
+    let dataTask = session.dataTask(with: url!) { (data, response, error) in
+      
+      // if there's no error, and there's data
+      if error == nil && data != nil {
+        
+        // Check that the downloaded url matches the video thumbnail url that this cell is currently  set to display
+        if url!.absoluteString != self.article?.thumbnail {
+          // Article cell has been recycled for another article and no longer matches the thumbnail that was downloaded
+          return
+        }
+        
+        // Create the image object
+        let image = UIImage(data: data!)
+        
+        // Set the imageView
+        DispatchQueue.main.async {
+          self.thumbnailImageView.image = image
+        }
+        
+      }
+      
+    }
+    // Start data task
+    dataTask.resume()
   }
   
 }
