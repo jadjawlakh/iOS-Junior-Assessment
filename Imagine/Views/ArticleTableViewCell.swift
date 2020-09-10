@@ -29,14 +29,18 @@ class ArticleTableViewCell: UITableViewCell {
   
   func setCell(_ a: Article) {
     self.article = a
+    
     // Ensure that we have an article
     guard self.article != nil else  {
       return
     }
+    
     // Set the title
     self.titleLabel.text = "📰 \(article?.title ?? "")"
+    
     // Set the section
     self.sectionLabel.text = "🧭 \(article?.sectionName ?? "")"
+    
     // Set the date
     let df = DateFormatter()
     df.dateFormat = "EEEE, MMM d, yyyy"
@@ -53,7 +57,7 @@ class ArticleTableViewCell: UITableViewCell {
       
       // Set the thumbail imageView
       self.thumbnailImageView.image = UIImage(data: cachedData)
-
+      
       return
       
     }
@@ -90,6 +94,7 @@ class ArticleTableViewCell: UITableViewCell {
       }
       
     }
+    
     // Start data task
     dataTask.resume()
   }
