@@ -37,7 +37,7 @@ class BookmarkViewModel {
   }
   
   // MARK: - Conform to Protocol
-  
+  // ===========================
   func bookmarkedArticlesFetched(_ articles: [Article]) {
     self.bookmarkedArticles = articles
     delegate?.didFetchBookmarkedArticles()

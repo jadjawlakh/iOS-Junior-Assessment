@@ -53,7 +53,7 @@ class MainViewModel {
   }
 
   // MARK: - Conform to protocol ArticleModelDelegate
-  
+  // ================================================
   func articlesFetched(_ articles: [Article]) {
     // Set the returned articles to our article property
     self.articles = articles
