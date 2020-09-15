@@ -29,10 +29,9 @@ struct Article: Codable {
     case thumbnail = "thumbnail"
   }
 
-  
   init (from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
-      
+    
     // Parse Title
     self.title = try container.decode(String.self, forKey: .title)
     // Parse Section Name
@@ -49,13 +48,18 @@ struct Article: Codable {
   
   func encode(to encoder: Encoder) throws {
     var container = encoder.container(keyedBy: CodingKeys.self)
+    
+    // Encode Title
     try container.encode(title, forKey: .title)
+    // Encode Section Name
     try container.encode(sectionName, forKey: .sectionName)
+    // Encode the Publish Data
     try container.encode(published, forKey: .published)
+    // Encode Article ID
     try container.encode(articleId, forKey: .articleId)
     
+    // Encode thumbnail
     var fieldsContainer =  container.nestedContainer(keyedBy: FieldCodingKey.self, forKey: .fields)
-    
     try fieldsContainer.encode(self.thumbnail, forKey: .thumbnail)
   }
   
@@ -64,4 +68,3 @@ struct Article: Codable {
   }
   
 }
-

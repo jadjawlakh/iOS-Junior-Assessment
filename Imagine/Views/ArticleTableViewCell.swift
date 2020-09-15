@@ -26,6 +26,7 @@ class ArticleTableViewCell: UITableViewCell {
   }
   
   func setCell(_ article: Article) {
+    
     // Set the title
     self.titleLabel.text = "📰 \(article.title)"
     
@@ -73,16 +74,6 @@ class ArticleTableViewCell: UITableViewCell {
         
         // Create the image object
         let image = UIImage(data: data)
-        
-        // TODO: - Double check
-        // Encode
-        //        let imageData: NSData = image?.jpegData(compressionQuality: 1) as! NSData
-        //
-        //        // Save the image
-        //        UserDefaults.standard.set(imageData, forKey: "SavedImage")
-        //
-        //        // Decode
-        //        let data = UserDefaults.standard.object(forKey: "SavedImage") as! NSData
         
         // Set the imageView
         DispatchQueue.main.async {

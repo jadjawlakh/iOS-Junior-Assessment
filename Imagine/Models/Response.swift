@@ -21,7 +21,6 @@ struct Response: Decodable {
     let responseContainer = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .response)
     
     self.results = try responseContainer.decode([Article].self, forKey: .results)
-    
   }
   
 }
