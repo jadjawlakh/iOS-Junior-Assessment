@@ -15,8 +15,6 @@ class ArticleTableViewCell: UITableViewCell {
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var thumbnailImageView: UIImageView!
   
-  var article: Article?
-  
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
@@ -27,76 +25,74 @@ class ArticleTableViewCell: UITableViewCell {
     // Configure the view for the selected state
   }
   
-  func setCell(_ a: Article) {
-    self.article = a
-    
-    // Ensure that we have an article
-    guard self.article != nil else  {
-      return
-    }
-    
+  func setCell(_ article: Article) {
     // Set the title
-    self.titleLabel.text = "📰 \(article?.title ?? "")"
+    self.titleLabel.text = "📰 \(article.title)"
     
     // Set the section
-    self.sectionLabel.text = "🧭 \(article?.sectionName ?? "")"
+    self.sectionLabel.text = "🧭 \(article.sectionName)"
     
     // Set the date
     let df = DateFormatter()
     df.dateFormat = "EEEE, MMM d, yyyy"
-    self.dateLabel.text = "📆 \(df.string(from: article!.published))"
+    self.dateLabel.text = "📆 \(df.string(from: article.published))"
     
     // Set the thumbnail
     // Ensure that we have a thumbnail
-    guard self.article?.thumbnail != "" else {
+    guard article.thumbnail != "" else {
       return
     }
     
     // Check cache before downloading data
-    if let cachedData = CacheManager.getThumbnailCache(self.article!.thumbnail) {
-      
+    if let cachedData = CacheManager.getThumbnailCache(article.thumbnail) {
       // Set the thumbail imageView
       self.thumbnailImageView.image = UIImage(data: cachedData)
-      
       return
+    } else if let url = URL(string: article.thumbnail) {
+      // Download the thumbnail data
+      //============================
       
-    }
-    
-    // Download the thumbnail data
-    let url = URL(string: self.article!.thumbnail)
-    
-    // Get the shared URL Session object
-    let session = URLSession.shared
-    
-    // Create a data task
-    let dataTask = session.dataTask(with: url!) { (data, response, error) in
+      // Get the shared URL Session object
+      let session = URLSession.shared
       
-      // if there's no error, and there's data
-      if error == nil && data != nil {
+      // Create a data task
+      let dataTask = session.dataTask(with: url) { (data, response, error) in
+        // if there's no error, and there's data
+        guard error == nil, let data = data else {
+          return
+        }
         
         // Save the data in the cache
-        CacheManager.setThumbnailCache(url!.absoluteString, data)
+        CacheManager.setThumbnailCache(url.absoluteString, data)
         
         // Check that the downloaded url matches the video thumbnail url that this cell is currently  set to display
-        if url!.absoluteString != self.article?.thumbnail {
+        if url.absoluteString != article.thumbnail {
           // Article cell has been recycled for another article and no longer matches the thumbnail that was downloaded
           return
         }
         
         // Create the image object
-        let image = UIImage(data: data!)
+        let image = UIImage(data: data)
+        
+        // TODO: - Double check
+        // Encode
+        //        let imageData: NSData = image?.jpegData(compressionQuality: 1) as! NSData
+        //
+        //        // Save the image
+        //        UserDefaults.standard.set(imageData, forKey: "SavedImage")
+        //
+        //        // Decode
+        //        let data = UserDefaults.standard.object(forKey: "SavedImage") as! NSData
         
         // Set the imageView
         DispatchQueue.main.async {
           self.thumbnailImageView.image = image
         }
-        
       }
       
+      // Start data task
+      dataTask.resume()
     }
-    
-    // Start data task
-    dataTask.resume()
   }
   
 }

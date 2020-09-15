@@ -39,6 +39,8 @@ class DataManager {
       return
     }
     defaults.set(encoded, forKey: "SavedArticle")
+    
+    readBookmarkedArticles()
   }
   
   private func readBookmarkedArticles() -> [Article]? {
