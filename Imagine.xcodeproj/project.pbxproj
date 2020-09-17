@@ -22,6 +22,7 @@
 		057533DD24E52DFD00C8473C /* TheGuardianAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057533DC24E52DFD00C8473C /* TheGuardianAPI.swift */; };
 		057533E124E53C4600C8473C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057533E024E53C4600C8473C /* Response.swift */; };
 		058EB47924E54A1D00438A6D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058EB47824E54A1D00438A6D /* MainViewController.swift */; };
+		05FC8DD325137C43004AAB13 /* BookmarkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FC8DD225137C43004AAB13 /* BookmarkCollectionViewCell.swift */; };
 		59A9288C2333E32900774014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A9288B2333E32900774014 /* AppDelegate.swift */; };
 		59A928A42333E85900774014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59A9289E2333E85900774014 /* LaunchScreen.storyboard */; };
 		59A928A52333E85900774014 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59A9289F2333E85900774014 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		057533DC24E52DFD00C8473C /* TheGuardianAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheGuardianAPI.swift; sourceTree = "<group>"; };
 		057533E024E53C4600C8473C /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		058EB47824E54A1D00438A6D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		05FC8DD225137C43004AAB13 /* BookmarkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCollectionViewCell.swift; sourceTree = "<group>"; };
 		59A928882333E32900774014 /* Imagine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Imagine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59A9288B2333E32900774014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59A928972333E32A00774014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				050BF3EF24E551F300334E22 /* ArticleTableViewCell.swift */,
+				05FC8DD225137C43004AAB13 /* BookmarkCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05FC8DD325137C43004AAB13 /* BookmarkCollectionViewCell.swift in Sources */,
 				058EB47924E54A1D00438A6D /* MainViewController.swift in Sources */,
 				052660E5250A26DF0097FAED /* CacheManager.swift in Sources */,
 				59A9288C2333E32900774014 /* AppDelegate.swift in Sources */,

@@ -44,8 +44,7 @@ class DetailViewController: UIViewController, DetailViewModelDelegate {
       self,
       selector: #selector(refreshDataList),
       name: DataManager.Notification.Name.bookmarkedArticlesListUpdated,
-      object: nil)
-    
+      object: nil)    
   }
   
   // MARK: - ACTIONS
