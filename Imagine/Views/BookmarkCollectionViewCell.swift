@@ -9,8 +9,6 @@
 import UIKit
 
 class BookmarkCollectionViewCell: UICollectionViewCell, UICollectionViewDelegateFlowLayout {
-    
-  
   @IBOutlet weak var thumbnailImageView: UIImageView!
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var sectionLabel: UILabel!
@@ -18,7 +16,6 @@ class BookmarkCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate
   
   
   func setCell(_ article: Article) {
-    
     // Set the title
     self.titleLabel.text = "📰 \(article.title)"
     

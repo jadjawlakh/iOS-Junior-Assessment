@@ -32,7 +32,7 @@ class BookmarkViewModel {
     return count
   }
   
-  func articleForRow(_ index: Int) -> Article? {
+  func articleForIndex(_ index: Int) -> Article? {
     return bookmarkedArticles[index]
   }
   
