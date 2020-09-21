@@ -80,7 +80,12 @@ extension BookmarkViewController: UICollectionViewDataSource {
 extension BookmarkViewController: UICollectionViewDelegateFlowLayout {
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: 425, height: 500)
+    let padding: CGFloat = 10
+    let collectionViewSize = collectionView.frame.size.width - padding
+    
+    return CGSize(width: collectionViewSize/2, height: 365)
+
+//    return CGSize(width: 425, height: 500)
   }
 }
 

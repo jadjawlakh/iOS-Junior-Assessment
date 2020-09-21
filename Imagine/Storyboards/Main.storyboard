@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Lt-ux-S6Q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Lt-ux-S6Q">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,7 +23,7 @@
                             </imageView>
                             <tableView clipsSubviews="YES" alpha="0.93000000000000005" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="viz-7c-BQH">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" axis="vertical" id="qji-fC-6Qc">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -100,7 +101,8 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="h1v-om-OCn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="h1v-om-OCn" firstAttribute="trailing" secondItem="viz-7c-BQH" secondAttribute="trailing" id="Ai5-zN-x0W"/>
                             <constraint firstAttribute="bottomMargin" secondItem="O6P-PO-TjN" secondAttribute="bottom" id="DzW-vZ-VlQ"/>
@@ -111,7 +113,6 @@
                             <constraint firstItem="O6P-PO-TjN" firstAttribute="leading" secondItem="h1v-om-OCn" secondAttribute="leading" id="t58-ZB-QjL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="O6P-PO-TjN" secondAttribute="trailing" constant="-20" id="try-dy-nzV"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="h1v-om-OCn"/>
                     </view>
                     <navigationItem key="navigationItem" title="🏡 The Guardian News " id="f6e-iC-ZcW">
                         <barButtonItem key="backBarButtonItem" title="Home" id="uiY-OO-jMO"/>
@@ -135,7 +136,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TrV-qm-IYy">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xDy-jk-qLg">
                                     <size key="itemSize" width="411" height="356"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -205,6 +206,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="iba-bP-xVu"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="TrV-qm-IYy" firstAttribute="bottom" secondItem="iba-bP-xVu" secondAttribute="bottom" id="avU-zW-x8E"/>
@@ -212,7 +214,6 @@
                             <constraint firstItem="iba-bP-xVu" firstAttribute="trailing" secondItem="TrV-qm-IYy" secondAttribute="trailing" id="k3C-nY-H3C"/>
                             <constraint firstItem="TrV-qm-IYy" firstAttribute="leading" secondItem="iba-bP-xVu" secondAttribute="leading" id="lh8-zy-1ye"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="iba-bP-xVu"/>
                     </view>
                     <navigationItem key="navigationItem" title="🏷 Bookmarks" id="yFd-nh-zIu">
                         <barButtonItem key="backBarButtonItem" title="Bookmarks" id="BK4-rL-LbH"/>
@@ -248,7 +249,7 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEs-G6-033" customClass="BookmarkButton" customModule="Imagine" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEs-G6-033" customClass="BookmarkButton" customModule="Imagine" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="61" width="374" height="30"/>
                                         <state key="normal" title="Add to bookmarks"/>
                                     </button>
@@ -263,14 +264,14 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="dkD-Pj-ZQh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="F1K-Vr-WLs" firstAttribute="leading" secondItem="dkD-Pj-ZQh" secondAttribute="leading" constant="20" id="8Oj-BC-H4j"/>
                             <constraint firstItem="dkD-Pj-ZQh" firstAttribute="trailing" secondItem="F1K-Vr-WLs" secondAttribute="trailing" constant="20" id="DnP-EO-TnL"/>
                             <constraint firstItem="F1K-Vr-WLs" firstAttribute="top" secondItem="dkD-Pj-ZQh" secondAttribute="top" constant="50" id="Ztj-5T-MPb"/>
                             <constraint firstItem="dkD-Pj-ZQh" firstAttribute="bottom" secondItem="F1K-Vr-WLs" secondAttribute="bottom" constant="50" id="kfO-Cm-qB7"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="dkD-Pj-ZQh"/>
                     </view>
                     <navigationItem key="navigationItem" id="1Mm-to-Exf">
                         <barButtonItem key="rightBarButtonItem" title="Share" image="paperplane" catalog="system" id="PzI-ca-ehO">
@@ -351,7 +352,10 @@
     <resources>
         <image name="Background" width="1333.3333740234375" height="2000"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="paperplane" catalog="system" width="128" height="121"/>
+        <image name="paperplane" catalog="system" width="128" height="118"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
