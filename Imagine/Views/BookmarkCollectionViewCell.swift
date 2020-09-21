@@ -23,9 +23,9 @@ class BookmarkCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate
     self.sectionLabel.text = "🧭 \(article.sectionName)"
     
     // Set the date
-    let df = DateFormatter()
-    df.dateFormat = "EEEE, MMM d, yyyy"
-    self.dateLabel.text = "📆 \(df.string(from: article.published))"
+//    let df = DateFormatter()
+//    df.dateFormat = "EEEE, MMM d, yyyy"
+//    self.dateLabel.text = "📆 \(df.string(from: article.published))"
     
     // Set the thumbnail
     // Ensure that we have a thumbnail

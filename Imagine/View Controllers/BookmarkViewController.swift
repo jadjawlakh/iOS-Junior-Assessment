@@ -85,7 +85,6 @@ extension BookmarkViewController: UICollectionViewDelegateFlowLayout {
     
     return CGSize(width: collectionViewSize/2, height: 365)
 
-//    return CGSize(width: 425, height: 500)
   }
 }
 
