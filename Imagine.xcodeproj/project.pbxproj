@@ -76,6 +76,7 @@
 		057533DC24E52DFD00C8473C /* TheGuardianAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheGuardianAPI.swift; sourceTree = "<group>"; };
 		057533E024E53C4600C8473C /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		058EB47824E54A1D00438A6D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		05F600142552ABF500951C34 /* NotificationContentExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationContentExtension.entitlements; sourceTree = "<group>"; };
 		05F6FFF225529E0D00951C34 /* NotificationContentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationContentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		05F6FFF325529E0D00951C34 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		05F6FFF525529E0D00951C34 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
@@ -194,6 +195,7 @@
 		05F6FFF725529E0D00951C34 /* NotificationContentExtension */ = {
 			isa = PBXGroup;
 			children = (
+				05F600142552ABF500951C34 /* NotificationContentExtension.entitlements */,
 				05F6FFF825529E0D00951C34 /* NotificationViewController.swift */,
 				05F6FFFA25529E0D00951C34 /* MainInterface.storyboard */,
 				05F6FFFD25529E0D00951C34 /* Info.plist */,
@@ -486,7 +488,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D2906F0B4D3E884178A34FE3 /* Pods-Imagine-NotificationContentExtension.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NotificationContentExtension/NotificationContentExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6AXKN8XCAW;
 				INFOPLIST_FILE = NotificationContentExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -506,7 +510,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14E0C32FF4E6C3EC0300B9B2 /* Pods-Imagine-NotificationContentExtension.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NotificationContentExtension/NotificationContentExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6AXKN8XCAW;
 				INFOPLIST_FILE = NotificationContentExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
