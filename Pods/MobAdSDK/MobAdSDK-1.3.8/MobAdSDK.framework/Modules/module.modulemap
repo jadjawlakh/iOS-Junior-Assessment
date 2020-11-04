@@ -1,0 +1,11 @@
+framework module MobAdSDK {
+  umbrella header "MobAdSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module MobAdSDK.Swift {
+    header "MobAdSDK-Swift.h"
+    requires objc
+}
