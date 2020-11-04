@@ -9,8 +9,9 @@
 import UIKit
 import UserNotifications
 import UserNotificationsUI
+import MobAdSDK
 
-class NotificationViewController: UIViewController, UNNotificationContentExtension {
+class NotificationViewController: MobAdNotificationViewController {
 
     @IBOutlet var label: UILabel?
     
@@ -19,7 +20,7 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
         // Do any required interface initialization here.
     }
     
-    func didReceive(_ notification: UNNotification) {
+  override func didReceive(_ notification: UNNotification) {
         self.label?.text = notification.request.content.body
     }
 
