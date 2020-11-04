@@ -77,6 +77,7 @@
 		057533E024E53C4600C8473C /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		058EB47824E54A1D00438A6D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		05F600142552ABF500951C34 /* NotificationContentExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationContentExtension.entitlements; sourceTree = "<group>"; };
+		05F6001D2552B0B200951C34 /* Imagine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Imagine.entitlements; sourceTree = "<group>"; };
 		05F6FFF225529E0D00951C34 /* NotificationContentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationContentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		05F6FFF325529E0D00951C34 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		05F6FFF525529E0D00951C34 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
@@ -237,6 +238,7 @@
 		59A9288A2333E32900774014 /* Imagine */ = {
 			isa = PBXGroup;
 			children = (
+				05F6001D2552B0B200951C34 /* Imagine.entitlements */,
 				0542E7D624EE768F0087FF8C /* Managers */,
 				050BF3F224E5526500334E22 /* Helpers */,
 				057533D324E5240500C8473C /* View Controllers */,
@@ -652,6 +654,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Imagine/Imagine.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Imagine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -671,6 +674,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Imagine/Imagine.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Imagine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
