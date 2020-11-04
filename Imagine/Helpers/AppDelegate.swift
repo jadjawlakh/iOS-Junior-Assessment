@@ -29,6 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let twoHoursInSeconds: TimeInterval = 60*60*2
     application.setMinimumBackgroundFetchInterval(twoHoursInSeconds)
     
+    // Register for Push Notifications
+    registerForPushNotificationsIfAvailable()
+    
     return true
   }
   
@@ -82,3 +85,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
   
 }
 
+private func registerForPushNotificationsIfAvailable() {
+  UNUserNotificationCenter.current().getNotificationSettings { settings in
+    guard settings.authorizationStatus == .authorized else { return }
+    DispatchQueue.main.async {
+      UIApplication.shared.registerForRemoteNotifications()
+    }
+  }
+}
