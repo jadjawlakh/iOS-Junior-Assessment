@@ -6,6 +6,7 @@
 //  Copyright © 2019 Imagine Works. All rights reserved.
 //
 
+import MobAdSDK
 import UIKit
 
 @UIApplicationMain
@@ -16,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+    
+    MobAdSDK.shared.initializeWith(
+      identifier: "m0b@ds@mpl3@pp1d",
+      group: "group.com.imagineworks.mobad.clientapp")
+    
     return true
   }
 
