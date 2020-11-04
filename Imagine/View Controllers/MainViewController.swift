@@ -12,6 +12,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var searchBar: UITextField!
   
+  @IBAction func unwindHome(_ segue: UIStoryboardSegue) {
+    // this is intentionally blank
+  }
+  
   var viewModel = MainViewModel()
   
   var refreshControl: UIRefreshControl?

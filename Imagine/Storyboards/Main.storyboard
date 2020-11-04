@@ -170,9 +170,16 @@
                             <constraint firstItem="04T-Le-Icg" firstAttribute="leading" secondItem="jpZ-6D-Q4p" secondAttribute="leading" constant="30" id="pFd-b9-wdy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="⚙️ Settings" id="6PL-WG-5G8"/>
+                    <navigationItem key="navigationItem" title="⚙️ Settings" id="6PL-WG-5G8">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="dqP-1Y-KjI">
+                            <connections>
+                                <segue destination="BFK-v2-PvF" kind="unwind" unwindAction="unwindHome:" id="Ouw-KT-OOG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQt-3P-1yY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="BFK-v2-PvF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="6568.115942028986" y="539.73214285714278"/>
         </scene>
