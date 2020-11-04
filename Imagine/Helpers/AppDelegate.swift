@@ -49,5 +49,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
 
+// MARK: - Notification Center Delegate
+// ====================================
+extension AppDelegate: UNUserNotificationCenterDelegate {
+  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    defer {
+      completionHandler()
+    }
+    
+    guard !MobAdSDK.shared.handle(response) else {
+      return
+    }
+    // Propagate the notification handling
+  }
+  
 }
 
