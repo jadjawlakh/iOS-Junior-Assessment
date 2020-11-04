@@ -368,6 +368,24 @@
             </objects>
             <point key="canvasLocation" x="4747.826086956522" y="516.96428571428567"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="m2r-jT-z9R">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MCQ-gk-7f1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cvH-9O-qt5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ydz-YB-Dwh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MBO-fE-zh4" kind="relationship" relationship="rootViewController" id="eNV-vg-JSg"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="5657.971014492754" y="539.73214285714278"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Background" width="1333.3333740234375" height="2000"/>
