@@ -25,9 +25,11 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>UNNotificationExtensionCategory</key>
-			<string>myNotificationCategory</string>
-			<key>UNNotificationExtensionInitialContentSizeRatio</key>
-			<real>1</real>
+      <string>MobAdSDKNotificationCategoryGeneric</string>
+      <key>UNNotificationExtensionDefaultContentHidden</key>
+      <true/>
+      <key>UNNotificationExtensionInitialContentSizeRatio</key>
+			<real>0.1</real>
 		</dict>
 		<key>NSExtensionMainStoryboard</key>
 		<string>MainInterface</string>
