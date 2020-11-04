@@ -156,6 +156,9 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="chevron.right" catalog="system"/>
+                                                <connections>
+                                                    <segue destination="bvM-uC-Eyp" kind="show" id="6Nc-wL-Wcd"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -182,6 +185,22 @@
                 <exit id="BFK-v2-PvF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="6568.115942028986" y="539.73214285714278"/>
+        </scene>
+        <!--Ad Settings View Controller-->
+        <scene sceneID="afw-yw-e81">
+            <objects>
+                <viewController id="bvM-uC-Eyp" customClass="AdSettingsViewController" customModule="Imagine" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uK6-QT-6gz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="KUM-Q0-UHN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wws-CG-0EJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pCu-YV-dzj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6568" y="1213"/>
         </scene>
         <!--🏷 Bookmarks-->
         <scene sceneID="54R-Ub-Dja">
