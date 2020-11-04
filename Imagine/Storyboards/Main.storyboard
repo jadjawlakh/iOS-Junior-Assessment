@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -116,6 +116,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="🏡 The Guardian News " id="f6e-iC-ZcW">
                         <barButtonItem key="backBarButtonItem" title="Home" id="uiY-OO-jMO"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="gear" catalog="system" id="Kkm-ib-oFR"/>
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="Z9L-BD-e7T" id="mfe-IE-8h0"/>
@@ -155,10 +156,10 @@
                                                     <rect key="frame" x="28" y="8" width="355" height="320"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="350" verticalCompressionResistancePriority="350" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="suA-E1-2fH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="351" height="157"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="351" height="163"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quR-Bm-aRl">
-                                                            <rect key="frame" x="0.0" y="172" width="355" height="70"/>
+                                                            <rect key="frame" x="0.0" y="178" width="355" height="67.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="65" id="z60-mb-huZ"/>
                                                             </constraints>
@@ -167,13 +168,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUz-lO-A4O">
-                                                            <rect key="frame" x="0.0" y="257" width="355" height="22.5"/>
+                                                            <rect key="frame" x="0.0" y="260.5" width="355" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfK-Je-oZc">
-                                                            <rect key="frame" x="0.0" y="294.5" width="355" height="25.5"/>
+                                                            <rect key="frame" x="0.0" y="297" width="355" height="23"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -351,6 +352,7 @@
     </scenes>
     <resources>
         <image name="Background" width="1333.3333740234375" height="2000"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="paperplane" catalog="system" width="128" height="118"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
