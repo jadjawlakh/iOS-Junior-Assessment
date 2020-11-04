@@ -116,7 +116,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="🏡 The Guardian News " id="f6e-iC-ZcW">
                         <barButtonItem key="backBarButtonItem" title="Home" id="uiY-OO-jMO"/>
-                        <barButtonItem key="rightBarButtonItem" title="Settings" image="gear" catalog="system" id="Kkm-ib-oFR"/>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" image="gear" catalog="system" id="Kkm-ib-oFR">
+                            <connections>
+                                <segue destination="MBO-fE-zh4" kind="presentation" id="aLr-sh-M1z"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="Z9L-BD-e7T" id="mfe-IE-8h0"/>
@@ -132,7 +136,7 @@
             <objects>
                 <viewController id="MBO-fE-zh4" customClass="SettingsViewController" customModule="Imagine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ja2-4j-mAC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="jpZ-6D-Q4p"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
