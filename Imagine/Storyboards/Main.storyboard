@@ -118,7 +118,7 @@
                         <barButtonItem key="backBarButtonItem" title="Home" id="uiY-OO-jMO"/>
                         <barButtonItem key="rightBarButtonItem" title="Settings" image="gear" catalog="system" id="Kkm-ib-oFR">
                             <connections>
-                                <segue destination="MBO-fE-zh4" kind="presentation" id="aLr-sh-M1z"/>
+                                <segue destination="cvH-9O-qt5" kind="presentation" id="aLr-sh-M1z"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -131,20 +131,50 @@
             </objects>
             <point key="canvasLocation" x="5659.420289855073" y="-164.0625"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--⚙️ Settings-->
         <scene sceneID="kJU-66-nxn">
             <objects>
                 <viewController id="MBO-fE-zh4" customClass="SettingsViewController" customModule="Imagine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ja2-4j-mAC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="04T-Le-Icg" userLabel="Settings Stack View">
+                                <rect key="frame" x="30" y="86" width="354" height="36"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nen-q4-fBx" userLabel="Ad Settings Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="36"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ad Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEb-62-Ney">
+                                                <rect key="frame" x="0.0" y="0.0" width="101" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R98-YF-oD9">
+                                                <rect key="frame" x="101" y="0.0" width="253" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="chevron.right" catalog="system"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="jpZ-6D-Q4p"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="04T-Le-Icg" firstAttribute="top" secondItem="jpZ-6D-Q4p" secondAttribute="top" constant="30" id="6vP-Sy-Nq5"/>
+                            <constraint firstItem="jpZ-6D-Q4p" firstAttribute="trailing" secondItem="04T-Le-Icg" secondAttribute="trailing" constant="30" id="mG7-sh-Jqq"/>
+                            <constraint firstItem="04T-Le-Icg" firstAttribute="leading" secondItem="jpZ-6D-Q4p" secondAttribute="leading" constant="30" id="pFd-b9-wdy"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="⚙️ Settings" id="6PL-WG-5G8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQt-3P-1yY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5659" y="502"/>
+            <point key="canvasLocation" x="6568.115942028986" y="539.73214285714278"/>
         </scene>
         <!--🏷 Bookmarks-->
         <scene sceneID="54R-Ub-Dja">
@@ -244,7 +274,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QI4-ps-KfK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6489.8550724637689" y="540.40178571428567"/>
+            <point key="canvasLocation" x="7400.0000000000009" y="540.40178571428567"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="ffr-Wt-7qO">
@@ -389,6 +419,7 @@
     </scenes>
     <resources>
         <image name="Background" width="1333.3333740234375" height="2000"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="paperplane" catalog="system" width="128" height="118"/>
