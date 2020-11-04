@@ -67,6 +67,65 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
   
+  // MARK: - Push Notifications
+  // ==========================
+  // Registration to APNs
+  // --------------------------
+  func application(_ application: UIApplication,
+                   didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+    let token = tokenParts.joined()
+    
+    MobAdSDK.shared.registerRemoteNotifications(token: token, completion: nil)
+  }
+
+  private func registerForPushNotificationsIfAvailable() {
+    UNUserNotificationCenter.current().getNotificationSettings { settings in
+      guard settings.authorizationStatus == .authorized else { return }
+      DispatchQueue.main.async {
+        UIApplication.shared.registerForRemoteNotifications()
+      }
+    }
+  }
+  
+  private var adBackgrounFetchResult: UIBackgroundFetchResult?
+  func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    let isHandledByMobAdSDK = MobAdSDK.shared.handleRemoteNotification(userInfo) { result in
+      completionHandler(result ?? .failed)
+    }
+    
+    if isHandledByMobAdSDK {
+      scheduleNotificationForSilentPush()
+    } else {
+      // Proceed
+    }
+  }
+  
+}
+
+extension AppDelegate {
+  func scheduleNotification(identifier: String, content: UNNotificationContent) {
+    // find out what are the user's notification preferences
+    UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+      // we're only going to create and schedule a notification
+      // if the user has kept notifications authorized for this app
+      guard settings.authorizationStatus == .authorized else {
+        return
+      }
+      let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2, repeats: false)
+      let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+      UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+  }
+
+  func scheduleNotificationForSilentPush() {
+    let content = UNMutableNotificationContent()
+    content.title = "😶 Silent 🔇 Push 🔕"
+    content.body = "🏋🏻🏋️🏋🏼🏋🏽🏋🏾🏋🏿"
+    content.subtitle = "True Story 😊"
+    content.sound = UNNotificationSound.default
+    scheduleNotification(identifier: "s1l3nt", content: content)
+  }
 }
 
 // MARK: - Notification Center Delegate
@@ -84,23 +143,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
   }
 }
 
-// MARK: - Push Notifications
-// ==========================
-// Registration to APNs
-// --------------------------
-func application(_ application: UIApplication,
-                 didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-  let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
-  let token = tokenParts.joined()
-  
-  MobAdSDK.shared.registerRemoteNotifications(token: token, completion: nil)
-}
 
-private func registerForPushNotificationsIfAvailable() {
-  UNUserNotificationCenter.current().getNotificationSettings { settings in
-    guard settings.authorizationStatus == .authorized else { return }
-    DispatchQueue.main.async {
-      UIApplication.shared.registerForRemoteNotifications()
-    }
-  }
-}
+
+
+
+
