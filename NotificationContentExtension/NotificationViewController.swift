@@ -12,16 +12,16 @@ import UserNotificationsUI
 import MobAdSDK
 
 class NotificationViewController: MobAdNotificationViewController {
-
-    @IBOutlet var label: UILabel?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any required interface initialization here.
-    }
-    
+  
+  @IBOutlet var label: UILabel?
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    // Do any required interface initialization here.
+  }
+  
   override func didReceive(_ notification: UNNotification) {
-        self.label?.text = notification.request.content.body
-    }
-
+    self.label?.text = notification.request.content.body
+  }
+  
 }
