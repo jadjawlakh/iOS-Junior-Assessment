@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     MobAdSDK.shared.registerRemoteNotifications(token: token, completion: nil)
   }
-
+  
   private func registerForPushNotificationsIfAvailable() {
     UNUserNotificationCenter.current().getNotificationSettings { settings in
       guard settings.authorizationStatus == .authorized else { return }
@@ -92,7 +92,7 @@ extension AppDelegate {
       UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
   }
-
+  
   func scheduleNotificationForSilentPush() {
     let content = UNMutableNotificationContent()
     content.title = "😶 Silent 🔇 Push 🔕"
@@ -117,9 +117,3 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     // Propagate the notification handling
   }
 }
-
-
-
-
-
-
