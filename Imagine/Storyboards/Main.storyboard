@@ -116,7 +116,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="🏡 The Guardian News " id="f6e-iC-ZcW">
                         <barButtonItem key="backBarButtonItem" title="Home" id="uiY-OO-jMO"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="gear" catalog="system" id="Kkm-ib-oFR"/>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" image="gear" catalog="system" id="Kkm-ib-oFR"/>
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="Z9L-BD-e7T" id="mfe-IE-8h0"/>
