@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     MobAdSDK.shared.initializeWith(
       identifier: "m0b@ds@mpl3@pp1d",
       group: "group.com.imagineworks.mobad.clientapp")
+    MobAdSDK.shared.activate()
     
     return true
   }
