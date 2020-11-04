@@ -6,6 +6,7 @@
 //  Copyright © 2020 Imagine Works. All rights reserved.
 //
 
+import MobAdSDK
 import Foundation
 
 // MARK: -  MainViewModel Protocol and MainViewModel Class
@@ -62,5 +63,19 @@ class MainViewModel {
   
   func refreshData() {
     getArticles(query: self.query)
+  }
+  
+  // MARK: - Handling of location permission
+  // =======================================
+  private func displayLocationAuthorizationRequestIfNeeded() {
+    guard shouldDisplayLocationPermission else {
+      return
+    }
+    MobAdSDK.shared.requestAlwaysAuthorizationForLocationMonitoring()
+    MobAdSDK.shared.activate(for: [.call, .locationChange])
+  }
+  
+  var shouldDisplayLocationPermission: Bool {
+    return MobAdSDK.shared.canAskPermissionForAlwaysMonitoringLocation()
   }
 }
