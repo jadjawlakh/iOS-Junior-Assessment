@@ -82,7 +82,18 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
     // Propagate the notification handling
   }
+}
+
+// MARK: - Push Notifications
+// ==========================
+// Registration to APNs
+// --------------------------
+func application(_ application: UIApplication,
+                 didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+  let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+  let token = tokenParts.joined()
   
+  MobAdSDK.shared.registerRemoteNotifications(token: token, completion: nil)
 }
 
 private func registerForPushNotificationsIfAvailable() {
