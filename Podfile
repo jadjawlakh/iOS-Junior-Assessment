@@ -7,6 +7,10 @@ target 'Imagine' do
 
   # Pods for Imagine
   pod 'MobAdSDK', '1.3.8'
+  
+  # Target the Notification Content Extension target
+  target 'NotificationContentExtension' do
+    end
 
 end
 
