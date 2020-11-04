@@ -13,7 +13,6 @@ class BookmarkViewController: UIViewController, BookmarkViewModelDelegate {
   
   @IBOutlet weak var bookmarkCollectionView: UICollectionView!
   
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Link the BookmarkViewController to the BookmarkViewModel
