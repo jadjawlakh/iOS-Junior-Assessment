@@ -127,6 +127,21 @@
             </objects>
             <point key="canvasLocation" x="5659.420289855073" y="-164.0625"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="kJU-66-nxn">
+            <objects>
+                <viewController id="MBO-fE-zh4" customClass="SettingsViewController" customModule="Imagine" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ja2-4j-mAC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="jpZ-6D-Q4p"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gQt-3P-1yY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5659" y="502"/>
+        </scene>
         <!--🏷 Bookmarks-->
         <scene sceneID="54R-Ub-Dja">
             <objects>

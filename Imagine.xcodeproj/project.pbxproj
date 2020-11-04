@@ -23,6 +23,7 @@
 		057533E124E53C4600C8473C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057533E024E53C4600C8473C /* Response.swift */; };
 		058EB47924E54A1D00438A6D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058EB47824E54A1D00438A6D /* MainViewController.swift */; };
 		05F6000025529E0D00951C34 /* NotificationContentExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 05F6FFF225529E0D00951C34 /* NotificationContentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		05F600282552DDC400951C34 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F600272552DDC400951C34 /* SettingsViewController.swift */; };
 		05F6FFF425529E0D00951C34 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F6FFF325529E0D00951C34 /* UserNotifications.framework */; };
 		05F6FFF625529E0D00951C34 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F6FFF525529E0D00951C34 /* UserNotificationsUI.framework */; };
 		05F6FFF925529E0D00951C34 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F6FFF825529E0D00951C34 /* NotificationViewController.swift */; };
@@ -78,6 +79,7 @@
 		058EB47824E54A1D00438A6D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		05F600142552ABF500951C34 /* NotificationContentExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationContentExtension.entitlements; sourceTree = "<group>"; };
 		05F6001D2552B0B200951C34 /* Imagine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Imagine.entitlements; sourceTree = "<group>"; };
+		05F600272552DDC400951C34 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		05F6FFF225529E0D00951C34 /* NotificationContentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationContentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		05F6FFF325529E0D00951C34 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		05F6FFF525529E0D00951C34 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
@@ -179,6 +181,7 @@
 				058EB47824E54A1D00438A6D /* MainViewController.swift */,
 				050BF3F324E5683300334E22 /* DetailViewController.swift */,
 				056398DF24ED73B5000237EF /* BookmarkViewController.swift */,
+				05F600272552DDC400951C34 /* SettingsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				057533DD24E52DFD00C8473C /* TheGuardianAPI.swift in Sources */,
 				057533DB24E52D5A00C8473C /* Article.swift in Sources */,
 				056398DE24ED7273000237EF /* BookmarkViewModel.swift in Sources */,
+				05F600282552DDC400951C34 /* SettingsViewController.swift in Sources */,
 				056398E024ED73B5000237EF /* BookmarkViewController.swift in Sources */,
 				057533E124E53C4600C8473C /* Response.swift in Sources */,
 				05401B7824EBE542000A8EFF /* DetailViewModel.swift in Sources */,
