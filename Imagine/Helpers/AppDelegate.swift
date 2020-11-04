@@ -22,7 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       group: "group.com.imagineworks.mobad.clientapp")
     MobAdSDK.shared.activate()
     
-    MobAdSDK.shared.initiateUser(email: nil, password: nil, countryCode: "LB", languageCode: nil, completion: nil)
+    MobAdSDK.shared.initiateUser(email: nil, password: nil, countryCode: "LB", languageCode: "nil", completion: { (success, error) in
+      print(success)
+    })
 
     
     return true
