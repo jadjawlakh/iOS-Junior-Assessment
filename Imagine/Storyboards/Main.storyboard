@@ -348,6 +348,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Interests" id="ubk-zW-rgb"/>
                     <navigationItem key="navigationItem" title="👀 Interests" id="ubk-zW-rgb"/>
+                    <navigationItem key="navigationItem" title="👀 Interests" id="ubk-zW-rgb">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="EGH-mF-iJg"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5rl-ye-5KT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
