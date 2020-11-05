@@ -44,7 +44,9 @@ class MainViewModel {
           self.articles.append(contentsOf: fetchedArticles)
         }
       }
-      self.delegate?.didFetchArticles()
+      DispatchQueue.main.async {
+        self.delegate?.didFetchArticles()
+      }
     }
   }
   

@@ -118,7 +118,7 @@
                         <barButtonItem key="backBarButtonItem" title="Home" id="uiY-OO-jMO"/>
                         <barButtonItem key="rightBarButtonItem" title="Settings" image="gear" catalog="system" id="Kkm-ib-oFR">
                             <connections>
-                                <segue destination="cvH-9O-qt5" kind="presentation" id="aLr-sh-M1z"/>
+                                <segue destination="cvH-9O-qt5" kind="presentation" id="EMr-8B-aun"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -196,6 +196,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="O0v-Uj-gL8">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Ad Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQc-W2-XCg">
                                 <rect key="frame" x="20" y="56" width="374" height="73"/>
                                 <constraints>
@@ -279,12 +282,16 @@
                         <viewLayoutGuide key="safeArea" id="KUM-Q0-UHN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="O0v-Uj-gL8" secondAttribute="bottom" id="0L3-cA-CTc"/>
                             <constraint firstItem="j0O-pR-djR" firstAttribute="top" secondItem="fxZ-UD-KQI" secondAttribute="bottom" constant="20" id="2rk-aF-NBm"/>
                             <constraint firstItem="fxZ-UD-KQI" firstAttribute="top" secondItem="VMN-ug-Bz2" secondAttribute="bottom" constant="60" id="5La-rw-5IO"/>
                             <constraint firstItem="VMN-ug-Bz2" firstAttribute="top" secondItem="Gt4-2f-9p7" secondAttribute="bottom" constant="8" symbolic="YES" id="5SR-0Z-dYf"/>
                             <constraint firstItem="KUM-Q0-UHN" firstAttribute="trailing" secondItem="Gt4-2f-9p7" secondAttribute="trailing" constant="20" id="6T5-ea-XIo"/>
                             <constraint firstItem="yQc-W2-XCg" firstAttribute="top" secondItem="KUM-Q0-UHN" secondAttribute="top" id="87x-BP-KX9"/>
+                            <constraint firstItem="O0v-Uj-gL8" firstAttribute="leading" secondItem="uK6-QT-6gz" secondAttribute="leading" id="CzT-Lz-oAp"/>
                             <constraint firstItem="KUM-Q0-UHN" firstAttribute="trailing" secondItem="fxZ-UD-KQI" secondAttribute="trailing" constant="20" id="G6k-aq-4j9"/>
+                            <constraint firstItem="O0v-Uj-gL8" firstAttribute="top" secondItem="uK6-QT-6gz" secondAttribute="top" id="LA1-9B-dgK"/>
+                            <constraint firstAttribute="trailing" secondItem="O0v-Uj-gL8" secondAttribute="trailing" id="N1n-1P-gMD"/>
                             <constraint firstItem="fxZ-UD-KQI" firstAttribute="leading" secondItem="KUM-Q0-UHN" secondAttribute="leading" constant="20" id="QzX-Xs-50P"/>
                             <constraint firstItem="KUM-Q0-UHN" firstAttribute="trailing" secondItem="VMN-ug-Bz2" secondAttribute="trailing" constant="20" id="TAy-lG-YK3"/>
                             <constraint firstItem="VMN-ug-Bz2" firstAttribute="leading" secondItem="KUM-Q0-UHN" secondAttribute="leading" constant="20" id="ZPY-Jn-oAR"/>

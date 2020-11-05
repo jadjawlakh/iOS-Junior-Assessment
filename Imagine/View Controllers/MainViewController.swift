@@ -97,16 +97,20 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    // Confirm that an article was selected
-    guard tableView.indexPathForSelectedRow != nil else {
-      return
+    if let detailVC = segue.destination as? DetailViewController {
+      // Confirm that an article was selected
+      guard let index = tableView.indexPathForSelectedRow else {
+        return
+      }
+      // Get a reference to the article that was tapped on
+      let selectedArticle = viewModel.articles[index.row]
+      // Set the article property of the detailViewController
+      detailVC.initWithArticle(selectedArticle)
+    } else if let navigationVC = segue.destination as? UINavigationController {
+      if let settingsVC = navigationVC.visibleViewController as? SettingsViewController {
+        // If there's need to send info to settings VC add them after this line
+      }
     }
-    // Get a reference to the article that was tapped on
-    let selectedArticle = viewModel.articles[tableView.indexPathForSelectedRow!.row]
-    // Get a reference to the detailViewController
-    let detailVC = segue.destination as! DetailViewController
-    // Set the article property of the detailViewController
-    detailVC.initWithArticle(selectedArticle)
   }
   
   // MARK: - TableView Methods

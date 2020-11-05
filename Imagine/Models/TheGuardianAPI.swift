@@ -71,9 +71,7 @@ extension TheGuardianAPI {
         decoder.dateDecodingStrategy = .iso8601
         let response = try decoder.decode(Response.self, from: data)
         if let results = response.results {
-          DispatchQueue.main.async {
-            completionBlock(results)
-          }
+          completionBlock(results)
         } else {
           completionBlock(nil)
         }
