@@ -317,9 +317,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wws-CG-0EJ"/>
-                    <navigationItem key="navigationItem" id="wws-CG-0EJ">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="sQi-Dc-egI"/>
-                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pCu-YV-dzj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
