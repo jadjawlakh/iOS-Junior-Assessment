@@ -382,6 +382,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Languages" id="pxH-bT-dUy"/>
                     <navigationItem key="navigationItem" title="💬 Languages" id="pxH-bT-dUy"/>
+                    <navigationItem key="navigationItem" title="💬 Languages" id="pxH-bT-dUy">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="jrz-0H-ijq"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JH3-ua-6bt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
