@@ -354,6 +354,7 @@
             <point key="canvasLocation" x="7413" y="1234"/>
         </scene>
         <!--Languages-->
+        <!--💬 Languages-->
         <scene sceneID="RIb-X8-f8N">
             <objects>
                 <tableViewController id="I0z-hL-rxN" customClass="LanguagesTableViewController" customModule="Imagine" customModuleProvider="target" sceneMemberID="viewController">
@@ -377,6 +378,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Languages" id="pxH-bT-dUy"/>
+                    <navigationItem key="navigationItem" title="💬 Languages" id="pxH-bT-dUy"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JH3-ua-6bt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
