@@ -195,10 +195,10 @@
             </objects>
             <point key="canvasLocation" x="6568.115942028986" y="539.73214285714278"/>
         </scene>
-        <!--Ad Settings View Controller-->
+        <!--Ad Settings-->
         <scene sceneID="afw-yw-e81">
             <objects>
-                <viewController id="bvM-uC-Eyp" customClass="AdSettingsViewController" customModule="Imagine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Ad Settings" id="bvM-uC-Eyp" customClass="AdSettingsViewController" customModule="Imagine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uK6-QT-6gz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -264,10 +264,13 @@
                                         <state key="normal" image="chevron.right" catalog="system">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="FO1-JQ-mZw" kind="show" id="oXl-bP-i9E"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j0O-pR-djR">
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j0O-pR-djR" userLabel="Languages Stack View">
                                 <rect key="frame" x="20" y="315" width="374" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Languages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDD-bd-Rbu">
@@ -282,6 +285,9 @@
                                         <state key="normal" image="chevron.right" catalog="system">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="I0z-hL-rxN" kind="show" id="M1F-0N-Zd3"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
