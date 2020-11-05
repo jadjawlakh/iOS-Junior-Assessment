@@ -323,6 +323,7 @@
             <point key="canvasLocation" x="6566.666666666667" y="1212.7232142857142"/>
         </scene>
         <!--Interests-->
+        <!--👀 Interests-->
         <scene sceneID="s5s-2O-ifV">
             <objects>
                 <tableViewController id="FO1-JQ-mZw" customClass="InterestsTableViewController" customModule="Imagine" customModuleProvider="target" sceneMemberID="viewController">
@@ -346,6 +347,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Interests" id="ubk-zW-rgb"/>
+                    <navigationItem key="navigationItem" title="👀 Interests" id="ubk-zW-rgb"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5rl-ye-5KT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
