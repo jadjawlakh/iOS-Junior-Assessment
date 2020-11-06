@@ -13,13 +13,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
   @IBOutlet weak var searchBar: UITextField!
   @IBOutlet weak var showAdsSwitch: UISwitch!
   
-  
   @IBAction func unwindHome(_ segue: UIStoryboardSegue) {
     // this is intentionally blank
   }
   
   var viewModel = MainViewModel()
-  
   var refreshControl: UIRefreshControl?
   
   override func viewDidLoad() {
@@ -68,9 +66,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     let offsetY = scrollView.contentOffset.y
     let contentHeight = scrollView.contentSize.height
-    
     self.tableView.tableFooterView = createSpinnerFooter()
-    
     if offsetY > contentHeight - scrollView.frame.height {
       if !viewModel.isFetching {
         self.tableView.tableFooterView = nil
