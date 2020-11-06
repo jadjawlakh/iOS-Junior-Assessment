@@ -14,8 +14,10 @@ class LanguagesViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     customizeViewController()
-
+    
+//    startLoader()
     viewModel.loadLanguages { success in
+//      self.stopLoader()
       self.tableView.reloadData()
       if !success {
         // Display an error message
@@ -74,7 +76,9 @@ class LanguagesViewController: UITableViewController {
   // MARK: - A C T I O N S
   // =====================
   @objc func saveButtonTapped(_ sender: Any) {
+//    startLoader()
     viewModel.save { (success) in
+//      self.stopLoader()
       guard success else {
         // TODO: Display an error message
         return
