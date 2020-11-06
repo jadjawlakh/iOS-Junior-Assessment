@@ -2,3 +2,4 @@ ${PODS_ROOT}/Target Support Files/Pods-Imagine/Pods-Imagine-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${PODS_ROOT}/MobAdSDK/MobAdSDK-1.3.8/MobAdSDK.framework
 ${BUILT_PRODUCTS_DIR}/Moya/Moya.framework
+${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework
