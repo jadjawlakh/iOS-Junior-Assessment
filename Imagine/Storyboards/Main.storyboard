@@ -226,6 +226,9 @@
                                     </label>
                                     <switch opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pKQ-Ke-HkN">
                                         <rect key="frame" x="325" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="adServiceStatusSwitchTapped" destination="dHI-0E-O4q" eventType="valueChanged" id="VeT-HR-SZa"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                             </stackView>
@@ -322,6 +325,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pCu-YV-dzj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="dHI-0E-O4q" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="6566.666666666667" y="1212.7232142857142"/>
         </scene>
