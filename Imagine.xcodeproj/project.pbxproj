@@ -27,7 +27,7 @@
 		05F6002C2552DDD900951C34 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F6002B2552DDD900951C34 /* SettingsViewModel.swift */; };
 		05F600302552E93300951C34 /* AdSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F6002F2552E93300951C34 /* AdSettingsViewController.swift */; };
 		05F600342552E94000951C34 /* AdSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F600332552E94000951C34 /* AdSettingsViewModel.swift */; };
-		05F60041255436D700951C34 /* LanguagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F60040255436D700951C34 /* LanguagesTableViewController.swift */; };
+		05F60041255436D700951C34 /* LanguagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F60040255436D700951C34 /* LanguagesViewController.swift */; };
 		05F60045255436FC00951C34 /* LanguagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F60044255436FC00951C34 /* LanguagesViewModel.swift */; };
 		05F60049255437F500951C34 /* InterestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F60048255437F500951C34 /* InterestsTableViewController.swift */; };
 		05F6004D2554380000951C34 /* InterestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F6004C2554380000951C34 /* InterestsViewModel.swift */; };
@@ -90,7 +90,7 @@
 		05F6002B2552DDD900951C34 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		05F6002F2552E93300951C34 /* AdSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSettingsViewController.swift; sourceTree = "<group>"; };
 		05F600332552E94000951C34 /* AdSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSettingsViewModel.swift; sourceTree = "<group>"; };
-		05F60040255436D700951C34 /* LanguagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LanguagesTableViewController.swift; path = "Imagine/View Controllers/LanguagesTableViewController.swift"; sourceTree = SOURCE_ROOT; };
+		05F60040255436D700951C34 /* LanguagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LanguagesViewController.swift; path = "Imagine/View Controllers/LanguagesViewController.swift"; sourceTree = SOURCE_ROOT; };
 		05F60044255436FC00951C34 /* LanguagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesViewModel.swift; sourceTree = "<group>"; };
 		05F60048255437F500951C34 /* InterestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsTableViewController.swift; sourceTree = "<group>"; };
 		05F6004C2554380000951C34 /* InterestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsViewModel.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 				056398DF24ED73B5000237EF /* BookmarkViewController.swift */,
 				05F600272552DDC400951C34 /* SettingsViewController.swift */,
 				05F6002F2552E93300951C34 /* AdSettingsViewController.swift */,
-				05F60040255436D700951C34 /* LanguagesTableViewController.swift */,
+				05F60040255436D700951C34 /* LanguagesViewController.swift */,
 				05F60048255437F500951C34 /* InterestsTableViewController.swift */,
 			);
 			path = "View Controllers";
@@ -477,7 +477,7 @@
 				59A9288C2333E32900774014 /* AppDelegate.swift in Sources */,
 				0551720124E6828A00105A19 /* BookmarkButton.swift in Sources */,
 				0542E7D824EE76B00087FF8C /* DataManager.swift in Sources */,
-				05F60041255436D700951C34 /* LanguagesTableViewController.swift in Sources */,
+				05F60041255436D700951C34 /* LanguagesViewController.swift in Sources */,
 				05F60045255436FC00951C34 /* LanguagesViewModel.swift in Sources */,
 				057533D924E52C2A00C8473C /* Constants.swift in Sources */,
 				050BF3F024E551F300334E22 /* ArticleTableViewCell.swift in Sources */,
