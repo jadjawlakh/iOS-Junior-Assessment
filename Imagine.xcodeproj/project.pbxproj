@@ -29,7 +29,7 @@
 		05F600342552E94000951C34 /* AdSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F600332552E94000951C34 /* AdSettingsViewModel.swift */; };
 		05F60041255436D700951C34 /* LanguagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F60040255436D700951C34 /* LanguagesViewController.swift */; };
 		05F60045255436FC00951C34 /* LanguagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F60044255436FC00951C34 /* LanguagesViewModel.swift */; };
-		05F60049255437F500951C34 /* InterestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F60048255437F500951C34 /* InterestsTableViewController.swift */; };
+		05F60049255437F500951C34 /* InterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F60048255437F500951C34 /* InterestsViewController.swift */; };
 		05F6004D2554380000951C34 /* InterestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F6004C2554380000951C34 /* InterestsViewModel.swift */; };
 		05F6FFF425529E0D00951C34 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F6FFF325529E0D00951C34 /* UserNotifications.framework */; };
 		05F6FFF625529E0D00951C34 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F6FFF525529E0D00951C34 /* UserNotificationsUI.framework */; };
@@ -92,7 +92,7 @@
 		05F600332552E94000951C34 /* AdSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdSettingsViewModel.swift; sourceTree = "<group>"; };
 		05F60040255436D700951C34 /* LanguagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LanguagesViewController.swift; path = "Imagine/View Controllers/LanguagesViewController.swift"; sourceTree = SOURCE_ROOT; };
 		05F60044255436FC00951C34 /* LanguagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesViewModel.swift; sourceTree = "<group>"; };
-		05F60048255437F500951C34 /* InterestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsTableViewController.swift; sourceTree = "<group>"; };
+		05F60048255437F500951C34 /* InterestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsViewController.swift; sourceTree = "<group>"; };
 		05F6004C2554380000951C34 /* InterestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsViewModel.swift; sourceTree = "<group>"; };
 		05F6FFF225529E0D00951C34 /* NotificationContentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationContentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		05F6FFF325529E0D00951C34 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
@@ -202,7 +202,7 @@
 				05F600272552DDC400951C34 /* SettingsViewController.swift */,
 				05F6002F2552E93300951C34 /* AdSettingsViewController.swift */,
 				05F60040255436D700951C34 /* LanguagesViewController.swift */,
-				05F60048255437F500951C34 /* InterestsTableViewController.swift */,
+				05F60048255437F500951C34 /* InterestsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -471,7 +471,7 @@
 			files = (
 				05FC8DD325137C43004AAB13 /* BookmarkCollectionViewCell.swift in Sources */,
 				058EB47924E54A1D00438A6D /* MainViewController.swift in Sources */,
-				05F60049255437F500951C34 /* InterestsTableViewController.swift in Sources */,
+				05F60049255437F500951C34 /* InterestsViewController.swift in Sources */,
 				05F600342552E94000951C34 /* AdSettingsViewModel.swift in Sources */,
 				052660E5250A26DF0097FAED /* CacheManager.swift in Sources */,
 				59A9288C2333E32900774014 /* AppDelegate.swift in Sources */,

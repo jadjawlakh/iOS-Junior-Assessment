@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InterestsTableViewController: UITableViewController {
+class InterestsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
