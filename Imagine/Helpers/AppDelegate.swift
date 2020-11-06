@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     MobAdSDK.shared.activate()
     
     MobAdSDK.shared.initiateUser(email: nil, password: nil, countryCode: "LB", languageCode: "nil", completion: { (success, error) in
-      print(success)
     })
     
     let twoHoursInSeconds: TimeInterval = 60*60*2
