@@ -325,7 +325,6 @@
             </objects>
             <point key="canvasLocation" x="6566.666666666667" y="1212.7232142857142"/>
         </scene>
-        <!--Interests-->
         <!--👀 Interests-->
         <scene sceneID="s5s-2O-ifV">
             <objects>
@@ -349,8 +348,6 @@
                             <outlet property="delegate" destination="FO1-JQ-mZw" id="kTg-X7-BIr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Interests" id="ubk-zW-rgb"/>
-                    <navigationItem key="navigationItem" title="👀 Interests" id="ubk-zW-rgb"/>
                     <navigationItem key="navigationItem" title="👀 Interests" id="ubk-zW-rgb">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="EGH-mF-iJg"/>
                     </navigationItem>
@@ -359,7 +356,6 @@
             </objects>
             <point key="canvasLocation" x="7413" y="1234"/>
         </scene>
-        <!--Languages-->
         <!--💬 Languages-->
         <scene sceneID="RIb-X8-f8N">
             <objects>
@@ -383,8 +379,6 @@
                             <outlet property="delegate" destination="I0z-hL-rxN" id="bfu-FS-Zjl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Languages" id="pxH-bT-dUy"/>
-                    <navigationItem key="navigationItem" title="💬 Languages" id="pxH-bT-dUy"/>
                     <navigationItem key="navigationItem" title="💬 Languages" id="pxH-bT-dUy">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="jrz-0H-ijq"/>
                     </navigationItem>
