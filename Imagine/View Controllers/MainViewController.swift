@@ -11,6 +11,8 @@ import UIKit
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MainViewModelDelegate {
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var searchBar: UITextField!
+  @IBOutlet weak var showAdsSwitch: UISwitch!
+
   
   @IBAction func unwindHome(_ segue: UIStoryboardSegue) {
     // this is intentionally blank
@@ -140,5 +142,18 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
   //=============================
   @objc private func refreshDataList() {
     viewModel.refreshData()
+  }
+  
+  // MARK: - Handle Ad Service Switch
+  // ================================
+  @IBAction func adServiceStatusSwitchTapped() {
+    viewModel.setAdServiceStatus(active: showAdsSwitch.isOn) { [weak self] success in
+      guard let self = self else { return }
+      self.showAdsSwitch.isOn = self.viewModel.adServiceActive
+    }
+  }
+  
+  private func refreshAdServiceStatusSwitch() {
+    showAdsSwitch.isOn = viewModel.adServiceActive
   }
 }

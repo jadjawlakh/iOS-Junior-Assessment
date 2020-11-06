@@ -24,6 +24,10 @@ class MainViewModel {
   
   private(set) var isFetching = false
   
+  var adServiceActive: Bool {
+    return MobAdSDK.shared.adServiceActive
+  }
+  
   init() {
     articles = [Article]()
   }
@@ -54,7 +58,7 @@ class MainViewModel {
     page = page + 1
     getArticles(query: self.query, page: page)
   }
-
+  
   // MARK: - Conform to protocol ArticleModelDelegate
   // ================================================
   func articlesFetched(_ articles: [Article]) {
@@ -79,5 +83,13 @@ class MainViewModel {
   
   var shouldDisplayLocationPermission: Bool {
     return MobAdSDK.shared.canAskPermissionForAlwaysMonitoringLocation()
+  }
+  
+  // MARK: - Handling Ad Service Switch
+  // ==================================
+  func setAdServiceStatus(active: Bool, completion: @escaping (_ success: Bool) -> Void) {
+    MobAdSDK.shared.adService(activate: active) { (success, error) in
+      completion(success)
+    }
   }
 }
