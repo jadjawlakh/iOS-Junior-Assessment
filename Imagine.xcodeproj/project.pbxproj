@@ -150,6 +150,7 @@
 		050BF3F224E5526500334E22 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				058907DC2555679A00941446 /* Extensions */,
 				59A9288B2333E32900774014 /* AppDelegate.swift */,
 				057533D824E52C2A00C8473C /* Constants.swift */,
 				0551720024E6828A00105A19 /* BookmarkButton.swift */,
@@ -215,6 +216,13 @@
 				057533DC24E52DFD00C8473C /* TheGuardianAPI.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		058907DC2555679A00941446 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		05F6FFF725529E0D00951C34 /* NotificationContentExtension */ = {
