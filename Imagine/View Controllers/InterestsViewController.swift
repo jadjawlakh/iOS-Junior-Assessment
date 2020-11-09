@@ -14,8 +14,10 @@ class InterestsViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    startLoader()
     viewModel.loadInterests { success in
       defer {
+        self.stopLoader()
         self.tableView.reloadData()
       }
       guard success else {
@@ -100,7 +102,9 @@ class InterestsViewController: UITableViewController {
   }
   
   @IBAction func saveBarButtonTapped() {
+    startLoader()
     viewModel.saveChanges { success -> Void in
+      self.stopLoader()
       guard success else {
         return
       }

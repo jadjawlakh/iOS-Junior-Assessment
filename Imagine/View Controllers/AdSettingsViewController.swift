@@ -38,8 +38,10 @@ class AdSettingsViewController: UIViewController, UITextFieldDelegate {
   // MARK: A C T I O N S
   // ===================
   @IBAction func adServiceStatusSwitchTapped() {
+    startLoader()
     viewModel.setAdServiceStatus(active: showAdsSwitch.isOn) { [weak self] success in
       guard let self = self else { return }
+      self.stopLoader()
       self.showAdsSwitch.isOn = self.viewModel.adServiceActive
     }
   }
@@ -81,10 +83,12 @@ class AdSettingsViewController: UIViewController, UITextFieldDelegate {
           let intValue = Int(stringValue) else {
       return
     }
+    startLoader()
     viewModel.setMaximumAdsPerDay(cap: intValue) { success, maxAdsPerDay in
       if let maxAdsPerDay = maxAdsPerDay {
         self.numberOfAdsPerDayTextField.text = "\(maxAdsPerDay)"
       }
+      self.stopLoader()
     }
   }
   
