@@ -21,10 +21,10 @@
 		057533DB24E52D5A00C8473C /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057533DA24E52D5A00C8473C /* Article.swift */; };
 		057533DD24E52DFD00C8473C /* TheGuardianAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057533DC24E52DFD00C8473C /* TheGuardianAPI.swift */; };
 		057533E124E53C4600C8473C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057533E024E53C4600C8473C /* Response.swift */; };
-		058907DE255567D500941446 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058907DD255567D500941446 /* UIViewController+Extension.swift */; };
 		058EB47924E54A1D00438A6D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058EB47824E54A1D00438A6D /* MainViewController.swift */; };
 		05DDF28825594EBD004F90D1 /* TableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDF28725594EBD004F90D1 /* TableViewSectionHeader.swift */; };
 		05DDF28E25594FCC004F90D1 /* TableViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DDF28D25594FCC004F90D1 /* TableViewSectionHeader.xib */; };
+		05DDF29425595C1B004F90D1 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DDF29325595C1B004F90D1 /* UIViewController+Extension.swift */; };
 		05F6000025529E0D00951C34 /* NotificationContentExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 05F6FFF225529E0D00951C34 /* NotificationContentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		05F600282552DDC400951C34 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F600272552DDC400951C34 /* SettingsViewController.swift */; };
 		05F6002C2552DDD900951C34 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F6002B2552DDD900951C34 /* SettingsViewModel.swift */; };
@@ -86,10 +86,10 @@
 		057533DA24E52D5A00C8473C /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		057533DC24E52DFD00C8473C /* TheGuardianAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheGuardianAPI.swift; sourceTree = "<group>"; };
 		057533E024E53C4600C8473C /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
-		058907DD255567D500941446 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		058EB47824E54A1D00438A6D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		05DDF28725594EBD004F90D1 /* TableViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSectionHeader.swift; sourceTree = "<group>"; };
 		05DDF28D25594FCC004F90D1 /* TableViewSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewSectionHeader.xib; sourceTree = "<group>"; };
+		05DDF29325595C1B004F90D1 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		05F600142552ABF500951C34 /* NotificationContentExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationContentExtension.entitlements; sourceTree = "<group>"; };
 		05F6001D2552B0B200951C34 /* Imagine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Imagine.entitlements; sourceTree = "<group>"; };
 		05F600272552DDC400951C34 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -156,7 +156,6 @@
 		050BF3F224E5526500334E22 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				058907DC2555679A00941446 /* Extensions */,
 				59A9288B2333E32900774014 /* AppDelegate.swift */,
 				057533D824E52C2A00C8473C /* Constants.swift */,
 				0551720024E6828A00105A19 /* BookmarkButton.swift */,
@@ -224,14 +223,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		058907DC2555679A00941446 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				058907DD255567D500941446 /* UIViewController+Extension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		05DDF26C25594B60004F90D1 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +238,85 @@
 				05DDF28725594EBD004F90D1 /* TableViewSectionHeader.swift */,
 			);
 			path = TableViewSectionHeader;
+			sourceTree = "<group>";
+		};
+		05DDF29225595BF2004F90D1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				05DDF29325595C1B004F90D1 /* UIViewController+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		05DDF29B25595C5E004F90D1 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				05DDF2AA25595D0E004F90D1 /* NVActivityIndicatorView */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		05DDF2AA25595D0E004F90D1 /* NVActivityIndicatorView */ = {
+			isa = PBXGroup;
+			children = (
+				05DDF2AB25595D0E004F90D1 /* NVActivityIndicatorAnimationDelegate.swift */,
+				05DDF2AC25595D0E004F90D1 /* Presenter */,
+				05DDF2AF25595D0E004F90D1 /* NVActivityIndicatorView.h */,
+				05DDF2B025595D0E004F90D1 /* NVActivityIndicatorShape.swift */,
+				05DDF2B125595D0E004F90D1 /* NVActivityIndicatorView.swift */,
+				05DDF2B225595D0E004F90D1 /* Animations */,
+			);
+			path = NVActivityIndicatorView;
+			sourceTree = "<group>";
+		};
+		05DDF2AC25595D0E004F90D1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				05DDF2AD25595D0E004F90D1 /* NVActivityIndicatorPresenter.swift */,
+				05DDF2AE25595D0E004F90D1 /* NVActivityIndicatorViewable.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		05DDF2B225595D0E004F90D1 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				05DDF2B325595D0E004F90D1 /* NVActivityIndicatorAnimationBallRotate.swift */,
+				05DDF2B425595D0E004F90D1 /* NVActivityIndicatorAnimationBallGridPulse.swift */,
+				05DDF2B525595D0E004F90D1 /* NVActivityIndicatorAnimationBallClipRotate.swift */,
+				05DDF2B625595D0E004F90D1 /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift */,
+				05DDF2B725595D0E004F90D1 /* NVActivityIndicatorAnimationBallTrianglePath.swift */,
+				05DDF2B825595D0E004F90D1 /* NVActivityIndicatorAnimationBallDoubleBounce.swift */,
+				05DDF2B925595D0E004F90D1 /* NVActivityIndicatorAnimationLineScalePulseOut.swift */,
+				05DDF2BA25595D0E004F90D1 /* NVActivityIndicatorAnimationLineSpinFadeLoader.swift */,
+				05DDF2BB25595D0E004F90D1 /* NVActivityIndicatorAnimationBallZigZagDeflect.swift */,
+				05DDF2BC25595D0E004F90D1 /* NVActivityIndicatorAnimationBallScale.swift */,
+				05DDF2BD25595D0E004F90D1 /* NVActivityIndicatorAnimationBallZigZag.swift */,
+				05DDF2BE25595D0E004F90D1 /* NVActivityIndicatorAnimationBallBeat.swift */,
+				05DDF2BF25595D0E004F90D1 /* NVActivityIndicatorAnimationSemiCircleSpin.swift */,
+				05DDF2C025595D0E004F90D1 /* NVActivityIndicatorAnimationBallScaleRipple.swift */,
+				05DDF2C125595D0E004F90D1 /* NVActivityIndicatorAnimationBallClipRotatePulse.swift */,
+				05DDF2C225595D0E004F90D1 /* NVActivityIndicatorAnimationSquareSpin.swift */,
+				05DDF2C325595D0E004F90D1 /* NVActivityIndicatorAnimationBallRotateChase.swift */,
+				05DDF2C425595D0E004F90D1 /* NVActivityIndicatorAnimationBallPulse.swift */,
+				05DDF2C525595D0E004F90D1 /* NVActivityIndicatorAnimationBlank.swift */,
+				05DDF2C625595D0E004F90D1 /* NVActivityIndicatorAnimationCircleStrokeSpin.swift */,
+				05DDF2C725595D0E004F90D1 /* NVActivityIndicatorAnimationAudioEqualizer.swift */,
+				05DDF2C825595D0E004F90D1 /* NVActivityIndicatorAnimationTriangleSkewSpin.swift */,
+				05DDF2C925595D0E004F90D1 /* NVActivityIndicatorAnimationBallGridBeat.swift */,
+				05DDF2CA25595D0E004F90D1 /* NVActivityIndicatorAnimationBallScaleMultiple.swift */,
+				05DDF2CB25595D0E004F90D1 /* NVActivityIndicatorAnimationLineScale.swift */,
+				05DDF2CC25595D0E004F90D1 /* NVActivityIndicatorAnimationBallScaleRippleMultiple.swift */,
+				05DDF2CD25595D0E004F90D1 /* NVActivityIndicatorAnimationPacman.swift */,
+				05DDF2CE25595D0E004F90D1 /* NVActivityIndicatorAnimationBallPulseSync.swift */,
+				05DDF2CF25595D0E004F90D1 /* NVActivityIndicatorAnimationCubeTransition.swift */,
+				05DDF2D025595D0E004F90D1 /* NVActivityIndicatorAnimationBallSpinFadeLoader.swift */,
+				05DDF2D125595D0E004F90D1 /* NVActivityIndicatorAnimationLineScaleParty.swift */,
+				05DDF2D225595D0E004F90D1 /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift */,
+				05DDF2D325595D0E004F90D1 /* NVActivityIndicatorAnimationBallPulseRise.swift */,
+				05DDF2D425595D0E004F90D1 /* NVActivityIndicatorAnimationOrbit.swift */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		05F6FFF725529E0D00951C34 /* NotificationContentExtension */ = {
@@ -294,6 +364,7 @@
 		59A9288A2333E32900774014 /* Imagine */ = {
 			isa = PBXGroup;
 			children = (
+				05DDF29225595BF2004F90D1 /* Extensions */,
 				05DDF26C25594B60004F90D1 /* User Interface */,
 				05F6001D2552B0B200951C34 /* Imagine.entitlements */,
 				0542E7D624EE768F0087FF8C /* Managers */,
@@ -503,6 +574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05DDF29425595C1B004F90D1 /* UIViewController+Extension.swift in Sources */,
 				05FC8DD325137C43004AAB13 /* BookmarkCollectionViewCell.swift in Sources */,
 				058EB47924E54A1D00438A6D /* MainViewController.swift in Sources */,
 				05F60049255437F500951C34 /* InterestsViewController.swift in Sources */,
@@ -517,7 +589,6 @@
 				057533D924E52C2A00C8473C /* Constants.swift in Sources */,
 				050BF3F024E551F300334E22 /* ArticleTableViewCell.swift in Sources */,
 				05401B7624EBCD41000A8EFF /* MainViewModel.swift in Sources */,
-				058907DE255567D500941446 /* UIViewController+Extension.swift in Sources */,
 				057533DD24E52DFD00C8473C /* TheGuardianAPI.swift in Sources */,
 				057533DB24E52D5A00C8473C /* Article.swift in Sources */,
 				05F600302552E93300951C34 /* AdSettingsViewController.swift in Sources */,
