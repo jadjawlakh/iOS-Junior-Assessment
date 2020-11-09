@@ -110,7 +110,6 @@ class InterestsViewController: UITableViewController {
   
   // MARK: - H E L P E R S
   // =====================
-  
   func selectAllSubcategories() {
     viewModel.selectAllSubcategories()
     refreshVisibleRows()
