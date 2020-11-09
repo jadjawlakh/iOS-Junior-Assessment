@@ -59,6 +59,7 @@ class AdSettingsViewController: UIViewController, UITextFieldDelegate {
     }
   }
   
+  // MARK: - Configure View Controller
   private func refreshAdServiceStatusSwitch() {
     showAdsSwitch.isOn = viewModel.adServiceActive
   }
@@ -91,14 +92,9 @@ class AdSettingsViewController: UIViewController, UITextFieldDelegate {
     numberOfAdsPerDayTextField.addTarget(self, action: #selector(didFinishEditingUserDailyCAP), for: .editingChanged)
   }
   
-  // MARK: - Configure View Controller
   private func configureViewController() {
     configureNumberOfAdsDailyTextField()
     refreshAdServiceStatusSwitch()
     refreshNumberOfAdsPerDayTextField()
   }
 }
-
-
-
-
