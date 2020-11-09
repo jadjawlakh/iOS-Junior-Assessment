@@ -331,21 +331,30 @@
             </objects>
             <point key="canvasLocation" x="6566.666666666667" y="1212.7232142857142"/>
         </scene>
-        <!--👀 Interests-->
+        <!--Interests-->
         <scene sceneID="s5s-2O-ifV">
             <objects>
-                <tableViewController id="FO1-JQ-mZw" customClass="InterestsViewController" customModule="Imagine" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Interests" id="FO1-JQ-mZw" customClass="InterestsViewController" customModule="Imagine" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7tC-5N-vgx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="qFQ-Nu-URF">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="reuseIdentifier" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="reuseIdentifier" textLabel="JIN-Lf-DaV" style="IBUITableViewCellStyleDefault" id="qFQ-Nu-URF">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qFQ-Nu-URF" id="fZx-zU-fv7">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JIN-Lf-DaV">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -355,7 +364,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="👀 Interests" id="ubk-zW-rgb">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="EGH-mF-iJg"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Save" id="EGH-mF-iJg">
+                                <connections>
+                                    <action selector="saveBarButtonTapped" destination="FO1-JQ-mZw" id="1lI-r2-QMQ"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="action" id="7Qu-5c-z2L">
+                                <connections>
+                                    <action selector="actionBarButtonTapped" destination="FO1-JQ-mZw" id="7dM-X9-gDl"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5rl-ye-5KT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -9,82 +9,124 @@
 import UIKit
 
 class InterestsViewController: UITableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+  
+  let viewModel = InterestsViewModel()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    viewModel.loadInterests { success in
+      defer {
+        self.tableView.reloadData()
+      }
+      guard success else {
+        // Display error if needed
+        return
+      }
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+  }
+  
+  // MARK: - Table view data source
+  override func numberOfSections(in tableView: UITableView) -> Int {
+    return viewModel.numberOfSections
+  }
+  
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return viewModel.numberOfRowsIn(section: section)
+  }
+  
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+    let info = viewModel.informationForCellAtIndexPath(indexPath)
+    cell.textLabel?.text = info?.title
+    let shouldSelect = info?.isSelected ?? false
+    cell.isSelectedStyle = shouldSelect
+    if shouldSelect {
+      tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+    } else {
+      tableView.deselectRow(at: indexPath, animated: false)
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    return cell
+  }
+  
+  override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let view = TableViewSectionHeader()
+    view.title = viewModel.titleForHeaderInSection(section)
+    return view
+  }
+  
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    guard let cell = tableView.cellForRow(at: indexPath) else {
+      return
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    let success = viewModel.selectUserInterest(at: indexPath)
+    cell.isSelectedStyle = success
+  }
+  
+  override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    guard let cell = tableView.cellForRow(at: indexPath) else {
+      return
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    let success = viewModel.deselectUserInterest(at: indexPath)
+    cell.isSelectedStyle = !success
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 40
+  }
+  
+  // MARK: - A C T I O N S
+  // =====================
+  @IBAction func actionBarButtonTapped() {
+    let actionController = UIAlertController(
+      title: "What to Do", message: nil, preferredStyle: .actionSheet)
+    let selectAllButton = UIAlertAction(
+      title: "Select All", style: .default) { _ in
+      self.selectAllSubcategories()
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    let unselectAllButton = UIAlertAction(
+      title: "Deselect All", style: .destructive) { _ in
+      self.unselectAllSubcategories()
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    let saveButton = UIAlertAction(
+      title: "Save", style: .default) { _ in
+      self.saveBarButtonTapped()
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    let cancelBarButton = UIAlertAction(
+      title: "Cancel", style: .cancel, handler: nil)
+    actionController.addAction(selectAllButton)
+    actionController.addAction(unselectAllButton)
+    actionController.addAction(cancelBarButton)
+    present(actionController, animated: true, completion: nil)
+  }
+  
+  @IBAction func saveBarButtonTapped() {
+    viewModel.saveChanges { success -> Void in
+      guard success else {
+        return
+      }
+      self.refreshVisibleRows()
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+  }
+  
+  // MARK: - H E L P E R S
+  // =====================
+  
+  func selectAllSubcategories() {
+    viewModel.selectAllSubcategories()
+    refreshVisibleRows()
+  }
+  
+  func unselectAllSubcategories() {
+    viewModel.deselectAllSubcategories()
+    refreshVisibleRows()
+  }
+  
+  func refreshVisibleRows() {
+    guard let indexPathOfVisibleRows = tableView.indexPathsForVisibleRows else {
+      return
     }
-    */
-
+    tableView.reloadRows(at: indexPathOfVisibleRows, with: .none)
+  }
 }
+
+
