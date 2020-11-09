@@ -139,17 +139,4 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
   @objc private func refreshDataList() {
     viewModel.refreshData()
   }
-  
-  // MARK: - Handle Ad Service Switch
-  // ================================
-  @IBAction func adServiceStatusSwitchTapped() {
-    viewModel.setAdServiceStatus(active: showAdsSwitch.isOn) { [weak self] success in
-      guard let self = self else { return }
-      self.showAdsSwitch.isOn = self.viewModel.adServiceActive
-    }
-  }
-  
-  private func refreshAdServiceStatusSwitch() {
-    showAdsSwitch.isOn = viewModel.adServiceActive
-  }
 }
