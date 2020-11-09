@@ -7,14 +7,32 @@
 //
 
 import UIKit
+import MobAdSDK
 
 class AdSettingsViewController: UIViewController, UITextFieldDelegate {
-  
   @IBOutlet weak var numberOfAdsPerDayTextField: UITextField!
+  @IBOutlet weak var showAdsSwitch: UISwitch!
+  
+  let viewModel = AdSettingsViewModel()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     numberOfAdsPerDayTextField.delegate = self
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    configureViewController()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    displayLocationAuthorizationRequestIfNeeded()
+  }
+  
+  @objc func didFinishEditingUserDailyCAP() {
+    numberOfAdsPerDayTextField.resignFirstResponder()
+    saveNumberOfAdsPerDay()
   }
   
   // MARK: - UITextFieldDelegate
@@ -31,4 +49,47 @@ class AdSettingsViewController: UIViewController, UITextFieldDelegate {
       return false
     }
   }
+  
+  private func refreshAdServiceStatusSwitch() {
+    showAdsSwitch.isOn = viewModel.adServiceActive
+  }
+  
+  private func refreshNumberOfAdsPerDayTextField() {
+    numberOfAdsPerDayTextField.text = "\(viewModel.maximumAdsPerDay)"
+  }
+  
+  private func displayLocationAuthorizationRequestIfNeeded() {
+    guard viewModel.shouldDisplayLocationPermission else {
+      return
+    }
+    MobAdSDK.shared.requestAlwaysAuthorizationForLocationMonitoring()
+    MobAdSDK.shared.activate(for: [.call, .locationChange])
+  }
+  
+  private func saveNumberOfAdsPerDay() {
+    guard let stringValue = numberOfAdsPerDayTextField.text,
+          let intValue = Int(stringValue) else {
+      return
+    }
+    viewModel.setMaximumAdsPerDay(cap: intValue) { success, maxAdsPerDay in
+      if let maxAdsPerDay = maxAdsPerDay {
+        self.numberOfAdsPerDayTextField.text = "\(maxAdsPerDay)"
+      }
+    }
+  }
+  
+  private func configureNumberOfAdsDailyTextField() {
+    numberOfAdsPerDayTextField.addTarget(self, action: #selector(didFinishEditingUserDailyCAP), for: .editingChanged)
+  }
+  
+  // MARK: - Configure View Controller
+  private func configureViewController() {
+    configureNumberOfAdsDailyTextField()
+    refreshAdServiceStatusSwitch()
+    refreshNumberOfAdsPerDayTextField()
+  }
 }
+
+
+
+
