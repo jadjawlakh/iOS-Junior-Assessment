@@ -35,6 +35,15 @@ class AdSettingsViewController: UIViewController, UITextFieldDelegate {
     saveNumberOfAdsPerDay()
   }
   
+  // MARK: A C T I O N S
+  // ===================
+  @IBAction func adServiceStatusSwitchTapped() {
+    viewModel.setAdServiceStatus(active: showAdsSwitch.isOn) { [weak self] success in
+      guard let self = self else { return }
+      self.showAdsSwitch.isOn = self.viewModel.adServiceActive
+    }
+  }
+  
   // MARK: - UITextFieldDelegate
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
     // Restrict to maximum number

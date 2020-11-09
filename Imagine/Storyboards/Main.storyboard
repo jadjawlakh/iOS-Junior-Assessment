@@ -228,6 +228,7 @@
                                         <rect key="frame" x="325" y="0.0" width="51" height="31"/>
                                         <connections>
                                             <action selector="adServiceStatusSwitchTapped" destination="dHI-0E-O4q" eventType="valueChanged" id="VeT-HR-SZa"/>
+                                            <action selector="adServiceStatusSwitchTapped" destination="bvM-uC-Eyp" eventType="valueChanged" id="WFi-P6-4of"/>
                                         </connections>
                                     </switch>
                                 </subviews>
@@ -322,6 +323,7 @@
                     <navigationItem key="navigationItem" id="wws-CG-0EJ"/>
                     <connections>
                         <outlet property="numberOfAdsPerDayTextField" destination="8dc-SQ-DuT" id="7QR-2M-nkq"/>
+                        <outlet property="showAdsSwitch" destination="pKQ-Ke-HkN" id="Y0I-tu-l93"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pCu-YV-dzj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -420,10 +422,10 @@
                                                     <rect key="frame" x="28" y="8" width="355" height="320"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="350" verticalCompressionResistancePriority="350" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="suA-E1-2fH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="351" height="166"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="351" height="167.5"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quR-Bm-aRl">
-                                                            <rect key="frame" x="0.0" y="181" width="355" height="66.5"/>
+                                                            <rect key="frame" x="0.0" y="182.5" width="355" height="65.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="65" id="z60-mb-huZ"/>
                                                             </constraints>
@@ -432,13 +434,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUz-lO-A4O">
-                                                            <rect key="frame" x="0.0" y="262.5" width="355" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="263" width="355" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfK-Je-oZc">
-                                                            <rect key="frame" x="0.0" y="298" width="355" height="22"/>
+                                                            <rect key="frame" x="0.0" y="299" width="355" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
