@@ -331,44 +331,6 @@
             </objects>
             <point key="canvasLocation" x="5658" y="1263"/>
         </scene>
-        <!--👀 Interests-->
-        <scene sceneID="s5s-2O-ifV">
-            <objects>
-                <tableViewController id="FO1-JQ-mZw" customClass="InterestsViewController" customModule="Imagine" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7tC-5N-vgx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="qFQ-Nu-URF">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qFQ-Nu-URF" id="fZx-zU-fv7">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="FO1-JQ-mZw" id="DQK-sB-buB"/>
-                            <outlet property="delegate" destination="FO1-JQ-mZw" id="kTg-X7-BIr"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="👀 Interests" id="ubk-zW-rgb">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="action" id="7Qu-5c-z2L"/>
-                            <barButtonItem title="Save" id="EGH-mF-iJg">
-                                <connections>
-                                    <action selector="saveBarButtonTapped" destination="FO1-JQ-mZw" id="1lI-r2-QMQ"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5rl-ye-5KT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7413" y="1234"/>
-        </scene>
         <!--💬 Languages-->
         <scene sceneID="ESL-WF-56S">
             <objects>
@@ -413,7 +375,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cGw-5d-7Aw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6421.739130434783" y="1624.5535714285713"/>
+            <point key="canvasLocation" x="5659" y="2004"/>
         </scene>
         <!--👀 Interests-->
         <scene sceneID="44o-7P-7wr">
@@ -440,10 +402,6 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="FO1-JQ-mZw" id="IHZ-Pl-so2"/>
-                                    <outlet property="delegate" destination="FO1-JQ-mZw" id="alh-Yc-mGN"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1xG-ui-IvZ"/>
