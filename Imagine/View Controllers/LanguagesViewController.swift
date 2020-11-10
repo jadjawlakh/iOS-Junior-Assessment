@@ -8,12 +8,14 @@
 
 import UIKit
 
-class LanguagesViewController: UITableViewController {
+class LanguagesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   let viewModel = LanguagesViewModel()
+  @IBOutlet weak var tableView: UITableView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     customizeViewController()
+ 
     
     startLoader()
     viewModel.loadLanguages { success in
@@ -27,15 +29,15 @@ class LanguagesViewController: UITableViewController {
   
   // MARK: - Table View Functionalities
   // ==================================
-  override func numberOfSections(in tableView: UITableView) -> Int {
+  func numberOfSections(in tableView: UITableView) -> Int {
     return viewModel.numberOfSections
   }
   
-  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return viewModel.numberOfRows(in: section)
   }
   
-  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
     let info = viewModel.informationForCell(at: indexPath)
     cell.textLabel?.text = info?.title
@@ -50,7 +52,7 @@ class LanguagesViewController: UITableViewController {
     return cell
   }
   
-  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let cell = tableView.cellForRow(at: indexPath) else {
       return
     }
@@ -58,14 +60,14 @@ class LanguagesViewController: UITableViewController {
     cell.isSelectedStyle = success
   }
   
-  override func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
+  func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
     guard viewModel.canDeselectLanguage(at: indexPath) else {
       return nil
     }
     return indexPath
   }
   
-  override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+  func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
     guard let cell = tableView.cellForRow(at: indexPath) else {
       return
     }
@@ -75,7 +77,7 @@ class LanguagesViewController: UITableViewController {
   
   // MARK: - A C T I O N S
   // =====================
-  @objc func saveButtonTapped(_ sender: Any) {
+  @IBAction func saveButtonTapped(_ sender: Any) {
     startLoader()
     viewModel.save { (success) in
       self.stopLoader()
@@ -89,12 +91,13 @@ class LanguagesViewController: UITableViewController {
   // MARK: - H E L P E R S
   // =====================
   func customizeViewController() {
-    // Rmove lines of empty rows
+    tableView.dataSource = self
+    tableView.delegate = self
     tableView.tableFooterView = UIView()
-    
     // Add Save bar button
     let saveBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.save, target: self, action: #selector(saveButtonTapped(_:)))
     navigationItem.rightBarButtonItem = saveBarButton
+    
   }
   
 }
