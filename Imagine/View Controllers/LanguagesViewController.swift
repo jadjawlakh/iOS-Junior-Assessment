@@ -16,7 +16,6 @@ class LanguagesViewController: UIViewController, UITableViewDataSource, UITableV
     super.viewDidLoad()
     customizeViewController()
  
-    
     startLoader()
     viewModel.loadLanguages { success in
       self.stopLoader()
@@ -97,9 +96,7 @@ class LanguagesViewController: UIViewController, UITableViewDataSource, UITableV
     // Add Save bar button
     let saveBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.save, target: self, action: #selector(saveButtonTapped(_:)))
     navigationItem.rightBarButtonItem = saveBarButton
-    
   }
-  
 }
 
 // MARK: - UITableViewCell Extension

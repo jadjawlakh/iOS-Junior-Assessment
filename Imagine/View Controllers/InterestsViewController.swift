@@ -133,5 +133,3 @@ class InterestsViewController: UIViewController, UITableViewDataSource, UITableV
     tableView.reloadRows(at: indexPathOfVisibleRows, with: .none)
   }
 }
-
-
