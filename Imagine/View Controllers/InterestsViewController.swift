@@ -8,12 +8,15 @@
 
 import UIKit
 
-class InterestsViewController: UITableViewController {
-  
+class InterestsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   let viewModel = InterestsViewModel()
+  @IBOutlet weak var tableView: UITableView!
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    tableView.dataSource = self
+    tableView.delegate = self
     startLoader()
     viewModel.loadInterests { success in
       defer {
@@ -28,15 +31,15 @@ class InterestsViewController: UITableViewController {
   }
   
   // MARK: - Table view data source
-  override func numberOfSections(in tableView: UITableView) -> Int {
+  func numberOfSections(in tableView: UITableView) -> Int {
     return viewModel.numberOfSections
   }
   
-  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return viewModel.numberOfRowsIn(section: section)
   }
   
-  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
     let info = viewModel.informationForCellAtIndexPath(indexPath)
     cell.textLabel?.text = info?.title
@@ -50,13 +53,13 @@ class InterestsViewController: UITableViewController {
     return cell
   }
   
-  override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     let view = TableViewSectionHeader()
     view.title = viewModel.titleForHeaderInSection(section)
     return view
   }
   
-  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let cell = tableView.cellForRow(at: indexPath) else {
       return
     }
@@ -64,7 +67,7 @@ class InterestsViewController: UITableViewController {
     cell.isSelectedStyle = success
   }
   
-  override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+  func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
     guard let cell = tableView.cellForRow(at: indexPath) else {
       return
     }
@@ -72,7 +75,7 @@ class InterestsViewController: UITableViewController {
     cell.isSelectedStyle = !success
   }
   
-  override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     return 40
   }
   
