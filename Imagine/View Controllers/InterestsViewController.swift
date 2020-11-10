@@ -29,7 +29,8 @@ class InterestsViewController: UIViewController, UITableViewDataSource, UITableV
     }
   }
   
-  // MARK: - Table view data source
+  // MARK: - Table View Functionalities
+  // ==================================
   func numberOfSections(in tableView: UITableView) -> Int {
     return viewModel.numberOfSections
   }
