@@ -93,7 +93,13 @@ class AdSettingsViewController: UIViewController, UITextFieldDelegate {
   }
   
   private func configureNumberOfAdsDailyTextField() {
-    numberOfAdsPerDayTextField.addTarget(self, action: #selector(didFinishEditingUserDailyCAP), for: .editingChanged)
+    let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 45) )
+    toolbar.barStyle = UIBarStyle.default
+    toolbar.items = [
+      UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+      UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didFinishEditingUserDailyCAP))
+    ]
+    numberOfAdsPerDayTextField.inputAccessoryView = toolbar
   }
   
   private func configureViewController() {
