@@ -139,9 +139,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="04T-Le-Icg" userLabel="Settings Stack View">
-                                <rect key="frame" x="30" y="742" width="354" height="36"/>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nen-q4-fBx" userLabel="Ad Settings Stack View">
                                 <rect key="frame" x="30" y="86" width="354" height="36"/>
                                 <subviews>
@@ -162,24 +159,17 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="gmh-sE-7F6">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="gmh-sE-7F6">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jpZ-6D-Q4p"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="gmh-sE-7F6" firstAttribute="top" secondItem="ja2-4j-mAC" secondAttribute="top" id="6nV-g2-FGy"/>
-                            <constraint firstItem="gmh-sE-7F6" firstAttribute="leading" secondItem="ja2-4j-mAC" secondAttribute="leading" id="Drn-4c-dXt"/>
-                            <constraint firstAttribute="bottom" secondItem="gmh-sE-7F6" secondAttribute="bottom" id="Efg-hW-ECo"/>
-                            <constraint firstItem="jpZ-6D-Q4p" firstAttribute="bottom" secondItem="04T-Le-Icg" secondAttribute="bottom" constant="30" id="bhx-ib-5I9"/>
                             <constraint firstItem="nen-q4-fBx" firstAttribute="leading" secondItem="jpZ-6D-Q4p" secondAttribute="leading" constant="30" id="e6s-LK-KsB"/>
-                            <constraint firstItem="04T-Le-Icg" firstAttribute="top" secondItem="ja2-4j-mAC" secondAttribute="top" constant="742" id="gPg-HR-2FB"/>
-                            <constraint firstItem="jpZ-6D-Q4p" firstAttribute="trailing" secondItem="04T-Le-Icg" secondAttribute="trailing" constant="30" id="mG7-sh-Jqq"/>
                             <constraint firstItem="jpZ-6D-Q4p" firstAttribute="trailing" secondItem="nen-q4-fBx" secondAttribute="trailing" constant="30" id="maP-is-m3S"/>
-                            <constraint firstItem="04T-Le-Icg" firstAttribute="leading" secondItem="jpZ-6D-Q4p" secondAttribute="leading" constant="30" id="pFd-b9-wdy"/>
                             <constraint firstItem="nen-q4-fBx" firstAttribute="top" secondItem="jpZ-6D-Q4p" secondAttribute="top" constant="30" id="u6R-w7-O3f"/>
-                            <constraint firstAttribute="trailing" secondItem="gmh-sE-7F6" secondAttribute="trailing" id="zsu-Vd-AWs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="⚙️ Settings" id="6PL-WG-5G8">
