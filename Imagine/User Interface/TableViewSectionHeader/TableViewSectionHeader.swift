@@ -39,7 +39,7 @@ class TableViewSectionHeader: UIView {
   }
   
   private func applyTheme() {
-    contentView.backgroundColor = UIColor.orange
+    contentView.backgroundColor = UIColor.systemBlue
   }
 
 }
