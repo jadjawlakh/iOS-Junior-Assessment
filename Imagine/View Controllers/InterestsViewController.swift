@@ -12,7 +12,6 @@ class InterestsViewController: UIViewController, UITableViewDataSource, UITableV
   let viewModel = InterestsViewModel()
   @IBOutlet weak var tableView: UITableView!
   
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.dataSource = self

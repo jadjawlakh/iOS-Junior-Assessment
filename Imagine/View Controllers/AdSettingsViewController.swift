@@ -12,7 +12,6 @@ import MobAdSDK
 class AdSettingsViewController: UIViewController, UITextFieldDelegate {
   @IBOutlet weak var numberOfAdsPerDayTextField: UITextField!
   @IBOutlet weak var showAdsSwitch: UISwitch!
-  
   let viewModel = AdSettingsViewModel()
   
   override func viewDidLoad() {
