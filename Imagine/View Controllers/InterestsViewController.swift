@@ -128,7 +128,7 @@ class InterestsViewController: UIViewController, UITableViewDataSource, UITableV
         self.tableView.reloadData()
       }
       guard success else {
-        // Display error if needed
+        self.customizeSelectionAlert()
         return
       }
     }
