@@ -71,7 +71,8 @@ class InterestsViewModel {
       isSuccessful = true
     }
   }
-  
+  // MARK: - Table View Functionalities
+  // ==================================
   var numberOfSections: Int {
     return interests?.allCategories().count ?? 0
   }
@@ -123,6 +124,8 @@ class InterestsViewModel {
     userInterestsIDs?.removeAll()
   }
   
+  // MARK: - H E L P E R S
+  // =====================
   func saveChanges(completion: @escaping (_ success: Bool) -> Void) {
     guard let selectedSubcategoriesIds = userInterestsIDs else {
       completion(false)
