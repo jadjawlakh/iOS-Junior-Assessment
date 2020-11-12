@@ -15,7 +15,7 @@ class LanguagesViewController: UIViewController, UITableViewDataSource, UITableV
   override func viewDidLoad() {
     super.viewDidLoad()
     customizeViewController()
- 
+    
     startLoader()
     viewModel.loadLanguages { success in
       self.stopLoader()
@@ -25,7 +25,6 @@ class LanguagesViewController: UIViewController, UITableViewDataSource, UITableV
       }
     }
   }
-  
   // MARK: - Table View Functionalities
   // ==================================
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -73,7 +72,6 @@ class LanguagesViewController: UIViewController, UITableViewDataSource, UITableV
     let success = viewModel.deselectLanguage(at: indexPath)
     cell.isSelectedStyle = !success
   }
-  
   // MARK: - A C T I O N S
   // =====================
   @IBAction func saveButtonTapped(_ sender: Any) {
@@ -86,7 +84,6 @@ class LanguagesViewController: UIViewController, UITableViewDataSource, UITableV
       }
     }
   }
-  
   // MARK: - H E L P E R S
   // =====================
   func customizeViewController() {
@@ -98,7 +95,6 @@ class LanguagesViewController: UIViewController, UITableViewDataSource, UITableV
     navigationItem.rightBarButtonItem = saveBarButton
   }
 }
-
 // MARK: - UITableViewCell Extension
 //==================================
 extension UITableViewCell {
