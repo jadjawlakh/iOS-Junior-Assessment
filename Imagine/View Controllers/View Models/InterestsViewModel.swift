@@ -15,7 +15,7 @@ class InterestsViewModel {
   private var interests: Interests? = nil
   private var userInterestsIDs: [Int]? = nil
   
-  // MARK: String Properties
+  // MARK: -  String Properties
   // =======================
   var viewControllerTitle: String {
   return "Interests"

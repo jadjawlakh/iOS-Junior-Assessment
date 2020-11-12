@@ -18,7 +18,7 @@ class LanguagesViewController: UIViewController, UITableViewDataSource, UITableV
     loadData()
   }
   
-  // MARK: - Table View Functionalities
+  // MARK: - Table View Functionalities
   // ==================================
   func numberOfSections(in tableView: UITableView) -> Int {
     return viewModel.numberOfSections
