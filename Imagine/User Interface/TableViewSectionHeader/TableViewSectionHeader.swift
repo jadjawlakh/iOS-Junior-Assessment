@@ -28,7 +28,6 @@ class TableViewSectionHeader: UIView {
     applyTheme()
   }
   
-  
   var title: String? {
     get {
       return textLabel.text
@@ -41,9 +40,7 @@ class TableViewSectionHeader: UIView {
   private func applyTheme() {
     contentView.backgroundColor = UIColor.systemBlue
   }
-
 }
-
 // MARK: - UIView
 //===============
 extension UIView
