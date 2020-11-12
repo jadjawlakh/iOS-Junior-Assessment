@@ -27,7 +27,6 @@ class InterestsViewController: UIViewController, UITableViewDataSource, UITableV
       }
     }
   }
-  
   // MARK: - Table View Functionalities
   // ==================================
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -77,7 +76,6 @@ class InterestsViewController: UIViewController, UITableViewDataSource, UITableV
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     return 40
   }
-  
   // MARK: - A C T I O N S
   // =====================
   @IBAction func actionBarButtonTapped() {
@@ -113,7 +111,6 @@ class InterestsViewController: UIViewController, UITableViewDataSource, UITableV
       self.refreshVisibleRows()
     }
   }
-  
   // MARK: - H E L P E R S
   // =====================
   func customizeViewController() {
