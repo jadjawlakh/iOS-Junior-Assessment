@@ -17,10 +17,6 @@ class AdSettingsViewController: UIViewController, UITextFieldDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     numberOfAdsPerDayTextField.delegate = self
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
     configureViewController()
   }
   
@@ -33,21 +29,27 @@ class AdSettingsViewController: UIViewController, UITextFieldDelegate {
     numberOfAdsPerDayTextField.resignFirstResponder()
     saveNumberOfAdsPerDay()
   }
+  
   // MARK: - A C T I O N S
   // =====================
   @IBAction func adServiceStatusSwitchTapped() {
     startLoader()
     viewModel.setAdServiceStatus(active: showAdsSwitch.isOn) { [weak self] success in
+      // TODO: Handle Error Case
       guard let self = self else { return }
       self.stopLoader()
       self.showAdsSwitch.isOn = self.viewModel.adServiceActive
     }
   }
+  
   // MARK: - UITextFieldDelegate
   // ===========================
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    guard let textField = textField.text else {
+      return false
+    }
     // Restrict to maximum number
-    let newText = (textField.text! as NSString).replacingCharacters(in: range, with: string) as String
+    let newText = (textField as NSString).replacingCharacters(in: range, with: string) as String
     if let num = Int(newText), num >= 0 && num <= 50 {
       // Restrict input to numbers only
       let allowedCharacters = "1234567890"
@@ -58,6 +60,7 @@ class AdSettingsViewController: UIViewController, UITextFieldDelegate {
       return false
     }
   }
+  
   // MARK: - Configure View Controller
   // =================================
   private func refreshAdServiceStatusSwitch() {
@@ -98,6 +101,7 @@ class AdSettingsViewController: UIViewController, UITextFieldDelegate {
       UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didFinishEditingUserDailyCAP))
     ]
     numberOfAdsPerDayTextField.inputAccessoryView = toolbar
+//    numberOfAdsPerDayTextField.keyboardType = .numberPad
   }
   
   private func configureViewController() {
