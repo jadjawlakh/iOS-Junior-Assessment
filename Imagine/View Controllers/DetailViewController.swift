@@ -14,7 +14,6 @@ class DetailViewController: UIViewController, DetailViewModelDelegate {
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var webView: WKWebView!
   @IBOutlet weak var bookmarkButton: BookmarkButton!
-  
   var viewModel = DetailViewModel()
   
   func initWithArticle(_ article: Article) {

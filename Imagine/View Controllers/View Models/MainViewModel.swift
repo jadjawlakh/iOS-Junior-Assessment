@@ -9,8 +9,6 @@
 import MobAdSDK
 import Foundation
 
-// MARK: -  MainViewModel Protocol and MainViewModel Class
-// Protocol needs to conform by a class
 protocol MainViewModelDelegate: class {
   func didFetchArticles()
 }
