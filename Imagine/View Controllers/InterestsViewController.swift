@@ -14,8 +14,7 @@ class InterestsViewController: UIViewController, UITableViewDataSource, UITableV
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    tableView.dataSource = self
-    tableView.delegate = self
+    customizeViewController()
     startLoader()
     viewModel.loadInterests { success in
       defer {
@@ -117,6 +116,11 @@ class InterestsViewController: UIViewController, UITableViewDataSource, UITableV
   
   // MARK: - H E L P E R S
   // =====================
+  func customizeViewController() {
+    tableView.dataSource = self
+    tableView.delegate = self
+  }
+  
   func selectAllSubcategories() {
     viewModel.selectAllSubcategories()
     refreshVisibleRows()
