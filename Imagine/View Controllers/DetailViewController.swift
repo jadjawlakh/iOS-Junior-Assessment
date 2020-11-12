@@ -45,7 +45,6 @@ class DetailViewController: UIViewController, DetailViewModelDelegate {
       name: DataManager.Notification.Name.bookmarkedArticlesListUpdated,
       object: nil)    
   }
-  
   // MARK: - ACTIONS
   // ================
   @objc func bookmarkButtonTouchUpInside(_ sender: UIButton) {
@@ -55,21 +54,18 @@ class DetailViewController: UIViewController, DetailViewModelDelegate {
   
   @IBAction func shareButtonPressed(_ sender: Any) {
     let activityVC = UIActivityViewController(activityItems: ["https://theguardian.com/\(viewModel.articleId)"], applicationActivities: nil)
-      activityVC.popoverPresentationController?.sourceView = self.view
-      
-      self.present(activityVC, animated: true, completion: nil)
+    activityVC.popoverPresentationController?.sourceView = self.view
+    
+    self.present(activityVC, animated: true, completion: nil)
   }
-  
   // MARK: - HELPERS
   // ===============
   func refreshBookmarkButton() {
     bookmarkButton.isBookmarked = viewModel.isBookmarked
   }
-  
   // MARK: - Notification Handler
   //=============================
   @objc private func refreshDataList() {
     viewModel.refreshData(button: bookmarkButton)
   }
 }
-

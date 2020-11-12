@@ -44,8 +44,8 @@ class BookmarkViewController: UIViewController, BookmarkViewModelDelegate {
     viewModel.refreshData()
   }
 }
- // MARK: - Extensions
- // ==================
+// MARK: - Extensions
+// ==================
 extension BookmarkViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     guard let vc = storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailViewController else {
