@@ -86,8 +86,9 @@ class LanguagesViewController: UIViewController, UITableViewDataSource, UITableV
     viewModel.loadLanguages { success in
       self.stopLoader()
       self.tableView.reloadData()
-      if !success {
+      guard success else {
         self.customizeAlert()
+        return
       }
     }
   }
