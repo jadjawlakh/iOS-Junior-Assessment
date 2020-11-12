@@ -12,16 +12,19 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var searchBar: UITextField!
   @IBOutlet weak var showAdsSwitch: UISwitch!
-  
   @IBAction func unwindHome(_ segue: UIStoryboardSegue) {
     // this is intentionally blank
   }
-  
   var viewModel = MainViewModel()
   var refreshControl: UIRefreshControl?
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    customizeViewController()
+  }
+  // MARK: - H E L P E R S
+  // =====================
+  func customizeViewController() {
     // Upon tapping the 'return' button from the searchbar input field
     searchBar.addTarget(self, action: #selector(returnButtonTapped), for: .editingDidEndOnExit)
     // Link the MainViewController to the MainViewModel
@@ -40,9 +43,28 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     addRefreshControl()
   }
   
-  // START: HANDLE REFRESH CONTROL
-  // =============================
+  @objc func returnButtonTapped() {
+    viewModel.getArticles(query: searchBar.text ?? "", page: 1)
+  }
   
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if let detailVC = segue.destination as? DetailViewController {
+      // Confirm that an article was selected
+      guard let index = tableView.indexPathForSelectedRow else {
+        return
+      }
+      // Get a reference to the article that was tapped on
+      let selectedArticle = viewModel.articles[index.row]
+      // Set the article property of the detailViewController
+      detailVC.initWithArticle(selectedArticle)
+    } else if let navigationVC = segue.destination as? UINavigationController {
+      if let settingsVC = navigationVC.visibleViewController as? SettingsViewController {
+        // If there's need to send info to settings VC add them after this line
+      }
+    }
+  }
+  // MARK: -  Handle Refresh Control
+  // ===============================
   func addRefreshControl() {
     refreshControl = UIRefreshControl()
     refreshControl?.tintColor = UIColor.gray
@@ -56,13 +78,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     refreshControl?.endRefreshing()
     tableView.reloadData()
   }
-  
-  // END: HANDLE REFRESH CONTROL
-  // ===========================
-  
-  // START: HANDLE PAGINATION
-  // ========================
-  
+  // MARK: - Handle Pagination
+  // =========================
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     let offsetY = scrollView.contentOffset.y
     let contentHeight = scrollView.contentSize.height
@@ -87,30 +104,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     spinner.startAnimating()
     return footerView
   }
-  
-  // END: HANDLE PAGINATION
-  // ======================
-  @objc func returnButtonTapped() {
-    viewModel.getArticles(query: searchBar.text ?? "", page: 1)
-  }
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if let detailVC = segue.destination as? DetailViewController {
-      // Confirm that an article was selected
-      guard let index = tableView.indexPathForSelectedRow else {
-        return
-      }
-      // Get a reference to the article that was tapped on
-      let selectedArticle = viewModel.articles[index.row]
-      // Set the article property of the detailViewController
-      detailVC.initWithArticle(selectedArticle)
-    } else if let navigationVC = segue.destination as? UINavigationController {
-      if let settingsVC = navigationVC.visibleViewController as? SettingsViewController {
-        // If there's need to send info to settings VC add them after this line
-      }
-    }
-  }
-  
   // MARK: - TableView Methods
   //==========================
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -127,13 +120,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // Return the cell
     return cell
   }
-  
   // MARK: - Conform to protocol ArticleModelDelegate
   //=================================================
   func didFetchArticles() {
     tableView.reloadData()
   }
-  
   // MARK: - Notification Handler
   //=============================
   @objc private func refreshDataList() {
