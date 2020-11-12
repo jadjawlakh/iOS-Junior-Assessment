@@ -80,6 +80,7 @@ class AdSettingsViewController: UIViewController, UITextFieldDelegate {
   }
   
   private func saveNumberOfAdsPerDay() {
+    // TODO: Handle Error Case 
     guard let stringValue = numberOfAdsPerDayTextField.text,
           let intValue = Int(stringValue) else {
       return
@@ -109,4 +110,14 @@ class AdSettingsViewController: UIViewController, UITextFieldDelegate {
     refreshAdServiceStatusSwitch()
     refreshNumberOfAdsPerDayTextField()
   }
+  
+  // MARK: - H E L P E R S
+  // =====================
+  func customizeAlert() {
+    let alertController = UIAlertController(title: "Error", message: "Oops! Something went wrong... Please try again later.", preferredStyle: .alert)
+    let action = UIAlertAction(title: "Dismiss", style: .default)
+    alertController.addAction(action)
+    self.present(alertController, animated: true, completion: nil)
+  }
+  
 }
