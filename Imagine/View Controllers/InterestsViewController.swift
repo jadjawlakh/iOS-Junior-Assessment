@@ -93,7 +93,9 @@ class InterestsViewController: UIViewController, UITableViewDataSource, UITableV
     actionController.addAction(cancelBarButton)
     present(actionController, animated: true, completion: nil)
   }
-  
+
+  // MARK: - H E L P E R S
+  // =====================
   @IBAction func saveBarButtonTapped() {
     startLoader()
     viewModel.saveChanges { success -> Void in
@@ -106,8 +108,6 @@ class InterestsViewController: UIViewController, UITableViewDataSource, UITableV
     }
   }
   
-  // MARK: - H E L P E R S
-  // =====================
   func customizeAlert() {
     let alertController = UIAlertController(title: "Error", message: "Please select at least one interest to proceed.", preferredStyle: .alert)
     let action = UIAlertAction(title: "Dismiss", style: .default)

@@ -15,7 +15,8 @@ class InterestsViewModel {
   private var interests: Interests? = nil
   private var userInterestsIDs: [Int]? = nil
   
-  // String Properties
+  // MARK: String Properties
+  // =======================
   var viewControllerTitle: String {
   return "Interests"
   }
@@ -34,6 +35,9 @@ class InterestsViewModel {
   var cancelButtonTitle: String {
     return "Cancel"
   }
+  
+  // MARK: - Load Data
+  // =================
 
   func loadInterests(completion: @escaping (_ success: Bool) -> Void) {
     let dispatchGroup = DispatchGroup()
