@@ -33,9 +33,8 @@ class AdSettingsViewController: UIViewController, UITextFieldDelegate {
     numberOfAdsPerDayTextField.resignFirstResponder()
     saveNumberOfAdsPerDay()
   }
-  
-  // MARK: A C T I O N S
-  // ===================
+  // MARK: - A C T I O N S
+  // =====================
   @IBAction func adServiceStatusSwitchTapped() {
     startLoader()
     viewModel.setAdServiceStatus(active: showAdsSwitch.isOn) { [weak self] success in
@@ -44,8 +43,8 @@ class AdSettingsViewController: UIViewController, UITextFieldDelegate {
       self.showAdsSwitch.isOn = self.viewModel.adServiceActive
     }
   }
-  
   // MARK: - UITextFieldDelegate
+  // ===========================
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
     // Restrict to maximum number
     let newText = (textField.text! as NSString).replacingCharacters(in: range, with: string) as String
@@ -59,8 +58,8 @@ class AdSettingsViewController: UIViewController, UITextFieldDelegate {
       return false
     }
   }
-  
   // MARK: - Configure View Controller
+  // =================================
   private func refreshAdServiceStatusSwitch() {
     showAdsSwitch.isOn = viewModel.adServiceActive
   }
