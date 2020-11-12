@@ -15,10 +15,26 @@ class InterestsViewModel {
   private var interests: Interests? = nil
   private var userInterestsIDs: [Int]? = nil
   
+  // String Properties
   var viewControllerTitle: String {
-    return "Interests"
+  return "Interests"
   }
-  
+  var actionSheetTitle: String {
+    return "What to Do"
+  }
+  var selectAllButtonTitle: String {
+    return "Select All"
+  }
+  var unselectAllButtonTitle: String {
+    return "Deselect All"
+  }
+  var saveButtonTitle: String {
+    return "Save"
+  }
+  var cancelButtonTitle: String {
+    return "Cancel"
+  }
+
   func loadInterests(completion: @escaping (_ success: Bool) -> Void) {
     let dispatchGroup = DispatchGroup()
     var allInterestsLoadSuccessfully = false
@@ -71,6 +87,7 @@ class InterestsViewModel {
       isSuccessful = true
     }
   }
+  
   // MARK: - Table View Functionalities
   // ==================================
   var numberOfSections: Int {

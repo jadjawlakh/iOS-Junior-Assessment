@@ -15,18 +15,9 @@ class InterestsViewController: UIViewController, UITableViewDataSource, UITableV
   override func viewDidLoad() {
     super.viewDidLoad()
     customizeViewController()
-    startLoader()
-    viewModel.loadInterests { success in
-      defer {
-        self.stopLoader()
-        self.tableView.reloadData()
-      }
-      guard success else {
-        // Display error if needed
-        return
-      }
-    }
+    loadData()
   }
+  
   // MARK: - Table View Functionalities
   // ==================================
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -76,25 +67,27 @@ class InterestsViewController: UIViewController, UITableViewDataSource, UITableV
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     return 40
   }
+  
   // MARK: - A C T I O N S
   // =====================
   @IBAction func actionBarButtonTapped() {
+    // TODO: Put Strings in View Model
     let actionController = UIAlertController(
-      title: "What to Do", message: nil, preferredStyle: .actionSheet)
+      title: viewModel.actionSheetTitle, message: nil, preferredStyle: .actionSheet)
     let selectAllButton = UIAlertAction(
-      title: "Select All", style: .default) { _ in
+      title: viewModel.selectAllButtonTitle, style: .default) { _ in
       self.selectAllSubcategories()
     }
     let unselectAllButton = UIAlertAction(
-      title: "Deselect All", style: .destructive) { _ in
+      title: viewModel.unselectAllButtonTitle, style: .destructive) { _ in
       self.unselectAllSubcategories()
     }
     let saveButton = UIAlertAction(
-      title: "Save", style: .default) { _ in
+      title: viewModel.saveButtonTitle, style: .default) { _ in
       self.saveBarButtonTapped()
     }
     let cancelBarButton = UIAlertAction(
-      title: "Cancel", style: .cancel, handler: nil)
+      title: viewModel.cancelButtonTitle, style: .cancel, handler: nil)
     actionController.addAction(selectAllButton)
     actionController.addAction(unselectAllButton)
     actionController.addAction(cancelBarButton)
@@ -112,6 +105,7 @@ class InterestsViewController: UIViewController, UITableViewDataSource, UITableV
       self.refreshVisibleRows()
     }
   }
+  
   // MARK: - H E L P E R S
   // =====================
   func customizeAlert() {
@@ -124,6 +118,20 @@ class InterestsViewController: UIViewController, UITableViewDataSource, UITableV
   func customizeViewController() {
     tableView.dataSource = self
     tableView.delegate = self
+  }
+  
+  func loadData() {
+    startLoader()
+    viewModel.loadInterests { success in
+      defer {
+        self.stopLoader()
+        self.tableView.reloadData()
+      }
+      guard success else {
+        // Display error if needed
+        return
+      }
+    }
   }
   
   func selectAllSubcategories() {
