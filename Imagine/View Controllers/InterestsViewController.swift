@@ -106,6 +106,7 @@ class InterestsViewController: UIViewController, UITableViewDataSource, UITableV
     viewModel.saveChanges { success -> Void in
       self.stopLoader()
       guard success else {
+        self.customizeAlert()
         return
       }
       self.refreshVisibleRows()
@@ -113,6 +114,13 @@ class InterestsViewController: UIViewController, UITableViewDataSource, UITableV
   }
   // MARK: - H E L P E R S
   // =====================
+  func customizeAlert() {
+    let alertController = UIAlertController(title: "Error", message: "Please select at least one interest to proceed.", preferredStyle: .alert)
+    let action = UIAlertAction(title: "Dismiss", style: .default)
+    alertController.addAction(action)
+    self.present(alertController, animated: true, completion: nil)
+  }
+  
   func customizeViewController() {
     tableView.dataSource = self
     tableView.delegate = self
