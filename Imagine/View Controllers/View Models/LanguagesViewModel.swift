@@ -67,9 +67,11 @@ class LanguagesViewModel {
   func numberOfRows(in section: Int) -> Int {
     return sdkLanguages.count
   }
+  
   var numberOfSections: Int {
     return sdkLanguages.count > 0 ? 1 : 0
   }
+  
   func informationForCell(at indexPath: IndexPath) -> LanguagesRowInfo? {
     let language = sdkLanguages[indexPath.row]
     let title = language.name ?? ""
@@ -77,9 +79,11 @@ class LanguagesViewModel {
     let isSelected = userLanguages.contains(language.code ?? "")
     return (title, subtitle, isSelected)
   }
+  
   func canDeselectLanguage(at indexPath: IndexPath) -> Bool {
     return userLanguages.count > 1
   }
+  
   func selectLanguage(at indexPath: IndexPath) -> Bool {
     guard let code = sdkLanguages[indexPath.row].code else {
       return false
@@ -87,6 +91,7 @@ class LanguagesViewModel {
     userLanguages.append(code)
     return true
   }
+  
   func deselectLanguage(at indexPath: IndexPath) -> Bool {
     guard let code = sdkLanguages[indexPath.row].code else {
       return false
@@ -94,4 +99,5 @@ class LanguagesViewModel {
     userLanguages.removeAll { $0 == code }
     return true
   }
+  
 }
