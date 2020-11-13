@@ -1,6 +1,8 @@
 PODS:
   - Alamofire (5.4.0)
   - MobAdSDK (1.3.8):
+    - MobAdSDK/Core (= 1.3.8)
+  - MobAdSDK/Core (1.3.8):
     - Moya (~> 14.0.0)
   - Moya (14.0.0):
     - Moya/Core (= 14.0.0)
@@ -11,23 +13,26 @@ PODS:
   - NVActivityIndicatorView/Base (5.1.1)
 
 DEPENDENCIES:
-  - MobAdSDK (= 1.3.8)
+  - MobAdSDK (from `~/Documents/Libraries/MobAdSDK`)
   - Moya (= 14.0.0)
   - NVActivityIndicatorView (~> 5.1)
 
 SPEC REPOS:
   trunk:
     - Alamofire
-    - MobAdSDK
     - Moya
     - NVActivityIndicatorView
 
+EXTERNAL SOURCES:
+  MobAdSDK:
+    :path: "~/Documents/Libraries/MobAdSDK"
+
 SPEC CHECKSUMS:
   Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
-  MobAdSDK: 0d66c76a9b845e19a209bfad0ab3a907f606ef3e
+  MobAdSDK: bb245721006b3ed9fb5cff4bfccb8fd4f613bea3
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
 
-PODFILE CHECKSUM: a814f8483e0136bcf3da985d72206f2c625e24cb
+PODFILE CHECKSUM: 33beb140e11fe179ee2fe45223a96ab8de61ba55
 
 COCOAPODS: 1.9.3

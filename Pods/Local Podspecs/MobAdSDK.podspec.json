@@ -1,0 +1,45 @@
+{
+  "name": "MobAdSDK",
+  "version": "1.3.8",
+  "summary": "MobAdSDK allows you to display adds for users based on their explicit theme selection",
+  "homepage": "https://gitlab.com/imw-developers/mobile/ios/mobad-ios-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "I-MagineWorks": "development.imw@i-magineworks.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "git@gitlab.com:imw-developers/mobile/ios/mobad-ios-sdk.git",
+    "tag": "1.3.8"
+  },
+  "default_subspecs": "Core",
+  "swift_versions": "5.3",
+  "frameworks": "Foundation",
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "MobAdSDK/**/*.{swift,storyboard,xib,strings,stringsdict}",
+      "dependencies": {
+        "Moya": [
+          "~> 14.0.0"
+        ]
+      },
+      "resources": [
+        "Assets.xcassets",
+        "MobAdSDK/**/*.{json}"
+      ]
+    }
+  ],
+  "swift_version": "5.3"
+}

@@ -6,7 +6,7 @@ target 'Imagine' do
   use_frameworks!
 
   # Pods for Imagine
-  pod 'MobAdSDK', '1.3.8'
+  pod 'MobAdSDK', :path => '~/Documents/Libraries/MobAdSDK'
   pod 'NVActivityIndicatorView', '~> 5.1'
   pod 'Moya', '14.0.0'
   

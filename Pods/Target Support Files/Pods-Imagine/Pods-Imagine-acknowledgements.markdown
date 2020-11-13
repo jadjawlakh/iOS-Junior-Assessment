@@ -24,10 +24,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-## MobAdSDK
-
-Copyright 2020 i-magineworks. All Rights Reserved.
-
 ## Moya
 
 The MIT License (MIT)

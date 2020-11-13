@@ -43,16 +43,6 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright 2020 i-magineworks. All Rights Reserved.</string>
-			<key>License</key>
-			<string>Copyright</string>
-			<key>Title</key>
-			<string>MobAdSDK</string>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-		</dict>
-		<dict>
-			<key>FooterText</key>
 			<string>The MIT License (MIT)
 
 Copyright (c) 2014-present Artsy, Ash Furrow

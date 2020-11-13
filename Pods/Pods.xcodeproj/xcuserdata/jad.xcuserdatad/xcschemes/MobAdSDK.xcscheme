@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "28E2CE4B955B431CBFC97513D5B65D71"
-               BuildableName = "MobAdSDK"
+               BuildableName = "MobAdSDK.framework"
                BlueprintName = "MobAdSDK"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
