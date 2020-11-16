@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Lt-ux-S6Q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Lt-ux-S6Q">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -329,9 +329,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="qKF-8l-9F5">
-                                <rect key="frame" x="0.0" y="56" width="1333.5" height="2000"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="qKF-8l-9F5">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                             </imageView>
                             <tableView clipsSubviews="YES" alpha="0.93000000000000005" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Lhy-OS-fC8">
                                 <rect key="frame" x="0.0" y="27" width="414" height="815"/>
@@ -351,6 +350,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CF1-VF-9lc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qKF-8l-9F5" firstAttribute="leading" secondItem="gjJ-QH-MIU" secondAttribute="leading" id="1aF-JF-Q6z"/>
+                            <constraint firstAttribute="trailing" secondItem="qKF-8l-9F5" secondAttribute="trailing" id="F3N-O5-7b4"/>
+                            <constraint firstItem="qKF-8l-9F5" firstAttribute="top" secondItem="gjJ-QH-MIU" secondAttribute="top" id="Z43-qu-jDt"/>
+                            <constraint firstAttribute="bottom" secondItem="qKF-8l-9F5" secondAttribute="bottom" id="d27-HF-Gvj"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="💬 Languages" id="rJi-eI-SLM">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="VLb-wJ-Xkx">
