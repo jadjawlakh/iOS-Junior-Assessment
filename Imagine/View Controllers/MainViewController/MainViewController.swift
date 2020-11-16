@@ -130,6 +130,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
   func didFetchArticles() {
     tableView.reloadData()
   }
+  
   // MARK: - Notification Handler
   //=============================
   @objc private func refreshDataList() {
