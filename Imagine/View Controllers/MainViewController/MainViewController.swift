@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+  
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MainViewModelDelegate {
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var searchBar: UITextField!
@@ -22,6 +22,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     super.viewDidLoad()
     customizeViewController()
   }
+  
   // MARK: - H E L P E R S
   // =====================
   func customizeViewController() {
@@ -63,6 +64,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
       }
     }
   }
+  
   // MARK: -  Handle Refresh Control
   // ===============================
   func addRefreshControl() {
@@ -78,6 +80,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     refreshControl?.endRefreshing()
     tableView.reloadData()
   }
+  
   // MARK: - Handle Pagination
   // =========================
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -104,6 +107,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     spinner.startAnimating()
     return footerView
   }
+  
   // MARK: - TableView Methods
   //==========================
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -120,6 +124,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // Return the cell
     return cell
   }
+  
   // MARK: - Conform to protocol ArticleModelDelegate
   //=================================================
   func didFetchArticles() {
